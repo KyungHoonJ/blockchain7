@@ -1,0 +1,230 @@
+<!--
+   HTML -> HyperText Markup Language
+   웹페이지를 작성하는 문서
+   구조적으로 이루어져있음.
+   논리X
+   컨트롤 + / 는 주석처리
+
+   Tag, Tag 이름 -> html, head, meta, body, div, ...
+   <***> -> 여는 태그
+   </***> -> 닫는 태그
+    여는 태그가 있으면 닫는 태그가 있어야함
+    Element << Javascript 에서 다시
+    여는 태그와 닫는 태그 사이에 자식 태그들이 있다.
+    자식 태그 -> 부모 태그
+-->
+<!-- 
+    색상의 큰 의미는 없다
+    같은 색상인지만 확인해라
+ -->
+<html lang="en">
+  <!-- html 태그는 뭐냐, HTML 파일의 시작. 속성 : Tag에 대한 설정, langlang -> 무슨 언어냐? en 영어 ko 한글-->
+  <head>
+    <!-- 
+        head : 브라우저에 여러가지 정보들은 전달
+        보통은 페이지상에서 안보여
+     -->
+    <!--         Tag 중에 바로 닫기, <*** />
+        자식이 없을 때 -> meta, img, input
+     -->
+    <meta charset="UTF-8" />
+    <!-- 
+        메타데이터, 간단히 말하면 기본 정보를 전달한다.
+        charset : 언어가 어떤 포멧이냐? 형식이냐? UTF-8 유니코드 중에 하나인데
+        UTF-8 : Javascript할 때 다시
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- 
+        http-equiv : 웹 사이트가 어떤 호환성을 갖고있냐? Javascript를 어디까지 사용할 수 있냐?
+        content : 어떤 정보인지에 대한 내용 -> IE=edge << Internet explorer 의 버전이 edge
+     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 
+        name : 어떤 설정이냐, viewport라는 이름을 갖고있다. << 화면에 대한 내용
+        viewport : 카메라, 어느정도의 너비를 갖는지, 줌(확대)이 어케 되어있는지
+        width=device-width << 웹페이지의 가로 너비를 브라우저 or 스마트폰의 너비에 맞추겠다.
+        initial-scale=1.0 << 기본 확대가 1.0배다
+        maximum-scale, minimum-scale << 최대 최소
+     -->
+    <title>테스트</title>
+    <!-- 
+        title : 웹페이지 이름, 사이트 이름
+     -->
+    <!-- 
+        link, script, style
+      -->
+  </head>
+  <body>
+    <!-- 영역, div -->
+    <div>
+      <p>
+        단락, paragraph 단어의 약자, 블록화되어있다. 단락, paragraph 단어의
+        약자, 블록화되어있다. 단락, paragraph 단어의 약자, 블록화되어있다. 단락,
+        paragraph 단어의 약자, 블록화되어있다. 단락, paragraph 단어의 약자,
+        블록화되어있다.
+      </p>
+      <p>
+        단락, paragraph 단어의 약자, 블록화되어있다. 내용이 너비를 넘으면 알아서
+        줄바꿈
+        <br />br은 줄바꿈, 엔터
+        <span>p 안에 적기도 함</span>
+      </p>
+      <span>
+        p랑 거의 유사해 인라인 속성을 갖고있다. 블록화와 대비된다? 나중에 다시
+        설명
+      </span>
+      <pre>
+p나 span이나 같다.
+        결정적 차이가 하나 있어
+        얘는 쓴데로 나와
+        <h1>대제목</h1>
+        <!-- h1이 제일 큰 제목이다, 이후 숫자가 늘어나며 6번째 제목까지 있을 수 있다. -->
+        <h2>제목</h2>
+        <h3>제목</h3>
+        <h4>제목</h4>
+        <h5>제목</h5>
+        <h6>제목</h6>
+      </pre>
+      <h1>대제목</h1>
+      <!-- h1이 제일 큰 제목이다, 이후 숫자가 늘어나며 6번째 제목까지 있을 수 있다. -->
+      <h2>제목</h2>
+      <h3>제목</h3>
+      <h4>제목</h4>
+      <h5>제목</h5>
+      <h6>제목</h6>
+    </div>
+    <div>
+      <!-- <img src="140020_141031_1512.jpg" alt="카카오 테스팅" />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png"
+        alt=""
+      /> -->
+      <!-- 
+            image
+            src = source, 이미지의 주소, 파일명
+            alt = 이미지를 정상적으로 받지 못했을때 뜨는 경고? 이름?
+            ./ << 현재 위치
+            이미지 포멧 : jpg, bmp, png
+            base64 << 요건 텍스트로 이미지를 볼 수 있다?
+         -->
+    </div>
+    <div>
+      <p>
+        <strong>굵은 글씨 강조, 긴급한 내용, 알람?</strong>
+        채팅을 쳤는데, 공지로 올렸어 : 긴급 사항, 알람을 strong
+        <b>그냥 굵은 글씨, 나중에 css에서 알수있다?</b>
+        <del>
+          delete 삭제한 내용, 게시판에서 글을 삭제했어 그 글을 관리자는 확인
+          가능해야함.
+        </del>
+        <ins>
+          insert 입력한 내용, 늘어난 내요 게시판 글을 적었어, 신규 작성글
+          수정했어.
+        </ins>
+        2의 제곱 2<sub>2 아래첨자</sub> 2<sup>2 윗첨자</sup> 영어<sub
+          >English</sub
+        >
+        <i>둘다 기울었어, 이름이나 제목 같은 거, 가져온 말들, 인용</i>
+        <em>둘다 기울었어, 강조 = strong</em>
+      </p>
+    </div>
+    <div>
+      style : 속성, 그 태그의 크기, 외곽선, 위치, 배경 등을 설정한다. 기초적인
+      방법 웹페이지 처음은 html 파일로 주고받았어. html 파일이 너무 커져서
+      보기가 어렵다 CSS 파일, Cascading Style Sheets로 HTML 파일 외부로 뺌. 요
+      방식은 나중에
+      <div>
+        <p>
+          너비나 높이나 숫자를 이용한 수치들에 대한 단위 : px, %, em, rem, vw,
+          vh
+        </p>
+        <p>px : 그냥 픽셀, 한칸 한칸</p>
+        <p>% : 부모를 기준으로한 %, 100% = 부모의 너비</p>
+        <p>em : 글씨 크기를 기준으로 한다, 부모의 글씨 크기</p>
+        <p>
+          rem : 글씨 크기를 기준으로 한다, html의 글씨 크기, 많이 사용한다.
+          어디서? 모바일, PC 한번에 만들 때
+        </p>
+        <div>
+          ex) 글씨 크기가 16px, 그럼 1em, 1rem은 16px 글씨 크기가 32px, 1rem =
+          1em = 32px, 0.5rem = 16px
+        </div>
+        <p>
+          vw, vh : viewport, 브라우저의 크기나 스마트폰의 크기를 기준으로 %,
+          100vw = 화면의 너비, 100vh 화면의 높이
+        </p>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div style="max-width: 1000px; min-width: 100px">
+          width : 영역의 너비 max-width : 영역의 최대 너비 min-width : 영역의
+          최소 너비 %, vw, vh은 기준이 있고 그 기준의 비율로 너비를 설정하지
+          어떤 내용을 넣었는데, 최소 100px은 있어야 제대로 뜬다? min-width 어떤
+          내용을 넣었는데, 너무 크면 안돼, 1000px 이상 넘어가면 안된다,
+          max-width
+        </div>
+      </div>
+      <div style="height: 100px">
+        height : 높이 max-height : 영역의 최대 높이 min-height : 영역의 최소
+        높이 이미지 조절할 때, 이미지에 대한 style을 할 때 다시
+      </div>
+      <div
+        style="
+          width: 100px;
+          height: 100px;
+          background-color: rgb(200, 200, 200);
+          padding: 10px;
+          box-sizing: border-box;
+        "
+      >
+        <!-- 
+        padding : 내부 여백, 내부에 얼마나 빈공간을 줄건지.
+       -->
+        <div style="height: 100%; background-color: rgb(255, 0, 0)"></div>
+      </div>
+
+      <div style="width: 100px; height: 100px; background-color: rgb(0, 0, 0)">
+        <!-- 
+            margin : 외부 여백
+            자식의 너비는 설정하지 않으면 무조건 부모를 따라가, 즉 부모의 너비 -> 자식의 너비
+            높이는 설정하지 않으면 자식의 높이를 따라가, 자식이 없으면 높이는 0px
+            자식의 너비가 없어 그리고 margin(외부 여백)이 있으면, 부모의 너비에서 외부 여백을 제외한 너비를 갖게됨
+            즉, 설정한 스타일이 있으면 그걸 우선 시 해서 적용한다.
+       -->
+        <div
+          style="
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 0, 0);
+            margin: 10px;
+          "
+        ></div>
+      </div>
+
+      <div style="box-sizing: border-box"></div>
+
+      <div
+        style="
+          width: 100px;
+          height: 150px;
+          background-color: rgb(0, 0, 0);
+          padding-top: 25px;
+          margin-top: 20px;
+        "
+      >
+        <div
+          style="
+            width: 100%;
+            height: 100px;
+            background-color: rgb(255, 0, 0);
+            margin-left: 50px;
+          "
+        ></div>
+      </div>
+    </div>
+  </body>
+  <!-- 
+    웹페이지의 내용물
+   -->
+</html>
