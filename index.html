@@ -1,32 +1,38 @@
-<!DOCTYPE html>
-<!-- HTML 파일의 버전을 브라우저에게 전달, HTML5를 사용 -->
 <html lang="en">
-  <!-- HTML 파일의 기본 포멧, html Tag를 사용해 열어 자식을 추가 -->
-  <!-- lang 속성은 사용하는 언어를 설정 -->
   <head>
-    <!-- 브라우저에게 전달하는 각종 정보를 입력하는 head Tag -->
     <meta charset="UTF-8" />
-    <!-- meta Tag는 브라우저에 전달할 기본 정보, charset은 언어 포멧을 뜩하며 UTF-8(유니코드)를 사용 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Internet Explorer의 버전을 설정, edge(최신) 버전으로 설정 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- 
-        viewport는 웹페이지에서 인식할 크기를 설정, content 속성에 데이터 입력 
-        width는 너비로 device-width는 기기(브라우저)의 너비에 맞추도록 한다.
-        initial-scale은 기본 확대
-        maximum-scale, minimum-scale, user-scalable 속성을 입력 가능하며
-        브라우저에 따라서 확대축소를 막을 수 없기도 한다.
-    -->
     <title>Document</title>
-    <!-- 웹브라우저의 제목(페이지 이름?)을 설정 -->
+    <style>
+      .divc {
+        width: 100px;
+      }
+
+      #div1 {
+        height: 100px;
+        width: 300px;
+      }
+
+      div {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+        /* margin:0; */
+        /* padding:0; */
+      }
+    </style>
   </head>
-  <!-- head Tag를 닫아준다. <***>를 사용해 태그를 열고 </***>를 사용해 태그를 닫는다. -->
-  <!-- meta, input 등 자식이 없는 경우 <*** />를 사용해 바로 닫아주기도 한다. -->
-  <!-- 열고 닫은 Tag를 모두 포함하여 Element라고 부른다. 6번줄부터 22번줄까지 head Element이다. -->
   <body>
-    <div id="test" class="test">
-      div는 영역을 나타낸다. 자식으로 지금처럼 텍스트(문자열)을 바로 입력할 수
-      있다.
+    <div id="div1" class="divc">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
     </div>
+    <div id="div2" class="divc">2</div>
   </body>
 </html>
