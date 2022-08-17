@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <!-- 
+          display란 영역을 어떻게 출력할지 설정하는 명령어
+          block, inline, inline-block, none, flex, ... 등등이 있다.
+          인라인, 블록이란
+          블록은 너비를 전부 갖는애야, 욕심쟁이
+          옆을 모두 차지한다.
+         -->
+      <div style="width: 100px; height: 100px; background-color: aqua"></div>
+      <div style="width: 100px; height: 100px; background-color: blue"></div>
+      <!-- 
+          inline, 인라인은 자기 옆을 허락하는 애
+          연속적임 자식이 없으면 안보일 수 있음
+          인라인은 *필요한 만큼만 가진다*, 그래서 옆을 차지하지 않고 같은 인라인이면 연속적으로 출력된다.
+
+          inline-block은 두 설정을 모두 갖고있다.
+          연속적이면서도 설정된 크기를 가질 수 있다.
+         -->
+      <div
+        style="
+          display: inline-block;
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        "
+      ></div>
+      <div
+        style="
+          display: inline-block;
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+        "
+      ></div>
+
+      <!-- 
+          float은 텍스트화
+          글 막 적을때 왼쪽 정렬, 오른쪽 정렬
+          정렬을 위해 사용한다.
+          이후 배울 CSS 스타일들과 충돌하는 경우가 있다. 위치 잡기 힘들 때가 있다.
+        -->
+      <div
+        style="float: left; width: 100px; height: 100px; background-color: aqua"
+      ></div>
+      <div
+        style="float: left; width: 100px; height: 100px; background-color: blue"
+      ></div>
+      <div
+        style="
+          float: right;
+          width: 100px;
+          height: 100px;
+          background-color: aqua;
+        "
+      ></div>
+      <div
+        style="
+          float: right;
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+        "
+      ></div>
+    </div>
+  </body>
+</html>
