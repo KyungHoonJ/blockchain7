@@ -1,0 +1,78 @@
+<!-- doc 로 자동 완성이 가능함. -->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>저번주에 했던 것 간단 정리?</title>
+  </head>
+  <body>
+    태그 : html, head, meta, div 등, 여는 태그와 닫는 태그로 사용<br />
+    바로 닫을 수 있음 &lt *** / &gt <br />
+    html 파일은 웹페이지를 출력하기 위해 사용 &lt&lt 파일 자체를 그냥 열어됨
+    <br />
+    <div>가장 기본적인 영역</div>
+    <p>블록화된 텍스트</p>
+    <span>인라인 형식의 텍스트</span>
+    <br />
+    줄바꿈
+    <pre>입력한 그대로 출력하는 텍스트</pre>
+    <h1>h1~h6 제목 태그</h1>
+    <img src="이미지의 주소 입력" alt="이미지가 없을 때 출력되는 텍스트 입력" />
+    이미지 태그
+    <div style="display: block">
+      속성(attribute) : style, src, alt, name 같은 것들<br />
+      속성은 태그를 설정<br />
+      속성을 설정할 때는 속성명="" / 속성명=''<br />
+      style 속성의 경우 CSS 문법에 맞춰 작성한다.
+    </div>
+    <div
+      style="
+        width: 100%;
+        height: auto;
+        background-color: aquamarine;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      "
+    >
+      style 속성 = CSS<br />
+      width : 너비, max-width, min-width<br />
+      height : 높이, max-height, min-height<br />
+      background-color : 배경색, 색상 자체를 입력할 수 있고, rgb(***,***,***)
+      형식으로 가능(***는 0~255)<br />
+      padding(내부 여백), margin(외부 여백) : ***-top, ***-right, ***-bottom,
+      ***-left 형식으로 하나씩 설정 가능<br />
+      box-sizing : 박스의 크기를 어떻게 설정할지 기준을 설정<br />
+    </div>
+    <div style="display: inline">
+      display : 영역의 노출 크기를 어떻게 설정할지 기준을 설정한다.<br />
+      block은 부모를 기준으로 모든 너비를 차지한다, 높이는 자식을 기준으로
+      한다.<br />
+      부모란 상위 태그이다.<br />
+      부모 예시 : <br />
+      <div>
+        부모
+        <div>자식</div>
+      </div>
+      inline은 자식의 내용 만큼만 차지한다.<br />
+      욕심이 없다. 자식의 내용이 없으면 너비 : 0, 높이 : 0, 옆에 다른 영역이
+      들어올 수 있다.<br />
+      <br />
+      display 설정 값 : flex, grid, ...
+    </div>
+    <div style="float: left">
+      float은 정렬이다.<br />
+      다른 영역과 겹칠 수 있다.
+    </div>
+    <div>
+      <ol>
+        <li>순서 있는 리스트</li>
+        <li>공통적으로 리스트의 목록 내용</li>
+      </ol>
+      <ul>
+        <li>순서가 없는 리스트</li>
+      </ul>
+    </div>
+  </body>
+</html>
