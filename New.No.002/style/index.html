@@ -69,6 +69,11 @@
 
       .child2 {
         width: 100px;
+        width: calc(100% - 10px - 1rem - 1em);
+        /* 
+        calc(*** - ***) 는 단위와 상관 없이 계산을 해준다.
+        ex) calc(100% - 10px) => 100%가 100px이면 계산해서 90px로 설정해준다 / 100%가 4234px이면 계산해서 4224px로 설정해준다.
+        */
         height: 50px;
         margin: auto;
         background-color: lightblue;
