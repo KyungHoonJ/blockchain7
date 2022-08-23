@@ -26,60 +26,60 @@
         column의 스타일을 한번에 여러 열을 적용하기 위해 사용하는 것이 colgroup
         span 속성을 이용해 몇개의 연속된 열의 스타일을 적용할지 설정한다.
      -->
-      <thead>
-        <!-- table head, 테이블의 제일 위 이름? -->
-        <tr>
-          <!-- tr은 table row, 행, 가로줄이다. -->
-          <th style="border: 1px solid black">
-            <!-- 테이블의 헤드의 셀이다. -->
-            번호
-          </th>
-          <th style="border: 1px solid black">이름</th>
-          <th style="border: 1px solid black">나이</th>
-          <th style="border: 1px solid black">성별</th>
-          <th style="border: 1px solid black">국적</th>
-          <th style="border: 1px solid black">출석</th>
-          <th style="border: 1px solid black">마스크 유무</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- 테이블의 목록(내용)이다. -->
-        <tr>
-          <td style="border: 1px solid black">
-            <!-- 테이블의 내용을 담은 셀이다. table data -->
-            1
-          </td>
-          <td style="border: 1px solid black">정재훈</td>
-          <td style="border: 1px solid black">30</td>
-          <td style="border: 1px solid black">남</td>
-          <td style="border: 1px solid black">한국</td>
-          <td style="border: 1px solid black">O</td>
-          <td rowspan="2" style="border: 1px solid black">O</td>
-          <!-- rowspan 세로 줄을 수만큼 합친다. -->
-        </tr>
-        <tr>
-          <td style="border: 1px solid black">2</td>
-          <td style="border: 1px solid black">김성진</td>
-          <td style="border: 1px solid black">27</td>
-          <td style="border: 1px solid black">남</td>
-          <td style="border: 1px solid black">한국</td>
-          <td style="border: 1px solid black">O</td>
-          <!-- 
+      <!-- <thead> -->
+      <!-- table head, 테이블의 제일 위 이름? -->
+      <tr>
+        <!-- tr은 table row, 행, 가로줄이다. -->
+        <th style="border: 1px solid black">
+          <!-- 테이블의 헤드의 셀이다. -->
+          번호
+        </th>
+        <th style="border: 1px solid black">이름</th>
+        <th style="border: 1px solid black">나이</th>
+        <th style="border: 1px solid black">성별</th>
+        <th style="border: 1px solid black">국적</th>
+        <th style="border: 1px solid black">출석</th>
+        <th style="border: 1px solid black">마스크 유무</th>
+      </tr>
+      <!-- </thead> -->
+      <!-- <tbody> -->
+      <!-- 테이블의 목록(내용)이다. -->
+      <tr>
+        <th style="border: 1px solid black">
+          <!-- 테이블의 내용을 담은 셀이다. table data -->
+          1
+        </th>
+        <td style="border: 1px solid black">정재훈</td>
+        <td style="border: 1px solid black">30</td>
+        <td style="border: 1px solid black">남</td>
+        <td style="border: 1px solid black">한국</td>
+        <td style="border: 1px solid black">O</td>
+        <td rowspan="2" style="border: 1px solid black">O</td>
+        <!-- rowspan 세로 줄을 수만큼 합친다. -->
+      </tr>
+      <tr>
+        <th style="border: 1px solid black">2</th>
+        <td style="border: 1px solid black">김성진</td>
+        <td style="border: 1px solid black">27</td>
+        <td style="border: 1px solid black">남</td>
+        <td style="border: 1px solid black">한국</td>
+        <td style="border: 1px solid black">O</td>
+        <!-- 
             border 값은 외곽선을 설정한다. 
             순서는 -> 굵기 선형 색상
             solid는 그냥 선이다.
           -->
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="2" style="border: 1px solid black">총원</td>
-          <td style="border: 1px solid black">2</td>
-          <td colspan="2" style="border: 1px solid black">출석</td>
-          <td style="border: 1px solid black">2</td>
-          <!-- colspan은 가로 줄을 합친다. -->
-        </tr>
-      </tfoot>
+      </tr>
+      <!-- </tbody> -->
+      <!-- <tfoot> -->
+      <tr>
+        <td colspan="2" style="border: 1px solid black">총원</td>
+        <td style="border: 1px solid black">2</td>
+        <td colspan="2" style="border: 1px solid black">출석</td>
+        <td style="border: 1px solid black">2</td>
+        <!-- colspan은 가로 줄을 합친다. -->
+      </tr>
+      <!-- </tfoot> -->
     </table>
     <!-- div = divide -->
   </body>

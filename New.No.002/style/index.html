@@ -1,0 +1,117 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>style</title>
+    <style>
+      /* 
+        태그들의 스타일 속성을 모아뒀다. 미리 설정한다. 
+        style 태그 내에서 쓰는 문법(방식)은 CSS 작성 방식과 같게 사용한다.
+        div, body, h1 등의 태그에 스타일을 한번에 적용할 수 있다.
+        */
+      div {
+        background-color: aqua;
+        min-height: 10px;
+      }
+      * {
+        /* 
+            *은 모든 태그에 적용한다.
+            여러 곳에서 *이 사용될 수 있으며 CSS 문법에서는 모든 태그에 설정할 때 사용한다.
+        */
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      #test {
+        /* #은 태그의 id 속성을 찾아 style을 적용한다. */
+        background-color: lightgray;
+      }
+
+      .test {
+        /* .은 태그의 class 속성을 찾아 style을 적용한다. */
+        background-color: lightcoral;
+      }
+
+      /* 
+        스타일이 적용되는 순서
+        태그의 기본값 -> 스타일에서 태그명으로 설정된 스타일 -> 클래스로 설정된 스타일 -> 아이디로 설정된 스타일 -> style 속성으로 설정된 스타일
+      */
+
+      p.test {
+        /* p태그인데 test 클래스를 갖고있다. */
+        background-color: aqua;
+      }
+
+      p#test1.test1 {
+        /* 붙여 쓴 이름은 하나의 태그에서 찾는다? 하나의 태그에 전부 있어야 찾을 수 있다. */
+        background-color: lightgoldenrodyellow;
+      }
+
+      .parent {
+        width: 300px;
+        height: 300px;
+        background-color: beige;
+      }
+
+      .child1,
+      .parent > .child2 {
+        /*
+        ,로 여러 클래스를 한번에 적용 가능
+        >는 (직속, 1촌) 자식만을 찾는다, (손자 등등 안찾음) / 바로 아래 자식
+        */
+        width: 200px;
+        height: 100px;
+        margin: auto;
+        background-color: lawngreen;
+      }
+
+      .child2 {
+        width: 100px;
+        height: 50px;
+        margin: auto;
+        background-color: lightblue;
+      }
+
+      .parent .child3 {
+        /* 
+        parent 클래스를 가진 태그의 자식들 중 child1 클래스를 가진 태그를 찾는다.
+        자식을 포함한 증손자, 손자 등등 모든 태그를 찾는다.
+        띄어쓰기는 자식을 찾는다? 의미한다?
+        child3으로 수정
+        */
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test" class="test">#test, .test</div>
+    <div class="test test001">.test</div>
+    <p class="test">p.test</p>
+    <p id="test1" class="test1">p#test1.test1</p>
+    <!-- 
+        class 는 이름 그대로 반이다. << 라고 생각하면 편할듯?
+        여러 태그들에게 공통된 속성이나 공통된 태그라면 class 속성을 설정하여
+        한번에 처리한다.
+        구조에서 하나의 태그로 묶어서 자식으로 처리해도 되지만 class로 처리하면 더 깔끔하게 볼 수 있다.
+        
+        id 는 identity << 하나만 설정 가능한 이름이다.
+        태그들끼리 중복되면 안됨
+        html 상에서는 중복 체크를 안하지만 javascript 쓸 때 후회함
+     -->
+    <div style="background-color: red; min-height: 10px"></div>
+    <div style="background-color: red; min-height: 10px"></div>
+    <div class="parent">
+      <div class="child1">
+        <div class="child2"></div>
+      </div>
+      <div class="child1">
+        <div class="child2 child3">.child2.child3</div>
+      </div>
+      <div class="child2">
+        <div class="child2">.child2</div>
+      </div>
+    </div>
+  </body>
+</html>

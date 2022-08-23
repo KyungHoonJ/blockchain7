@@ -1,0 +1,58 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <a href="https://www.naver.com/">
+      <div>네이버</div>
+    </a>
+    <!-- 
+        a 태그는 뭐냐? 링크다.
+        style을 안써
+        자식으로 스타일을 설정한다
+        href 속성은 뭐냐? 이동할 주소다
+        href는 기본적으로 현재 주소를 기준으로 한다. << 서버 들어가면 더 정확하고 자세하게 구르게 될것이다?
+        다른 웹페이지로 이동하고 싶으면 주소 가져다 넣으면 된다.
+     -->
+    <a href="https://www.youtube.com/" target="_blank">유튜브</a>
+    <!-- 
+        target 속성은 웹페이지를 어떻게 이동할 것인가
+        _blank 값을 설정하면 새탭으로 이동
+     -->
+    <video src="58142.mp4" controls autoplay loop muted></video>
+    <!-- 
+        video 태그는 영상을 출력하기 사용한다.
+        src에 주소를 입력한다. << 주소라고 한 이유는 후에 서버 나갈때 다시 설명한다.
+        현재 : 파일명을 입력한다(폴더 경로와 파일명을 입력한다.)
+        controls 속성은 영상의 컨트롤 박스를 출력시켜준다.
+        autoplay 속성은 영상이 로드가 완료되면 바로 재생한다.
+        autoplay의 단점이 있습니다. << 욕나옴 >>
+        웹페이지를 들어갔을 때 오디오가 바로 나오면 안되는 게 권장사항이다. >> IOS가 이걸 정말 빡쌔게 따져..... << 자동 재생이 안된다.
+        loop 속성은 말 그대로 반복이다.
+        muted 속성은 이름 그대로 음소거다. << IOS에서 중요.
+     -->
+    <audio src="goldn-116392.mp3" controls></audio>
+    <!-- 
+        audio 태그는 음악을 재생하는 태그이다. 속성은 = video
+        태그의 속성은 이름만 넣을 경우 값을 true로 설정한다. << 참거짓(true/false)의 값을 갖는 속성은 이름만으로 처리가 가능하다.
+        이름만 넣을 수도 있는 속성들은 기본값이 거짓(false)이다. << 기본값이라는 건 설정 자체를 안했을 때(속성의 이름 자체도 아예 안넣었을 때)
+        <audio src="goldn-116392.mp3" ></audio> << controls, autoplay, ... 등의 속성을 아예 안넣은 상태, 설정을 안했다. 그래서 기본값이다.
+        <audio src="goldn-116392.mp3" controls></audio> << controls 속성을 설정하겠다. 그런데 값은 알아서 넣어라. -> true 입력된다.
+     -->
+
+    <!-- <video src="https://www.youtube.com/watch?v=vyQyyL83J4s" controls></video> -->
+    <iframe
+      width="640"
+      height="360"
+      src="https://www.youtube.com/embed/vyQyyL83J4s"
+      title='[우영우] "서브아빠" 정명석 변호사 케미 모음(찰떡궁합 ㅋㅋㅋㅋㅋㅋㅋ)'
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </body>
+</html>
