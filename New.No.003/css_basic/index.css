@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  width: 50px;
+  height: 50px;
+}
+
+.display {
+  display: block;
+  /* block은 블록, div의 기본값, 욕심쟁이, 자기가 너비를 전부 갖거나 옆에 아무도 없어야 한다. */
+  display: inline;
+  /* 인라인, span, a 등등의 기본값(block이 아니면 얘로 취급된다.). 욕심이 없다, 옆에 누가 있든 상관이 없어서 옆에 붙여준다. 자기가 가져야만 하는 영역만 가진다.(width, height 등등 무시한다.) */
+  display: none;
+  /* 출력을 안한다. 없는 거로 취급한다. */
+  display: flex;
+  /* 플렉스 박스의 부모다, 플렉스 박스라고 한다. */
+  display: grid;
+  /* 그리드 박스의 부모다, 그리드 박스라고 한다. */
+  display: inherit;
+  /* 부모한테 받는다. 부모의 값을 가져와서 나한테 설정한다. */
+  display: initial;
+  /* 기본값을 설정한다. */
+  display: unset;
+  /* 부모 값을 확인해서 있으면 가져오고 없으면 기본값을 설정한다. */
+  /* 사용량 flex > block > none >>>> grid >>>>>>>>>>>>>>>>>> 나머지 */
+}
+
+.wh {
+  width: 100px;
+  height: 100px;
+  width: fit-content;
+  width: min-content;
+  width: max-content;
+  /* 
+        너비와 높이다.
+        단위는 px, %, em, rem, vw, vh 를 많이 쓴다.
+        fit-content 는 갖고있는 만큼만 차지한다.
+        max-content 는 갖고있는 최대를 차지한다.
+        min-content 는 갖고있는 최소를 차지한다.
+        */
+}
+
+.fit-content {
+  width: fit-content;
+}
+.min-content {
+  width: min-content;
+  /* overflow 는 넘쳤을 때 처리하는 방법 */
+  overflow: hidden;
+  /* 넘치면 없앤다. */
+  /* overflow: auto; */
+  /* 지가 알아서 판단해서 넘치면 스크롤을 보여준다. */
+  /* overflow: scroll; */
+  /* 무조건 스크롤이 생긴다. */
+  /* overflow: visible; */
+  /* 기본값이다, 그냥 보여준다. */
+}
+.max-content {
+  width: max-content;
+}
+
+.ofh {
+  overflow: hidden;
+}
+
+.text {
+  font-size: 16px;
+  /* 글씨의 크기, PC 크롬 기준 기본값이 16px */
+  /* 기본값이 모바일, pc, 브라우저에 따라 달라질 수 있다. */
+  font-weight: 500;
+  /* 글씨의 굵기다. */
+  /* 기본값은 500이고 글꼴을 따라간다. << 글꼴에서 지원하지 않는 굵기는 무시된다. */
+  font-style: normal;
+  color: #ff0000;
+  /* 
+        color는 글씨색이다. 
+        rgb(), rgba(), #, hcl, ... 등등으로 설정이 가능하다.
+        red, green, blue, alpha의 약자
+        #은 16진수로 설정한다.
+        */
+  /* text-align은 글자의 배치다, 정렬 */
+  text-align: center; /* 가운데 */
+  text-align: end; /* 끝에(오른쪽) */
+  text-align: start; /* 시작에(왼쪽) */
+  text-align: justify; /* 균등 정렬 */
+  text-decoration: overline;
+  /* 텍스트에 줄긋기 */
+  text-decoration: none;
+  /* a 태그 사용할 때 밑줄 없애기 */
+  letter-spacing: 10px;
+  /* 글자 간격 */
+}
