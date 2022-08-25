@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flex-item {
+  border: 1px solid black;
+  padding: 15px 10px;
+  border-radius: 10px;
+  display: flex;
+  width: 49%;
+  min-width: 300px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.flex-item img {
+  width: 40%;
+}
+
+.food-info-box {
+  padding: 10px;
+}
+
+.sub-name {
+  font-size: 12px;
+}
+
+.info {
+  border-top: 1px solid black;
+  padding: 10px 0;
+}
+
+.price {
+  font-size: 20px;
+  color: red;
+}

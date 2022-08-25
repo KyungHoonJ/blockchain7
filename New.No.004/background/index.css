@@ -1,0 +1,28 @@
+.background {
+  width: 200px;
+  height: 200px;
+
+  background-color: aqua;
+  /* 배경색 넣기 */
+  background-image: url("https://upload.wikimedia.org/wikipedia/ko/8/87/Kakaofriends.png");
+  /* 배경 이미지 넣기 */
+
+  background-size: contain;
+  /* 배경 이미지의 크기 지정, 이미지가 다 보이도록 하되 최대 크기(비율 맞춤) */
+  background-size: cover;
+  /* 배경 이미지 크기 지정, 최대 크기(비율 맞춤), 이미지가 짤릴 수 있음 */
+  background-size: 100px 100px;
+  /* 배경 이미지 사이즈, 너비 높이 */
+  background-position: 10px 10px;
+  /* 배경 이미지 위치, x y */
+  background-position: center;
+  /* 배경 이미지 위치, 가운데 맞춤 */
+  background-repeat: repeat;
+  /* 배경 이미지 반복 여부, 반복한다, 기본값이다. */
+  background-repeat: no-repeat;
+  /* 배경 이미지 반복 여부, 반복하지 않는다. */
+  background-repeat: repeat-x;
+  /* 배경 이미지 반복 여부, x 축(옆)으로만 반복한다. */
+  background-repeat: repeat-y;
+  /* 배경 이미지 반복 여부, y 축(위아래)으로만 반복한다. */
+}

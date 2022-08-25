@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.root {
+  background-color: chocolate;
+  padding-bottom: 20px;
+}
+
+.title-box,
+.title {
+  width: fit-content;
+  margin: auto;
+}
+
+.title-box > p {
+  color: white;
+}
+
+.menu-box {
+  background-color: white;
+  padding: 10px 20px;
+}
+
+.event div {
+  background-color: red;
+  color: white;
+  padding: 0 10px;
+  display: inline;
+}
+
+.event p {
+  display: inline;
+  font-weight: 700;
+}
+
+.event p span {
+  color: red;
+}
+
+.menu-inner-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cutlet {
+  width: 68%;
+}
+
+.set {
+  width: 30%;
+}
+
+.cutlet-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  width: 49%;
+  min-width: 100px;
+  max-width: 200px;
+  border: 1px solid black;
+}
+
+.set .flex-item {
+  width: 100%;
+}
