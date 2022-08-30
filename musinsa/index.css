@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.top {
+  padding: 25px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-box {
+  display: flex;
+}
+
+.search-btn {
+  background-color: black;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #666;
+}
+
+.search-btn img {
+  width: 24px;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7495%)
+    hue-rotate(178deg) brightness(112%) contrast(100%);
+  height: 24px;
+
+  cursor: pointer;
+}
+
+.top .menu {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+}
+
+.top .menu > div {
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.top .menu > div:nth-child(1) {
+  color: greenyellow;
+}
+
+.top .menu > div:nth-child(2) {
+  color: purple;
+}
+
+.top .menu > div:nth-child(3) {
+  color: red;
+}
+
+.sub-menu {
+  position: absolute;
+  left: -50%;
+  display: none;
+}
+
+.sub-menu > div {
+  width: 100px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  text-align: center;
+}
+
+.top .menu > div:hover > .sub-menu {
+  display: block;
+}
+
+.top .menu > div > .sub-menu:hover {
+  display: block;
+}

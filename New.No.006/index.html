@@ -1,0 +1,202 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      브라우저가 어떻게 작동하는지, 즉 html 파일을 받아서 어떻게 화면에
+      출력하는지에 대해서 간단하게만 얘기 할거고
+    </div>
+    <div>Javascript를 html에서 사용하는 방법, 변수? 자료형</div>
+    <div>변수</div>
+    <script>
+      // script는 html에서 Javascript를 입력하는? 태그
+      // HTML, CSS, Javascript는 문법이 다 다릅니다.
+      // 지금까지 했던 HTML, CSS는 구조적으로 많이 봤다.
+      // 프로그래밍 적으로? Javascript
+      // 변수란 데이터를 담은 상자
+      // 이사를 한다 -> 상자에다가 뭘 넣었는지 이름을 붙임 -> 그 상자 안에 맞는 물건을 넣음 -> 차에 옮김
+      // 데이터를 사용 -> 변수를 선언하고 -> 변수에 데이터를 정의 -> 그걸 렘에 담아둔다.
+      // 다른 프로그램에서는 위치를 알수 있는데(메모리), Javascript에서는 없다.
+
+      var var1 = 1;
+      // var은 변수 선언할 때 사용하는 명령어
+      // var 명령어를 사용해서 var1을 초기화했다.
+      // var는 편하게 계속 맘대로 쓸수있어
+      console.log(var1);
+      var1 = 2;
+      // var1을 정의했다, 값을 대입했다. 값을 넣었다.
+      console.log(var1);
+      var var1 = "var1";
+      // var1을 다시 초기화했다. 선언하고 정의했다. 이름을 다시 붙이고 값을 다시 넣었다.
+      console.log(var1);
+      var var1;
+      //   var1을 다시 선언했다.
+      console.log(var1);
+      // var는 요즘 안쓴다. 문제가 많다.
+      // 여러 사람들이 같이 작업을 할 때 같은 변수를 사용하면서 다른 의미로 사용하게 될 수가 있다.
+      // 재훈이가 a라는 변수를 선언하고 거기에 1을 정의한 후에 출석 날짜로 사용하고 있다.
+      // 성진이가 같은 프로젝트를 진행하면서 a라는 변수를 주고 결석 날짜로 사용해버려
+      // 같은 파일 내에서 2가지의 의미로 사용된다. a라는 게 정확히 뭘 뜻하는지 알수 없게 된다.
+
+      // let은 var를 수정? 업데이트? 보완? 해서 나왔다.
+      let let1 = 1;
+      // let let1; 재 선언이 불가능하다. 같은 이름으로 선언? 이름붙이기? 가 불가능해
+      // 즉, 겹쳐서 다른 데이터를 사용할 경우가 없어져
+      const const1 = 1;
+      // let은 선언 후에 재정의가 가능하다.
+      // const는 선언 후에 재정의가 불가능하다.
+      let let2;
+      // let2를 선언했다. 상자에 이름을 붙인다.
+      let2 = 2;
+      // let2를 정의했다. 상자에 물건을 담는다.
+      let let3 = 3;
+      // let3을 초기화했다. 상자에 이름을 붙이면서 물건 담는다.
+      // const const2; 선언만 하면 데이터가 없기 때문에 빨간줄이 뙇
+      // const1 = 3; 재정의가 불가능하기 때문에 개발자 도구의 콘솔창에서 문제가 발생한다.
+      console.log("asdf");
+      // 이름 그대로 콘솔에 로그를 남긴다.
+      console.log(let1);
+      console.log(const1);
+      console.log(let2);
+      console.log(let3);
+
+      // 자료형
+      // string, number, boolean, undefined, null, object, array
+      // string 은 텍스트
+      // number 는 숫자
+      // boolean 은 참거짓, bool, 불값썼냐?
+      // undefined, null 둘다 값이 없는거야
+      // object 는 키와 값으로 이루어진 객체다. << 아래에서 다시
+      // array 는 배열, 더 깊이 얘기는 나중에
+      let string1 = '"abcd"';
+      let string2 = "abcd";
+      let string3 = `abcd`;
+      // ` 는 1 옆에 esc 아래에 있는 거다.
+      // 맥에서는 키가 영어일 때 사용된다.
+      //   "", ''한줄 텍스트
+      // `` 템플릿 리터널 이라고 부릅니다. 여러줄 가능
+      let string4 = `
+        sadflihsdafl;ishadflkn
+        `;
+      // let string5 = "
+      // sdfsdaf
+      // "
+      let string6 = "\
+      sdafsadfasdf\
+      ";
+
+      let number1 = 1;
+      let number2 = 1.1;
+      let number3 = 1 / 3;
+      let number4 = "1";
+      // number는 말 그대로 숫자
+      // 계산식을 정의해도 숫자가 정상적으로 들어간다.
+      // number4는 숫자일까? 아니다 텍스트다.
+
+      let boolean1 = true;
+      let boolean2 = false;
+      let boolean3 = 1;
+      let boolean4 = "asdf";
+      // boolean은 참거짓을 갖는다.
+      // boolean3은 참인가? 거짓인가? 참입니다.
+      // boolean4는 참인가? 거짓인가? 참입니다.
+      let boolean5 = 0;
+      let boolean6 = "0";
+      let boolean7 = "\uac00";
+      let boolean8 = " ";
+      console.log(boolean7);
+      console.log(!!boolean8);
+
+      let undefined1 = undefined;
+      let null1 = null;
+      // 그럼 요 둘의 차이는 뭐냐?
+      // undefined 는 초기값, 내가 설정하지 않은 없는 값, 빈값
+      // Javascript만 한 사람은 undefined
+      // null은 내가 설정한 빈값
+      // 다른 언어 했던 사람이 null
+      // 사실 많이 안씀
+
+      const obj = {};
+      //   object는 키와 값으로 이루어진 객체, 중괄호로 정의함
+      //   obj = { a: 1, b: boolean7, c: "3" };
+      obj.a = 1;
+      obj.b = boolean7;
+      obj.c = "3";
+      //   a, b, c 를 키라고 하고 1, 2, "3"을 값이라 한다.
+      obj.a = "정재훈";
+      console.log(obj.a);
+      console.log(obj.b);
+      console.log(obj.c);
+
+      let arr1 = [1, 2, "3", { a: 1, b: 2, c: "3" }, true, [obj.a], obj];
+      const arr2 = [];
+      //   배열(array)는 순차적인 데이터다.
+
+      console.log(arr1);
+      console.log(arr1[0]);
+      //   arr1[몇번째 있는지] 넣으면 그 번몇째의 값을 가져온다.
+      //   arr1[0]은 배열의 첫번째 값을 가져온다.
+      console.log(arr1[1]);
+      //   arr1[1]은 배열의 두번째 값을 가져온다.
+      console.log(arr1[2]);
+      //   arr1[2]은 배열의 세번째 값을 가져온다.
+
+      arr1.push(123);
+      arr1.push("abc");
+      //   push는 뒤에서 추가한다.
+      console.log(arr1);
+      let pop1 = arr1.pop();
+      //   pop은 뒤에서 빼
+      console.log(arr1);
+      console.log(pop1);
+      arr1.unshift("unshift");
+      //   unshift는 앞에서 추가
+      console.log(arr1);
+      let shift1 = arr1.shift();
+      //   shift는 앞에서 뺌
+      console.log(arr1);
+      console.log(shift1);
+
+      console.log(typeof shift1);
+      console.log(typeof string1);
+      console.log(typeof number1);
+      console.log(typeof boolean1);
+      console.log(typeof undefined1);
+      console.log(typeof null1);
+      console.log(typeof obj);
+      console.log(typeof obj.a);
+      console.log(typeof obj.b);
+      console.log(typeof obj.c);
+      console.log(typeof arr1);
+      console.log(typeof arr1[0]);
+      console.log(typeof arr1[2]);
+      console.log(typeof arr1[3]);
+      //   변수의 자료형을 알려준다.
+
+      // 변수명, let/const *** 에서 ***이 변수명(식별자)이다.
+      // 변수에 대한 표기법 (식별자 표기법)
+      // Kebab Case, 케밥 표기법
+      // let kebab-case << CSS에서, Class 이름
+      // Camel Case, 카멜표기법, 낙타, Javascript에서 변수명, 함수명 등등 이름 선언할 때 왠만하면 이거 써라(예외: React)
+      let camelCase;
+      // Snake Case, 스네이크표기법, 뱀
+      let snake_case;
+      // Pascal Case, 파스칼 표기법, 사용처 : React
+      let PascalCase;
+      // Hungarian notation, 헝가리안 표기법, 요즘 안씀
+      let strHungarianNotation;
+      // str은 string 약자로 헝가리안 표기법에서는 변수명 제일 앞에 자료형을 적어준다.
+
+      let studentName;
+      let obj1 = {
+        "test code": 1,
+        test_code: 2,
+      };
+      console.log(obj1["test code"]);
+    </script>
+  </body>
+</html>

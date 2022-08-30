@@ -14,6 +14,13 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  margin: 0 0;
+  /* 위아래 좌우 */
+  padding: 0 0 0;
+  /* 위 좌우 아래 */
+  padding: 0 0 0 0;
+  /* 위 우 아래 좌 */
 }
 
 .zi {
