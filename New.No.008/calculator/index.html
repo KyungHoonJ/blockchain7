@@ -1,0 +1,33 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div class="grid-box">
+      <div onclick="numSel(7)">7</div>
+      <!-- 함수를 호출하면서 () 안에 변수, 상수 등을 넣으면 해당 함수의 매개변수에 정의한다.
+      현재는 numSel의 num이라는 매개변수에 7을 정의했다. -->
+      <div onclick="numSel(8)">8</div>
+      <div onclick="numSel(9)">9</div>
+      <div onclick="calculate('/')">/</div>
+      <div onclick="numSel(4)">4</div>
+      <div onclick="numSel(5)">5</div>
+      <div onclick="numSel(6)">6</div>
+      <div onclick="calculate('*')">*</div>
+      <div onclick="numSel(1)">1</div>
+      <div onclick="numSel(2)">2</div>
+      <div onclick="numSel(3)">3</div>
+      <div onclick="calculate('%')">%</div>
+      <div onclick="calculate('+')">+</div>
+      <div onclick="numSel(0)">0</div>
+      <div onclick="calculate('-')">-</div>
+      <div onclick="check()">=</div>
+      <!-- = 을 누를 시 현재 변수를 확인합니다. -->
+    </div>
+  </body>
+</html>

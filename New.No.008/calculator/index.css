@@ -1,0 +1,32 @@
+.grid-box {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: repeat(4, 80px);
+  row-gap: 10px;
+  column-gap: 10px;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.grid-box div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: font-size 0.1s ease-in-out;
+}
+
+.grid-box div:hover {
+  font-size: 24px;
+  /* transform: rotate(1080deg); */
+}
+
+.grid-box div:active {
+  background-color: red;
+  /* transform: rotate(1080deg); */
+}
