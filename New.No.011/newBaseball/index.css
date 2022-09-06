@@ -1,0 +1,45 @@
+.btn {
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: beige;
+}
+
+.btn:first-child {
+  background-color: aqua;
+}
+
+.title {
+  padding: 20px;
+  font-size: 2rem;
+}
+
+.result {
+  border-collapse: collapse;
+}
+
+.result td,
+.result th {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.result tr:nth-child(1) {
+  background-color: lightblue;
+}
+.result tr:nth-child(2) {
+  background-color: lightcoral;
+}
+.result tr:nth-child(3) {
+  background-color: lightcyan;
+}
+.result tr:nth-child(4) {
+  background-color: lightgoldenrodyellow;
+}
+.result tr:nth-child(5) {
+  background-color: lightgray;
+}
