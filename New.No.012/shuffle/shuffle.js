@@ -10,4 +10,5 @@ function shuffle(arr) {
     arr[first] = arr[second];
     arr[second] = temp;
   }
+  return arr;
 }
