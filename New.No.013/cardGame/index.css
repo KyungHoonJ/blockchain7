@@ -1,0 +1,19 @@
+.flex-box {
+  display: flex;
+}
+
+.flex-item {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 100px;
+  height: 150px;
+  margin: 5px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-item:hover {
+  background-color: lightgray;
+}
