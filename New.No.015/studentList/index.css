@@ -12,7 +12,8 @@ th {
 }
 
 th {
-  background-color: lightgray;
+  background-color: gray;
+  color: white;
 }
 
 tr {
