@@ -43,13 +43,17 @@ headList.forEach((item) => {
 const studentListElem = document.getElementById("data-list");
 
 studentsList.forEach((item, index) => {
-  let tempStr = "<tr>";
+  let tempStr = "<tr>"; // << 임시로 쓸 string을 초기화한다.
+  console.log(tempStr);
   headList.forEach((headItem) => {
     if (headItem.type === "number") tempStr += `<th>${index + 1}</th>`;
     else tempStr += `<td>${item[headItem.type]}</td>`;
+    console.log(tempStr);
   });
   tempStr += "</tr>";
+  console.log(tempStr);
   studentListElem.innerHTML += tempStr;
+  console.log(studentListElem.innerHTML);
 });
 
 // 팀장급 : 아래 코드분석 feat.정현
