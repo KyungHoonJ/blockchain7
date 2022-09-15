@@ -1,0 +1,27 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="data-set" data-count="0" data-a>count</div>
+    <script>
+      console.log(document.getElementById("data-set").dataset.count);
+      // 속성으로 "data-***"을 설정하면 Javascript에서 dataset 이라는 프로퍼티 객체에 ***이라는 프로퍼티로 저장된다.
+      document.getElementById("data-set").onclick = (e) => {
+        e.target.dataset.count = parseInt(e.target.dataset.count) + 1;
+        // dataset은 수정도 가능하다
+        console.log(document.getElementById("data-set").dataset.count);
+        console.log(document.getElementById("data-set").dataset.a);
+        console.log(typeof document.getElementById("data-set").dataset.a);
+        document.getElementById("data-set").dataset.a = Date.now();
+        // Date.now 메서드는 현재 시간을 가져온다.
+        console.log(
+          new Date(parseInt(document.getElementById("data-set").dataset.a))
+        );
+      };
+    </script>
+  </body>
+</html>

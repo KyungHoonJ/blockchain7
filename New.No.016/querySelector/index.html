@@ -1,0 +1,27 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="id-test"></div>
+    <div class="class-test">
+      <div class="child">1</div>
+      <div class="child">2</div>
+      <div class="child">3</div>
+      <div class="child">4</div>
+    </div>
+    <div id="id-test1" class="class-test"></div>
+    <script>
+      console.log(document.querySelector("#id-test"));
+      console.log(document.querySelector(".class-test"));
+      console.log(document.querySelector("#id-test1.class-test"));
+      console.log(document.querySelector(".child"));
+      // querySelector 메서드는 CSS에서 사용하는 방식(선택자)으로 엘리먼트(노드)를 찾아 가져옵니다.
+      console.log(document.querySelectorAll(".child"));
+      // querySelectorAll 메서드는 CSS에서 사용하는 방식(선택자)으로 엘리먼트(노드)를 찾아 전부 가져옵니다.
+    </script>
+  </body>
+</html>

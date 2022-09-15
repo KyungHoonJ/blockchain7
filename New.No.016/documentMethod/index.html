@@ -1,0 +1,26 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function tempOnLoad() {
+        console.log("testing");
+      }
+    </script>
+    <!-- <style>
+      input {
+        background-color: red !important;
+        /* !important를 끝에 추가 시 무조건 얘가 우선되어 적용된다. 나중에 적용된 스타일을 무시한다. */
+      }
+    </style> -->
+  </head>
+  <body onload="tempOnLoad()">
+    <!-- 13번째 줄이 끝나면 body를 생성해서 DOM에 추가한다. => 요때 onload 메서드가 실행된다. -->
+    <div id="root"></div>
+    <input type="text" id="name" style="border: 1px solid black" />
+    <!-- inline 형식으로 style 속성에 설정한 CSS 스타일은 Javascript에서 확인 가능 -->
+    <script src="index.js"></script>
+  </body>
+</html>

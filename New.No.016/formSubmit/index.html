@@ -1,0 +1,36 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/asdf" name="form-test">
+      <input type="text" id="input-test" />
+      <button type="submit">확인버튼</button>
+    </form>
+    <form action="/asdf" name="form-test1" id="form-test2">
+      <input type="text" id="input-test" />
+      <button type="submit">확인버튼</button>
+    </form>
+    <a id="test-a" href="https://naver.com" target="_blank">네이버</a>
+    <script>
+      console.log(document.forms);
+      console.log(document.forms["form-test2"]);
+      console.log(document.forms["form-test"]);
+      console.log(document.forms["form-test"]["input-test"]);
+      document.forms["form-test"].onsubmit = (e) => {
+        e.preventDefault();
+        // 이벤트 매개변수(e)는 모든 이벤트에 대한 정보를 갖고있다.
+        // target, ... 등등
+        // preventDefault 메서드는 기존에 실행되는 기능을 멈춘다.
+        //   즉, 이벤트가 실행될 때 무조건적으로/기본적으로 실행되는 코드를 실행되지 않도록 막는다.
+      };
+      document.getElementById("test-a").onclick = (e) => {
+        console.log(e);
+        e.preventDefault();
+      };
+    </script>
+  </body>
+</html>
