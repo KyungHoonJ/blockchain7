@@ -1,0 +1,31 @@
+div {
+  /* CSS 문법 : div, .div1, #id, .class, * 등을 선택자라고 한다. */
+  /* div, a, p 등 Tag에 적용하는 것을 Tag 선택자라고 한다. */
+  /* .class, .div1, .div2 등 .***으로 설정하여 class를 기준으로 CSS 스타일을 적용하는 것을 class 선택자라고 한다. */
+  /* 이외에 id 선택자, 의사 선택자(가상 클래스), 의사 요소(가상 클래스) 등이 있다. << 알아서 찾아볼 것 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display, justify-content, align-items, width, height, background-color, z-index, opacity, color, text-align, font-size 등을 CSS 속성이라고 한다. */
+  /* CSS 속성에 적용되는 것을 속성값이라고 한다. */
+}
+
+.div1 {
+  width: 400px;
+  height: 400px;
+  background-color: aqua;
+}
+
+.div2 {
+  width: 300px;
+  height: 300px;
+  background-color: beige;
+}
+
+.div3 {
+  background-color: blueviolet;
+}
+
+.div4 {
+  background-color: chartreuse;
+}

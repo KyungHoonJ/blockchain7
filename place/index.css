@@ -1,0 +1,44 @@
+.grid-container {
+  display: grid;
+
+  grid-template-columns: repeat(7, 100px);
+  grid-template-rows: repeat(12, 25px);
+
+  gap: 5px;
+  grid-template-areas:
+    ". . . . . . door"
+    "place1 place2 place3 . . . door"
+    "place1 place2 place3 aisle . . ."
+    "place7 place8 place9 aisle place4 place5 place6"
+    "place7 place8 place9 aisle place4 place5 place6"
+    "place13 place14 place15 aisle place10 place11 place12"
+    "place13 place14 place15 aisle place10 place11 place12"
+    ". . . aisle place16 place17 ."
+    "place18 place19 place20 aisle place16 place17 ."
+    "place18 place19 place20 aisle place21 place22 place23"
+    "place24 place25 place26 aisle place21 place22 place23"
+    "place24 place25 place26 aisle professor professor professor"
+    ". . . aisle professor professor professor";
+}
+
+.place,
+.professor,
+.door {
+  border: 1px solid black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.place {
+  background-color: beige;
+  cursor: pointer;
+}
+
+.professor {
+  grid-area: professor;
+}
+.door {
+  grid-area: door;
+}

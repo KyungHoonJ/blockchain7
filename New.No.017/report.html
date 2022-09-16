@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-size: 24px;
+        margin: 0;
+      }
+      p {
+        margin-top: 20px;
+      }
+      span {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ol></ol>
+    </div>
+    <div>
+      <ol></ol>
+    </div>
+    <div>
+      <ol></ol>
+    </div>
+    <div>
+      <ol></ol>
+    </div>
+    <div>
+      <ol></ol>
+    </div>
+    <p>
+      팀원들끼리 미니게임천국 중 하나 또는 간단한 게임을 계획해서 월요일까지
+      가져올 것<br />
+      html, css, draw.io(플로우 차트) 등등 없이!<br />
+      PPT 무관, 이미지 무관, 텍스트 무관<br />
+      <span>단, 내가 내용을 알아볼 수 있어야함</span><br />
+      해당 프로젝트는 월요일부터 수요일 오전까지 작업 후 수요일 오후 발표(크게
+      발표하는 것이 아닌 플레이)<br />
+      <span>그만큼 간단해야함</span><br />
+      최소 조건 : 시작 버튼 / 게임 오버<br />
+    </p>
+    <script>
+      const team = [
+        ["관리자와 환상체(로보토미)", "장정현", "이가원", "김선주"],
+        ["재혁아! 믿는다....(S급 되지?)", "김정규", "이재혁", "최원겸"],
+        ["사일런트(토론은 하는거지?)", "김성진", "고우석", "신상목"],
+        ["2% + 5% = 7%(혈중이면 죽...)", "정재훈", "김영준", "허재원"],
+        ["재일잘나가(아바타 아니지?)", "김재일", "박혜림", "박예성", "염예나"],
+      ];
+      [...document.getElementsByTagName("div")].forEach((elem, index) => {
+        const tempElem = document.createElement("h5");
+        tempElem.innerHTML = team[index][0];
+        elem.prepend(tempElem);
+        team[index].forEach((member, idx) => {
+          if (!idx) return;
+          const tempLi = document.createElement("li");
+          tempLi.innerHTML = member;
+          elem.getElementsByTagName("ol")[0].append(tempLi);
+        });
+      });
+    </script>
+  </body>
+</html>
