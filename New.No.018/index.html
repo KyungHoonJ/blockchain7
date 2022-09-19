@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        position: relative;
+        width: 50%;
+      }
+      .child {
+        position: absolute;
+        width: 100%;
+        padding-bottom: 100%;
+        /* background-color: red; */
+      }
+      .circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 3px solid black;
+        background-color: antiquewhite;
+        border-radius: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </body>
+</html>
