@@ -43,15 +43,25 @@
 
       //   pop() {
       //     if (this?.head?.head) return this.head.pop();
+      //       // 만약에 this의 head의 head가 있으면 this의 head의 pop 메서드 호출
       //     else if (!this?.head) {
+      //       // 만약에 this의 head가 없으면
       //       const temp = this.data;
+      //         // temp 변수에 현재 data를 정의한다.
       //       this.data = undefined;
+      //         // 현재 data를 삭제한다.
       //       return temp;
+      //         // temp를 return한다.
       //     } else {
+      //       // this의 head의 head가 없고 this의 head가 없으면
       //       const temp = this.head.data;
+      //         // temp 변수에 this의 head의 data를 정의
       //       delete this.head;
+      //         // this의 head를 삭제(클래스 객체는 delete가 필요)
       //       this.head = undefined;
+      //         // this의 head를 빈값으로 정의한다.
       //       return temp;
+      //         // temp를 return한다.
       //     }
       //   }
       // }
@@ -63,6 +73,41 @@
       // console.log(stack.pop());
       // console.log(stack.pop());
       // console.log(stack);
+
+      const StackObj = {
+        data: undefined,
+        head: undefined,
+        push(data) {
+          if (!this.data) {
+            this.data = data;
+          } else if (this.head) {
+            this.head.push(data);
+          } else {
+            this.head = { ...StackObj, data };
+          }
+        },
+        pop() {
+          if (this?.head?.head) return this.head.pop();
+          else if (!this?.head) {
+            const temp = this.data;
+            this.data = undefined;
+            return temp;
+          } else {
+            const temp = this.head.data;
+            this.head = undefined;
+            return temp;
+          }
+        },
+      };
+
+      const tempStack = { ...StackObj };
+      console.log(tempStack);
+      tempStack.push(1);
+      tempStack.push(2);
+      tempStack.push(3);
+      tempStack.push(4);
+      tempStack.push(5);
+      console.log(tempStack);
 
       class Stack {
         constructor() {
