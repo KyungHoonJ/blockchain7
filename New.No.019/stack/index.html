@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack</title>
+  </head>
+  <body>
+    <script>
+      // class Node {
+      //   // 기본 노드(부모)
+      //   constructor(data) {
+      //     // 생성자에서 data를 저장한다, 정의한다.
+      //     this.data = data;
+      //   }
+      // }
+
+      // class StackNode extends Node {
+      //   // 기본 노드를 상속받아 스택노드를 생성한다.
+      //   constructor(data, head) {
+      //     // data와 head를 받아서 진행한다.
+      //     // head는 다음 데이터이다.
+      //     super(data);
+      //     // 부모 노드(기본 노드)의 생성자를 호출한다, 실행한다.
+      //     this.head;
+      //     // head를 생성한다.
+      //   }
+
+      //   push(data) {
+      //     // 넣다, data 매개변수를
+      //     if (!this.data) this.data = data;
+      //     // 만약에 data가 없으면 현재 노드의 data에 전달받은 매개변서 data를 정의한다.
+      //     // pop을 하다보면 전부 없앨 수 있기 때문에 현재 노드의 data 또한 삭제될 수 있기 때문이다.
+      //     else if (this.head) {
+      //       // head가 있다는 얘기는 마지막 노드가 아니다. 즉, 마지막 순서가 아니다.
+      //       this.head.push(data);
+      //       // 마지막 순서가 아니기 때문에 다음 노드에 데이터를 넣도록 한다.
+      //     } else {
+      //       // 다음 데이터가 없음이 확인되었고, 현재 데이터도 있을 때 head에 새 노드를 추가한다.
+      //       this.head = new StackNode(data);
+      //     }
+      //   }
+
+      //   pop() {
+      //     if (this?.head?.head) return this.head.pop();
+      //     else if (!this?.head) {
+      //       const temp = this.data;
+      //       this.data = undefined;
+      //       return temp;
+      //     } else {
+      //       const temp = this.head.data;
+      //       delete this.head;
+      //       this.head = undefined;
+      //       return temp;
+      //     }
+      //   }
+      // }
+      // const stack = new StackNode(1);
+      // stack.push(2);
+      // stack.push(3);
+      // stack.push(4);
+      // console.log(stack);
+      // console.log(stack.pop());
+      // console.log(stack.pop());
+      // console.log(stack);
+
+      class Stack {
+        constructor() {
+          this.arr = [];
+        }
+
+        push(data) {
+          this.arr.push(data);
+        }
+
+        pop() {
+          return this.arr.pop();
+        }
+
+        log() {
+          console.log(this.arr);
+        }
+      }
+
+      const stack = new Stack();
+      stack.push(1);
+      stack.push(2);
+      stack.push(3);
+      stack.log();
+      console.log(stack.pop());
+    </script>
+  </body>
+</html>

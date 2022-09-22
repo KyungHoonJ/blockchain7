@@ -52,3 +52,12 @@ studentElems.forEach((elem, index) => {
   elem.onclick = () => onClick(index);
   elem.innerHTML = students[index];
 });
+
+document.getElementsByClassName("professor")[0].onclick = () => {
+  document
+    .getElementsByClassName("grid-container")[0]
+    .classList.toggle("rotate");
+  studentElems.forEach((elem) => {
+    elem.classList.toggle("rotate");
+  });
+};

@@ -42,3 +42,7 @@
 .door {
   grid-area: door;
 }
+
+.rotate {
+  transform: rotate(180deg);
+}

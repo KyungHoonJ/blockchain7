@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>🙃</div>
+    <script>
+      console.log((65).toString(2)); // 2진수 표기
+      console.log((65).toString(16)); // 16진수 표기
+      console.log("\uAC00");
+      let name = "정경훈";
+      let count = 0;
+      name = "이가원";
+      // 자료 구조란 한정된 용량(메모리, 공간)에 최적화 시켜서 많은 데이터를 쓸 수 있도록 설계된 것
+      // call stack, memory heap
+      // Web API
+      // Callback Queue
+
+      // 중요 키워드 : stack, heap, Queue
+      // 스택(stack) : 선입후출, 먼저 들어간 게 나중에 나온다. / push, pop
+
+      function stackOverFlow(count) {
+        console.log(count);
+        if (++count < 10) stackOverFlow(count);
+        console.log(count + "end");
+      }
+      stackOverFlow(0);
+
+      // 큐(queue) : 선입선출, 먼저 들어간 것이 먼저 나온다. / push, shift
+      // 큐는 보통 사용자 입력에 대해서 관리한다.
+      // 힙(heap) : 객체, 배열을 저장할 때 사용한다. 상당히 마구잡이로 위치한다.
+    </script>
+  </body>
+</html>

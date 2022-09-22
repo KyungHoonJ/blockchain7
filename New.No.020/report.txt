@@ -1,2 +1,0 @@
-22.09.23
-Class를 사용해서 Single Linked List 구현
