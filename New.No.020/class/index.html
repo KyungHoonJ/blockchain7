@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class && prototype</title>
+  </head>
+  <body>
+    <script>
+      function ClassTest1(data) {
+        this.a = 1;
+        this.b = data;
+      }
+      ClassTest1.prototype.console = function (aa = 0) {
+        console.log(this.b);
+        console.log(aa);
+      };
+      const tempTest1 = new ClassTest1("3");
+      class ClassTest2 {
+        constructor(data) {
+          this.a = 1;
+          this.b = data;
+        }
+        console(aa = 0) {
+          console.log(this.b);
+          console.log(aa);
+        }
+      }
+      const tempTest2 = new ClassTest2("3");
+      tempTest1.a = tempTest2.a = 4;
+      console.log(tempTest1);
+      console.log(tempTest2);
+      tempTest1.console();
+    </script>
+  </body>
+</html>

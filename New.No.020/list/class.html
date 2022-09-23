@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linked List</title>
+  </head>
+  <body>
+    <script>
+      const listNode = {
+        data: undefined,
+        // 노드의 데이터
+        next: undefined,
+        // 다음 노드
+        insert(data) {
+          // 노드 추가
+          if (this.next) this.next.insert(data);
+          // 다음 노드가 있으면 그 노드에 추가
+          else
+            this.next = {
+              // 다음 노드가 없으면 여기에 추가
+              ...listNode,
+              data,
+            };
+        },
+      };
+      const listRoot = { ...listNode, data: 1 };
+      listRoot.insert(2);
+      listRoot.insert(3);
+      console.log(listRoot);
+
+      // 이론과 다르지만 대충 만들어본 리스트 기능
+      const listArr = {
+        arr: [],
+        insert(data) {
+          this.arr.push(data);
+          return this.arr.length;
+        },
+        remove(data) {
+          let isDelete = false;
+          this.arr = this.arr.filter((item) => {
+            if (item != data || isDelete) {
+              return true;
+            } else {
+              isDelete = true;
+              return false;
+            }
+          });
+          // this.arr = [...this.arr.slice(0, this.arr.indexOf(data)), ...this.arr.slice( this.arr.indexOf(data) + 1)]
+          return this.arr.length;
+        },
+        contains(data) {
+          return this.arr.contains(data);
+        },
+      };
+
+      // 클래스형 노드
+      class SingleClassNode {
+        constructor(data) {
+          // 하나의 데이터(점)이다.
+          this.data = data;
+          // 노드의 데이터
+          this.next = undefined;
+          // 다음 노드
+        }
+      }
+
+      class SingleClassList {
+        constructor() {
+          this.head = undefined;
+          this.tail = undefined;
+          this.size = 0;
+        }
+        insert(data) {
+          if (!this.head) {
+            this.head = new SingleClassNode(data);
+            this.tail = this.head;
+          } else {
+            const temp = new SingleClassNode(data);
+            this.tail.next = temp;
+            this.tail = temp;
+          }
+          return ++this.size;
+        }
+        remove(data) {
+          if (!this.head) return;
+          if (this.head.data == data) {
+            const temp = this.head.next;
+            delete this.head;
+            this.head = temp;
+            this.size--;
+            return;
+          }
+
+          let curr = this.head;
+          while (curr !== this.tail) {
+            if (!curr.next) return;
+            if (curr.next.data === data) {
+              const temp = curr.next.next;
+              delete curr.next;
+              curr.next = temp;
+              this.size--;
+              return;
+            }
+            curr = curr.next;
+          }
+        }
+        contains(data) {
+          let curr = this.head;
+          if (curr.data === data) return true;
+          while (curr !== this.tail) {
+            if (curr.next.data === data) {
+              return true;
+            }
+            curr = curr.next;
+          }
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
