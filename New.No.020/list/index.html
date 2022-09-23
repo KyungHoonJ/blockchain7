@@ -1,0 +1,98 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linked List</title>
+  </head>
+  <body>
+    <script>
+      const listNode = {
+        data: undefined,
+        // 노드의 데이터
+        next: undefined,
+        // 다음 노드
+        insert(data) {
+          // 노드 추가
+          if (this.next) this.next.insert(data);
+          // 다음 노드가 있으면 그 노드에 추가
+          else
+            this.next = {
+              // 다음 노드가 없으면 여기에 추가
+              ...listNode,
+              data,
+            };
+        },
+      };
+      const listRoot = { ...listNode, data: 1 };
+      listRoot.insert(2);
+      listRoot.insert(3);
+      console.log(listRoot);
+
+      // 이론과 다르지만 대충 만들어본 리스트 기능
+      const listArr = {
+        arr: [],
+        insert(data) {
+          this.arr.push(data);
+          return this.arr.length;
+        },
+        remove(data) {
+          let isDelete = false;
+          this.arr = this.arr.filter((item) => {
+            if (item != data || isDelete) {
+              return true;
+            } else {
+              isDelete = true;
+              return false;
+            }
+          });
+          // this.arr = [...this.arr.slice(0, this.arr.indexOf(data)), ...this.arr.slice( this.arr.indexOf(data) + 1)]
+          return this.arr.length;
+        },
+        contains(data) {
+          return this.arr.contains(data);
+        },
+      };
+
+      // 아래는 공부하고 싶으면 해보세요.
+      function SingleNode(data) {
+        // 하나의 데이터(점)이다.
+        this.data = data;
+        // 노드의 데이터
+        this.next = undefined;
+        // 다음 노드
+      }
+
+      function SingleList() {
+        // Single Linked List
+        this.head = undefined;
+        // 리스트의 헤드(머리)
+        this.tail = undefined; // 편하게 할려고 || 후에 원형 리스트에서 사용
+        // 리스트의 테일(꼬리)
+        this.size = 0;
+        // 리스트의 크기
+      }
+
+      SingleList.prototype.insert = function (data) {
+        // 추가 메서드다, 클래스이기 때문에 prototype에 method로 추가한다.
+        if (!this.head) {
+          // 머리가 없으면, 리스트가 하나도 없다.
+          this.head = new SingleNode(data);
+          // 리스트에 노드를 추가한다.
+          this.tail = this.head;
+          // 꼬리도 정의해둔다.
+        } else {
+          // 머리가 있으면
+          const temp = new SingleNode(data);
+          // 임시로 하나 만든다.
+          this.tail.next = temp;
+          // 현재 꼬리에 만들어진 노드를 다음 노드로 연결한다.
+          this.tail = temp;
+          // 만든 노드를 꼬리에 정의한다.
+        }
+        return ++this.size;
+        // 사이즈를 키운다.
+      };
+    </script>
+  </body>
+</html>
