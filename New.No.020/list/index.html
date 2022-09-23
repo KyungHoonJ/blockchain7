@@ -93,6 +93,62 @@
         return ++this.size;
         // 사이즈를 키운다.
       };
+      SingleList.prototype.remove = function (data) {
+        // 삭제 메서드
+        if (!this.head) return;
+        // head가 없으면 리턴
+        if (this.head.data == data) {
+          // head의 data가 삭제하려는 데이터이면
+          const temp = this.head.next;
+          // head의 next를 임시로 저장
+          delete this.head;
+          // head 삭제
+          this.head = temp;
+          // 임시로 저장된 노드(head의 다음 노드)를 head로 정의
+          this.size--;
+          // 하나 지웠으니 사이즈 줄이기
+          return;
+        }
+
+        let curr = this.head;
+        // 현재 어떤 노드를 확인하는가? 현재 노드를 변수에 정의
+        while (curr !== this.tail) {
+          // 현재 노드가 꼬리, 즉 끝인지 확인, 끝이 아니면 실행
+          if (!curr.next) return;
+          // 다음 노드가 없으면 return
+          if (curr.next.data === data) {
+            // 현재 노드의 다음 노드의 데이터가 삭제하려는 데이터인가?
+            const temp = curr.next.next;
+            // 현재 노드의 다음 노드의 다음 노드를 임시로 정의
+            delete curr.next;
+            // 현재의 다음 노드 삭제
+            curr.next = temp;
+            // 현재의 다음 노드에 임시로 정의한 노드 정의(기존의 다다음 노드)
+            this.size--;
+            // 데이터 삭제했으니 사이즈 줄이기
+            return;
+          }
+          curr = curr.next;
+          // 다음 노드의 데이터가 삭제할 노드가 아니면 현재 노드를 다음 노드로 정의
+        }
+      };
+
+      SingleList.prototype.contains = function (data) {
+        // 존재 여부 확인 메서드
+        let curr = this.head;
+        // 현재 노드 설정(시작은 head)
+        if (curr.data === data) return true;
+        // head의 데이터가 찾으려는 데이터면 참 반환
+        while (curr !== this.tail) {
+          if (curr.next.data === data) {
+            // 다음 노드의 데이터를 확인해서 같으면 참 반환
+            return true;
+          }
+          curr = curr.next;
+        }
+        // 모든 노드 확인했는데 여기까지 오면 없다고 판단 가능
+        return false;
+      };
     </script>
   </body>
 </html>
