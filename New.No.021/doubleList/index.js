@@ -57,9 +57,19 @@ class DoubleLinkedList {
       curr = curr.next;
     }
   }
+  contains(data) {
+    let curr = this.head;
+    while (true) {
+      if (curr.data === data) return true;
+      if (!curr.next) return false;
+      curr = curr.next;
+    }
+  }
 }
 
 const testDouble = new DoubleLinkedList();
 testDouble.insert("테스팅");
 testDouble.insert("테스팅1");
 testDouble.insert("테스팅2");
+testDouble.remove("테스팅");
+console.log(testDouble);
