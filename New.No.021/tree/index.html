@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class TreeNode {
+        constructor(data) {
+          this.data = data;
+          this.children = [];
+        }
+        insert(data, index) {
+          if (index === undefined) this.children.push(new TreeNode(data));
+          else if (index > -1) this.children[index].push(new TreeNode(data));
+        }
+        insertNode(node) {
+          this.children.push(node);
+        }
+      }
+
+      const testTree = new TreeNode(1);
+      testTree.insert(2);
+      testTree.insert(3);
+      testTree.insertNode(new TreeNode(5));
+      const testTree2 = new TreeNode(6);
+      testTree2.insertNode(testTree);
+      console.log(testTree);
+      console.log(testTree2);
+
+      class BinaryNode {
+        // 이진트리용 노드
+        constructor(data) {
+          this.data = data;
+          this.left = null;
+          this.right = null;
+        }
+      }
+
+      class BinarySearchTree {
+        // 이진 검색 트리
+        constructor() {
+          this.root = null;
+        }
+        insert(data) {
+          if (!this.root) {
+            this.root = new BinaryNode(data);
+            return;
+          }
+          let node = this.root;
+          while (true) {
+            if (node.data > data) {
+              if (node.left) {
+                node = node.left;
+              } else {
+                node.left = new BinaryNode(data);
+                return;
+              }
+            } else if (node.data < data) {
+              if (node.right) {
+                node = node.right;
+              } else {
+                node.right = new BinaryNode(data);
+                return;
+              }
+            } else return;
+          }
+        }
+        remove(data) {} // 생각해보자
+      }
+
+      const testSearch = new BinarySearchTree();
+      testSearch.insert(227);
+      testSearch.insert(777);
+      testSearch.insert(727);
+      testSearch.insert(141);
+      testSearch.insert(181);
+      testSearch.insert(1229);
+      testSearch.insert(18);
+      testSearch.insert(666);
+      console.log(testSearch);
+    </script>
+  </body>
+</html>
