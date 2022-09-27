@@ -113,10 +113,11 @@
           // 재귀 함수를 위해서
         }
 
-        // remove(data, node) {
-        //   if (!node) node = this.root;
-        //   console.log(node);
-        // } // 생각해보자
+        insertAll(arr) {
+          arr.forEach((item) => {
+            this.insert(item);
+          });
+        }
       }
 
       const testSearch = new BinarySearchTree();
@@ -137,6 +138,13 @@
       testSearch.insert(15);
       testSearch.remove(1);
       console.log(testSearch);
+
+      const testSearch1 = new BinarySearchTree();
+      testSearch1.insertAll([
+        16, 8, 24, 4, 12, 20, 28, 2, 6, 10, 14, 18, 22, 26, 30, 1, 3, 5, 7, 9,
+        11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31,
+      ]);
+      console.log(testSearch1);
     </script>
   </body>
 </html>
