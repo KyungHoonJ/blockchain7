@@ -92,9 +92,11 @@
               return undefined;
             } else if (!node.left) {
               // 왼쪽 노드가 없다. => 오른쪽 노드는 있다.
+              if (node === this.root) this.root = node.right;
               return node.right;
             } else if (!node.right) {
               // 오른쪽 노드가 없다. => 왼쪽 노드는 있다.
+              if (node === this.root) this.root = node.left;
               return node.left;
             } else {
               let tempNode = node.right;
