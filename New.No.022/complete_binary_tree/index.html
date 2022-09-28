@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>완전 이진 트리</title>
+  </head>
+  <body>
+    <script>
+      class TreeNode {
+        constructor(data) {
+          this.data = data;
+          this.left = undefined;
+          this.right = undefined;
+        }
+        insert(node) {
+          if (!this.left) this.left = node;
+          else if (!this.right) this.right = node;
+          else return [this.left, this.right];
+          return [node];
+        }
+      }
+
+      class CompleteBinaryTree {
+        constructor() {
+          this.root = undefined;
+        }
+
+        insert(data) {
+          const tempNode = new TreeNode(data);
+          if (!this.root) this.root = tempNode;
+          else {
+            let tempArr = [this.root];
+            let isInsert = false; // is, boolean값이고 insert, 즉 넣었냐?
+            let idx = 0;
+            while (!isInsert) {
+              const tempResult = tempArr[idx].insert(tempNode);
+              // tempResult는 이름 그래도 임시로 저장한 결과값.
+              // TreeNode의 insert 메서드의 return 값이다.
+              if (tempResult.length == 1) isInsert = true;
+              else {
+                tempArr = tempArr.concat(tempResult);
+                idx++;
+              }
+            }
+          }
+        }
+      }
+
+      const tempBinaryTree = [9, 9, 9, 9, 9];
+      // [                             root,
+      //            root.left,                        root.right,
+      // root.left.left, root.left.right]
+    </script>
+  </body>
+</html>

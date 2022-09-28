@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>알고리즘</title>
+  </head>
+  <body>
+    <pre>
+알고리즘이란 어떤 무제를 해결하기 위한 일련의 절차나 방법을 공식화한형태로 표현한 것
+우리는 지금까지 알고리즘을 해왔다. 플로우차트, 쉽게 얘기 했을 때
+알고리즘이라고 얘기를 하는 것은 하나 기능
+조건 : 입력, 출력, 명확성, 유한성, 효율성
+입력 : 하나 이상의 데이터를 입력받는다(매개변수)
+출력 : 2개 이상의 다른 결과가 있어야한다(return)
+명확성 : 과정이 명확하고 모호하지 않은 명령어로 되어있어야 한다
+유한성(종결성) : 끝나야한다. 무한대로 실행되면 안된다
+효율성 : 실행이 가능해야한다. 검증이 된다
+
+시간복잡도(big O 표현법)
+알고리즘이 끝날 때까지의 시간을 표기한다. 입력값은 n이다
+O(1) : 무조건 한번 돈다.
+O(log n) : n 지수? 만큼 돈다.
+O(n) : n번 돈다.
+O(n log n) : n의 n승 지수만큼 돈다.
+O(n^2) : n 제곱만큼 돈다.
+O(2^n) : 2의 n승만큼 돈다.
+O(n!) : 이하생략
+    </pre>
+    <script>
+      function o1(data) {
+        console.log(data);
+      }
+
+      function on(data) {
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i]);
+        }
+      }
+
+      function on2(data) {
+        for (let i = 0; i < data.length; i++) {
+          for (let j = 0; j < data.length; j++) {
+            console.log(data[i]);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
