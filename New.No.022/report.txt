@@ -4,6 +4,8 @@
 3. https://school.programmers.co.kr/learn/courses/30/lessons/12928
 4. https://school.programmers.co.kr/learn/courses/30/lessons/12931
 5. https://school.programmers.co.kr/learn/courses/30/lessons/17682
+5-1. 1~4번까지 다 푼 사람
+5-2. 성진, 정현, 정규는 안풀어도 되지만 양쪽 애들 1~4번까지 완성하게 만들기
 
 6. 복습(노션 정리)
 
