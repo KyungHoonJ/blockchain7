@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버블 정렬</title>
+  </head>
+  <body>
+    <script>
+      function swap(arr, idx1, idx2) {
+        const temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+      }
+
+      const dataArr = [
+        727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282,
+        119, 3838,
+      ];
+
+      function bubbleSort(arr) {
+        // O(n^2)
+        const tempArr = [...arr]; // 원본을 수정하지 않기 위해서 임시 배열을 사용한다.
+        for (let i = 0; i < tempArr.length; ++i) {
+          // 0 ~ 2까지 i를 실행한다. i = 0 => 1 => 2
+          // 3 번 돌린다.
+          for (let j = 0; j < tempArr.length - 1; ++j) {
+            // 0 ~ 1까지 j를 실행한다. j = 0 => 1
+            // j와 j + 1을 비교하기 때문에, 즉 j + 1 이 tempArr.length보다 작아야한다. j + 1 = tempArr[3]  3
+            if (tempArr[j] > tempArr[j + 1]) swap(tempArr, j, j + 1);
+          }
+        }
+
+        return tempArr;
+      }
+
+      console.log(dataArr);
+      console.time("bubbleSort");
+      console.log(bubbleSort(dataArr));
+      console.timeEnd("bubbleSort");
+      console.log(dataArr);
+    </script>
+  </body>
+</html>
