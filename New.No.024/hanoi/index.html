@@ -16,6 +16,10 @@
           ...solution(n - 1, 6 - start - end, end),
         ];
       }
+
+      console.time("hanoi");
+      console.log(solution(10));
+      console.timeEnd("hanoi");
     </script>
   </body>
 </html>
