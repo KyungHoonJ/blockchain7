@@ -1,0 +1,18 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fibonacci</title>
+  </head>
+  <body>
+    <script>
+      // 재귀함수를 쓴다. => 재귀 함수 : 자기 자신을 호출하는 함수
+      function fibonacci(n) {
+        if (n < 2) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+      for (let i = 0; i < 20; ++i) console.log(fibonacci(i));
+    </script>
+  </body>
+</html>

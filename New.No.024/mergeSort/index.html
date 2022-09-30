@@ -1,0 +1,41 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>병합 정렬</title>
+  </head>
+  <body>
+    <script>
+      let count = 0;
+      function merge(leftArr, rightArr) {
+        //  [727], [129]
+        // 합치는 함수
+        count--;
+        console.log("merge count : " + count, [...leftArr, ...rightArr]);
+        return [...leftArr, ...rightArr]; // [727, 129]
+      }
+
+      function mergeSort(arr) {
+        // arr = [727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282, 119, 3838] => [727, 129, 621, 333, 100, 708, 1112, 1121] => [727, 129, 621, 333] => [727, 129] => [727]
+        console.log("separate count : " + count, arr);
+        // 분리하는 함수
+        if (arr.length === 1) return arr;
+
+        const midPoint = parseInt(arr.length / 2); // 8 => 4 => 2 => 1
+        count++;
+        return merge(
+          mergeSort(arr.slice(0, midPoint)), //[727, 129, 621, 333, 100, 708, 1112, 1121] => [727, 129, 621, 333] => [727, 129] => [727]
+          mergeSort(arr.slice(midPoint)) // [727, 129] => [129]
+        );
+      }
+
+      const dataArr = [
+        727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282,
+        119, 3838,
+      ];
+
+      console.log(mergeSort(dataArr.slice(0, 8)));
+    </script>
+  </body>
+</html>

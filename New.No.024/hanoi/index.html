@@ -1,0 +1,21 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hanoi</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, start = 1, end = 3) {
+        if (n === 1) return [[start, end]];
+
+        return [
+          ...solution(n - 1, start, 6 - start - end),
+          [start, end],
+          ...solution(n - 1, 6 - start - end, end),
+        ];
+      }
+    </script>
+  </body>
+</html>
