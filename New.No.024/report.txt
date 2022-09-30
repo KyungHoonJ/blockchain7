@@ -6,4 +6,4 @@
 1. 124 나라의 숫자 : https://school.programmers.co.kr/learn/courses/30/lessons/12899
 2. 크레인 인형뽑기 게임 : https://school.programmers.co.kr/learn/courses/30/lessons/64061
 
-예성 : hardHanoi 분석
+예성 : https://school.programmers.co.kr/learn/courses/30/lessons/92334
