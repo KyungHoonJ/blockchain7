@@ -1,0 +1,90 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>병합 정렬</title>
+  </head>
+  <body>
+    <script>
+      let count = 0;
+      function merge(leftArr, rightArr) {
+        //  [129, 621, 727], [100, 333, 708]
+        // 합치는 함수
+        const result = [];
+        // let leftIdx = 0,
+        //   rightIdx = 0;
+        // while (leftIdx < leftArr.length && rightIdx < rightArr.length) {
+        //   // 좌우 배열의 인덱스가 배열의 크기보다 작으면
+        //   if (leftArr[leftIdx] < rightArr[rightIdx]) {
+        //     // 왼쪽 배열의 아이템이 오른쪽 배열의 아이템보다 작으면
+        //     result.push(leftArr[leftIdx++]);
+        //     // 결과 배열에 왼쪽 아이템을 넣어주고 왼쪽 인덱스를 증가시킨다.
+        //   } else {
+        //     result.push(rightArr[rightIdx++]);
+        //     // 결과 배열에 오른쪽 아이템을 넣어주고 오른쪽 인덱스를 증가시킨다.
+        //   }
+        // }
+
+        // return [
+        //   ...result,
+        //   // 결과와
+        //   ...leftArr.slice(leftIdx),
+        //   // 왼쪽의 남은 배열
+        //   ...rightArr.slice(rightIdx),
+        //   // 오른쪽의 남은 배열
+        // ];
+
+        let leftItem = leftArr[0];
+        let rightItem = rightArr[0];
+        while (leftArr.length && rightArr.length) {
+          if (leftItem < rightItem) {
+            result.push(leftItem);
+            if (leftArr.length) {
+              leftArr.shift();
+              leftItem = leftArr[0];
+            }
+          } else {
+            result.push(rightItem);
+            if (rightArr.length) {
+              rightArr.shift();
+              rightItem = rightArr[0];
+            }
+          }
+        }
+        return [
+          ...result,
+          // 결과와
+          ...leftArr,
+          // 왼쪽의 남은 배열
+          ...rightArr,
+          // 오른쪽의 남은 배열
+        ];
+        // count--;
+        // console.log("merge count : " + count, [...leftArr, ...rightArr]);
+        // return [...leftArr, ...rightArr]; // [727, 129]
+      }
+
+      function mergeSort(arr) {
+        // arr = [727, 129, 621, 333, 100, 708, 1112, 1121] => [727, 129, 621, 333] => [727, 129] => [727]
+        console.log("separate count : " + count, arr);
+        // 분리하는 함수
+        if (arr.length === 1) return arr;
+
+        const midPoint = parseInt(arr.length / 2); // 4 => 2 => 1
+        count++;
+        return merge(
+          mergeSort(arr.slice(0, midPoint)), // [727, 129, 621, 333] => [727, 129] => [727]
+          mergeSort(arr.slice(midPoint)) // [727, 129] => [129]
+        );
+      }
+
+      const dataArr = [
+        727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282,
+        119, 3838,
+      ];
+
+      console.log(mergeSort(dataArr.slice(0, 8)));
+    </script>
+  </body>
+</html>

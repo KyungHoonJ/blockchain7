@@ -1,0 +1,8 @@
+1. 퀵정렬 이해
+2. 문자열 내 p와 y의 개수 : https://school.programmers.co.kr/learn/courses/30/lessons/12916
+3. 하샤드 수 : https://school.programmers.co.kr/learn/courses/30/lessons/12947
+4. 정수 내림차순으로 배치하기 : https://school.programmers.co.kr/learn/courses/30/lessons/12933
+5.문자열을 정수로 바꾸기 : https://school.programmers.co.kr/learn/courses/30/lessons/12925
+
+재훈, 재원
+6. 신고 결과 받기 : https://school.programmers.co.kr/learn/courses/30/lessons/92334
