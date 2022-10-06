@@ -1,0 +1,89 @@
+이가원 : https://www.smtown.com/
+1. 메인 페이지 구현
+2. 한영 선택
+3. 메뉴바
+4. 아티스트 페이지(사진, 설명)
+
+허재원 : https://www.mega-mgccoffee.com/
+1. 메인 페이지 구현
+2. CSS 애니메이션
+3. 반응형(메뉴 달라짐)
+
+염예나 : https://www.netflix.com/kr/ + https://zigzag.kr/
+https://www.canva.com/design/DAFOJV31PnI/DdLmXJNhSom2RoAG75ZI6A/view?utm_content=DAFOJV31PnI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+1. zigzag 페이지의 UI를 사용하여 로그인 전 NetFlix 메인 페이지 구현
+2. 애니메이션
+3. 반응형(욕심부려보자)
+
+김선주 : https://www.starbucks.co.kr/index.do
+1. 메인페이지 구현
+2. 메뉴바
+3. 애니메이션 리셋
+4. 자동 슬라이드(멈춤 가능)
+
+이재혁(ppt) : https://www.amoebaculture.com
+1. 메인페이지 구현(영상 적당히 넣어라)
+2. 영상 출력 위치가 영상에 따라 다르다.
+3. 스크롤에 따라 영상 추가
+4. 메뉴바(메뉴 버튼 애니메이션)
+
+장정현 : https://mondaykizcompany.com/
+1. 홈페이지 전체
+2. 홈페이지 내의 버그 수정 포함
+2-1. 내가 확인했을 때 버그 발견되면 추가 기능 만들 확률 증가
+3. 반응형
+
+박예성 : https://tomntoms.com/main/main.html
+1. 메인페이지 구현
+2. 애니메이션
+3. 메뉴바(애니메이션 버그 수정)
+4. 반응형
+4.1 크기에 따라 목록 변화해야함 << 알아서 생각하셈
+
+신상목 : https://opensea.io/
+1. 메인페이지 구현
+2. 메뉴바
+3. 자동 슬라이드
+4. 반응형(욕심부려보자)
+
+박혜림(ppt)(good) : https://www.coffeebay.com/
+1. 메인페이지 구현
+2. 자동 슬라이드 / 애니메이션
+3. 버그 수정
+4. 반응형
+
+고우석 : https://www.chosun.com/
+1. 메인페이지 구현
+2. 반응형
+3. 목차 데이터화 << Javascript에 출력되는 데이터가 있고 Javascript를 수정하면 데이터가 수정됨.(배열 객체 등)
+
+최원겸 : https://foundation.app/
+1. 메인페이지 구현
+2. 애니메이션
+3. 반응형
+
+김정규(ppt) : 중간 지점 찾기 : https://wemeetplace.com/
+1. 페이지 및 기능 구현
+
+김성진 : todo List
+1. 할 일 추가
+2. 할 일에 대한 세부 할 일 추가(세부 내용 추가 가능)
+3. 할 일에 대한 % 표기 가능
+3.1 세부 할일 완료에 따른 할 일의 % 표기
+3.2 세부 할일이 없으면 사용자가 선택
+4. 캐릭터 포함(아래에 움직임)
+5. 할 일 완료 시 경험치 획득 및 캐릭터에 대한 레벨
+6. 캐릭터와의 대화 가능(말풍선)
+
+김영준 : https://opensea.io/
+1. 메인페이지 구현
+2. NFT 목록 구현
+3. Trending, Top, Art, Collectibles, Domain Names, Music,Photography, Sports, Trading Cards, Utility, Virtual Worlds 목록에 따른 다.른. NFT 목록 출력
+4. 검색 기능
+
+정재훈 : https://www.youtube.com/
+1. 메인페이지 완벽 구현
+1-1. 반응형 포함
+
+김재일 : https://www.youtube.com/watch?v=xCs-HoEvlpU
+1. 7일 다시 기획서
