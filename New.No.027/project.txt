@@ -1,30 +1,30 @@
 이가원 : https://www.smtown.com/
 1. 메인 페이지 구현
 2. 한영 선택
-3. 메뉴바
+3. 메뉴바 // 진행중
 4. 아티스트 페이지(사진, 설명)
 
 허재원 : https://www.mega-mgccoffee.com/
 1. 메인 페이지 구현
-2. CSS 애니메이션
+2. CSS 애니메이션 // 진행중
 3. 반응형(메뉴 달라짐)
 
 염예나 : https://www.netflix.com/kr/ + https://zigzag.kr/
 https://www.canva.com/design/DAFOJV31PnI/DdLmXJNhSom2RoAG75ZI6A/view?utm_content=DAFOJV31PnI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 1. zigzag 페이지의 UI를 사용하여 로그인 전 NetFlix 메인 페이지 구현
 2. 애니메이션
-3. 반응형(욕심부려보자)
+3. 반응형(욕심부려보자) // 진행예정
 
 김선주 : https://www.starbucks.co.kr/index.do
 1. 메인페이지 구현
-2. 메뉴바
-3. 애니메이션 리셋
-4. 자동 슬라이드(멈춤 가능)
+2. 메뉴바 // 진행중
+3. 애니메이션 리셋 // 진행 예정
+4. 자동 슬라이드(멈춤 가능) // 멈춤 없이 구현
 
 이재혁(ppt) : https://www.amoebaculture.com
 1. 메인페이지 구현(영상 적당히 넣어라)
-2. 영상 출력 위치가 영상에 따라 다르다.
-3. 스크롤에 따라 영상 추가
+2. 영상 출력 위치가 영상에 따라 다르다. // 그리드로 대체
+3. 스크롤에 따라 영상 추가 // 진행중
 4. 메뉴바(메뉴 버튼 애니메이션)
 
 장정현 : https://mondaykizcompany.com/
@@ -32,11 +32,12 @@ https://www.canva.com/design/DAFOJV31PnI/DdLmXJNhSom2RoAG75ZI6A/view?utm_content
 2. 홈페이지 내의 버그 수정 포함
 2-1. 내가 확인했을 때 버그 발견되면 추가 기능 만들 확률 증가
 3. 반응형
+4. PPT // 진행중
 
 박예성 : https://tomntoms.com/main/main.html
 1. 메인페이지 구현
-2. 애니메이션
-3. 메뉴바(애니메이션 버그 수정)
+2. 애니메이션 // 진행중
+3. 메뉴바(애니메이션 버그 수정) // 진행완료
 4. 반응형
 4.1 크기에 따라 목록 변화해야함 << 알아서 생각하셈
 
@@ -44,7 +45,7 @@ https://www.canva.com/design/DAFOJV31PnI/DdLmXJNhSom2RoAG75ZI6A/view?utm_content
 1. 메인페이지 구현
 2. 메뉴바
 3. 자동 슬라이드
-4. 반응형(욕심부려보자)
+4. 반응형(욕심부려보자) // 진행 예정
 
 박혜림(ppt)(good) : https://www.coffeebay.com/
 1. 메인페이지 구현
@@ -55,10 +56,11 @@ https://www.canva.com/design/DAFOJV31PnI/DdLmXJNhSom2RoAG75ZI6A/view?utm_content
 고우석 : https://www.chosun.com/
 1. 메인페이지 구현
 2. 반응형
-3. 목차 데이터화 << Javascript에 출력되는 데이터가 있고 Javascript를 수정하면 데이터가 수정됨.(배열 객체 등)
+3. 목차 데이터화 << Javascript에 출력되는 데이터가 있고 Javascript를 수정하면 데이터가 수정됨.(배열 객체 등) // 테스트 정도로 완료?
+4. PPT
 
 최원겸 : https://foundation.app/
-1. 메인페이지 구현
+1. 메인페이지 구현 // 진행중
 2. 애니메이션
 3. 반응형
 
@@ -74,16 +76,27 @@ https://www.canva.com/design/DAFOJV31PnI/DdLmXJNhSom2RoAG75ZI6A/view?utm_content
 4. 캐릭터 포함(아래에 움직임)
 5. 할 일 완료 시 경험치 획득 및 캐릭터에 대한 레벨
 6. 캐릭터와의 대화 가능(말풍선)
+7. 반응형 // 진행 예정
+8. 스토리지에 데이터 저장 // 진행중
 
 김영준 : https://opensea.io/
 1. 메인페이지 구현
 2. NFT 목록 구현
-3. Trending, Top, Art, Collectibles, Domain Names, Music,Photography, Sports, Trading Cards, Utility, Virtual Worlds 목록에 따른 다.른. NFT 목록 출력
+3. Trending, Top, Art, Collectibles, Domain Names, Music,Photography, Sports, Trading Cards, Utility, Virtual Worlds 목록에 따른 다.른. NFT 목록 출력 // 진행중?
 4. 검색 기능
 
 정재훈 : https://www.youtube.com/
-1. 메인페이지 완벽 구현
-1-1. 반응형 포함
+1. 메인페이지 완벽 구현 // 진행중
+2. 반응형 포함
 
 김재일 : https://www.youtube.com/watch?v=xCs-HoEvlpU
-1. 7일 다시 기획서
+1. ppt 참고
+진행 사항 : 루비 생성/충돌 이팩트/분열/카운트에 따라 삭제, 플레이어 이동, 총알 발사, 총알 딜레이/개수 수정, 점수
+프레임 넣자? << 일정한 프레임
+
+발표용 PPT 최소 내용
+- 일정
+- 이슈 사항
+  - 발생한 문제와 해결 방법
+
+10월 13일 과제! : AWS 가입
