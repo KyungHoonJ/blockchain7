@@ -35,4 +35,19 @@ document.forms["todo-form"].onsubmit = function (e) {
   //   axios.get(getUrl);
   //   axios.post('라우터', 서버의 req.body)
   // 저 데이터를 보낸다.
+
+  /*
+  axios
+    .delete("/api/list", {
+      // 삭제
+    })
+    .then((data) => {});
+  axios
+    .put("/api/list", {
+      // 수정
+    })
+    .then((data) => {});
+
+  위 2 코드를 적절하게 사용하시오
+  */
 };

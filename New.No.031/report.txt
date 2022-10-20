@@ -1,9 +1,13 @@
 1. 삭제, 수정
 2. 이쁘게
 
-정규, 성진, 정현, 재일, 재원
-1. 계정 생성, 로그인, 로그아웃, 계정에 대한 할 일
+정규, 성진, 정현, 재일, 재원, 재훈
+1. 상태 추가, 상태별 목록 필터링, 페이징(페이지당 최대 5개)
 
 정규, 성진, 정현
 1. 서버를 껐다 켜도 데이터 남도록
 1-1. 쿠키, 세션, 캐시, 스토리지 쓰지말고
+
+https://www.google.com/search?q=%EB%A1%A4&oq=%EB%A1%A4&aqs=chrome..69i57j46i131i433i512j46i39i199i465j46i131i433i512j0i131i433i512j69i61l3.4385j1j7&sourceid=chrome&ie=UTF-8
+https://www.google.com/search?q=%EB%A1%A4&sxsrf=ALiCzsaB-qIu0FiCCtrJAh5-QBfS5wy_4A:1666241253994&ei=5dJQY_OlPJbU-QacjbOIBw&start=10&sa=N&ved=2ahUKEwizrLewgO76AhUWat4KHZzGDHEQ8tMDegQIARAE&biw=1708&bih=764&dpr=1
+https://www.google.com/search?q=%EB%A1%A4&sxsrf=ALiCzsbIvMCqNb-UB8LpdfTCYnL0e9RuXQ:1666241257203&ei=6dJQY4D_C6qh-QbJxY_wDg&start=20&sa=N&ved=2ahUKEwjAl_uxgO76AhWqUN4KHcniA-44ChDy0wN6BAgFEAc&biw=1708&bih=764&dpr=1

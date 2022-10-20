@@ -14,6 +14,12 @@ router
   .post((req, res) => {
     todoList.push({ text: req.body["name"], time: req.body.time });
     res.end();
+  })
+  .put((req, res) => {
+    // 수정
+  })
+  .delete((req, res) => {
+    // 삭제
   });
 
 export default router;
