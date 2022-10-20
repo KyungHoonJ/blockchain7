@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>REST</title>
+  </head>
+  <body>
+    API : Application Server &lt&lt 데이터를 주고받는 서버<br />
+    데이터는 보통 json 형식으로 주고받는다.<br />
+    또는 XML 형식(궁금하면 찾아봐)<br />
+    <button onclick="">테스트</button>
+    <form action="/api/user" method="post" id="test">
+      <label for="name">이름 : </label
+      ><input type="text" name="name" id="name" />
+    </form>
+    REST API<br />
+    REST API란 Web 통신에서 클라이언트와 서버가 데이터를 주고 받는 방식 중
+    하나이다.<br />
+    가장 대표적인 방식이다.<br />
+    REpresentational State Transfer<br />
+    GET : 데이터를 받을 때 사용, 단순 데이터 요청, 파일 등등 / 쿼리스트링 :
+    주소에 출력되는 문자열<br />
+    POST : 데이터를 보낼 때 사용, 저장할 때, 로그인할 때, 회원가입할 때,
+    비밀스러운 정보를 요청할 때 / body : 숨겨져서 서버에 데이터를 보낸다.<br />
+    PUT : 데이터를 수정할 때 사용, 비밀번호 변경, 게시글 수정<br />
+    DELETE : 데이터를 삭제할 때 사용<br />
+    OPTIONS : 요청을 하기 전에 통신 옵션을 설명하기 위해 사용, 로그인을 했다 =>
+    다른 페이지가 출력된다. => 옵션을 통해서 로그인 정보를 확인하고 그 이후에
+    GET 처리하여 알맞은 데이터(html 파일 등등)을 응답한다.<br />
+    - CORS : 크로스 오리진(Cross-Origin Resource Sharing) / 클라이언트가 하나의
+    서버에서 HTML 파일 등등을 받고 다른 서버에서 미디어(그림, 영상 등등)를 받을
+    때 두 주소가 다르면 원칙적으로 받을 수 없게 되어있다. 즉, 불펌이 불가능하다.
+    허용할 수 있게 해주는 기술이 CORS이다. 위에서 말하는 주소는 port를
+    포함한다.<br />
+    PATCH : 데이터를 일부만 수정할 때 사용<br />
+    <script>
+      document.forms.test.onsubmit = function (e) {
+        e.preventDefault();
+        axios.post("/api/user", {
+          name: document.forms.test.name.value,
+        });
+      };
+    </script>
+  </body>
+</html>
