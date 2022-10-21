@@ -7,7 +7,9 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const path = require("path");
 
-const routes = require("./routes/index.js");
+// const routes = require("./routes/index.js");
+
+const boardList = [];
 
 const app = express();
 dotenv.config();
@@ -33,19 +35,24 @@ app.use(
   })
 );
 
-app.use("/", (req, res, next) => {
-  console.log("url1 : " + req.url);
+// app.use("/api", routes);
 
-  next();
+app.post("/api/board/add", (req, res) => {
+  boardList.unshift(req.body);
+  res.send({ status: 200, data: "정상 입력 완료" });
 });
 
-app.use("/api", (req, res, next) => {
-  console.log("url2 : " + req.url);
-
-  next();
+app.get("/api/board", (req, res) => {
+  res.send({
+    status: 200,
+    list: boardList.slice(0, 5),
+    maxCount:
+      parseInt(
+        (boardList.length ? boardList.length - 1 : boardList.length) / 5
+      ) + 1,
+    // 조건 ? 참 : 거짓
+  });
 });
-
-app.use("/api", routes);
 
 app.listen(8080, () => {
   console.log("http://localhost:8080");
