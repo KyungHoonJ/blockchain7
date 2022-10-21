@@ -86,6 +86,26 @@ html {
   font-size: 1rem;
 }
 
+#page {
+  list-style: none;
+  margin: auto;
+  display: flex;
+  margin-top: 20px;
+  width: fit-content;
+}
+
+#page li {
+  margin: 0 10px;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+#page li.now {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}
+
 #user-input-container {
   width: 50px;
   padding: 10px;

@@ -43,8 +43,13 @@ for (let i = 0; i < maxCount; ++i) {
   tempLi.innerText = i + 1;
   tempLi.onclick = function (e) {
     count = i;
+    pageElem.getElementsByClassName("now")[0].classList.remove("now");
+    tempLi.classList.add("now");
     getList();
   };
+  if (count === i) {
+    tempLi.classList.add("now");
+  }
   pageElem.append(tempLi);
 }
 
@@ -80,3 +85,7 @@ function getList() {
   });
 }
 getList();
+
+axios.post("/api/board/add").then((data) => {
+  console.log(data);
+});
