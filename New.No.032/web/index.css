@@ -1,0 +1,46 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+}
+
+#board {
+  flex: 1;
+}
+
+#user-input-container {
+  width: 300px;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+#menu-btn-box {
+  margin-bottom: 20px;
+}
+
+#menu-btn {
+  width: 30px;
+}
+
+#board-add {
+  width: 100%;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#board-text {
+  width: 100%;
+  resize: none;
+}

@@ -1,0 +1,38 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판?</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div id="board"></div>
+      <div id="user-input-container">
+        <div id="menu-btn-box">
+          <img id="menu-btn" src="./imgs/bars-solid.svg" alt="menu button" />
+        </div>
+        <form id="board-add">
+          <label for="board-title"
+            >글 제목 :
+            <input
+              type="text"
+              id="board-title"
+              placeholder="글 제목을 입력하세요."
+          /></label>
+          <label for="board-text">
+            <textarea
+              name="board-text"
+              id="board-text"
+              cols="30"
+              rows="10"
+              placeholder="글 내용을 입력하세요."
+            ></textarea>
+          </label>
+          <button>업로드</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
