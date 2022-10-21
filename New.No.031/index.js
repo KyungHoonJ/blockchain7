@@ -3,6 +3,7 @@ import session from "express-session";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 // url => 주소, 라우터?, 서버내에서의 파일 위치 등등, 관리하는 내장 모듈
@@ -38,6 +39,8 @@ app.use(
     name: "session",
   })
 );
+
+app.use(cors());
 
 app.use("/api", listApi);
 

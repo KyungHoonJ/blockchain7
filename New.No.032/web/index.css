@@ -2,6 +2,8 @@ body,
 html {
   padding: 0;
   margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
 * {
@@ -10,16 +12,53 @@ html {
 
 #root {
   display: flex;
+  height: 100%;
 }
 
 #board {
   flex: 1;
+  height: 100%;
+  overflow: auto;
+  padding: 20px 50px;
+}
+
+#list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#list li {
+  padding: 0;
+  margin: 0;
+  border: 1px solid lightgray;
+  width: 100%;
+}
+
+#list li .title {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+}
+
+#list li .text {
+  width: 100%;
+  padding: 10px 30px 20px;
+  margin: 0;
 }
 
 #user-input-container {
-  width: 300px;
+  width: 50px;
   padding: 10px;
   background-color: lightgray;
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+#user-input-container.on {
+  width: 300px;
 }
 
 #menu-btn-box {
@@ -31,7 +70,13 @@ html {
 }
 
 #board-add {
-  width: 100%;
+  width: 280px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#user-input-container.on #board-add {
+  opacity: 1;
 }
 
 label {
