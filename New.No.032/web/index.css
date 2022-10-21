@@ -71,9 +71,11 @@ html {
   padding: 0px 30px;
   margin: 0;
   transition: padding 0.5s ease-in-out;
+  display: flex;
 }
 
 #list li .text p {
+  flex: 1;
   font-size: 0;
   transition: font-size 0.5s ease-in-out;
 }
@@ -84,6 +86,50 @@ html {
 
 #list li .text.on p {
   font-size: 1rem;
+}
+
+#list li .text textarea {
+  flex: 1;
+  display: none;
+  width: 100%;
+  height: 200px;
+  resize: none;
+  pointer-events: auto;
+}
+
+#list li .text.on.edit p {
+  display: none;
+}
+
+#list li .text.on.edit textarea {
+  display: block;
+}
+
+#list li .text .list-btn-box {
+  display: none;
+}
+
+#list li .text .list-btn-box img {
+  width: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+#list li .text.on .list-btn-box {
+  display: flex;
+}
+
+#list li .text.on .cancel {
+  display: none;
+}
+
+#list li .text.on.edit .delete {
+  display: none;
+}
+
+#list li .text.on.edit .cancel {
+  display: block;
 }
 
 #page {
