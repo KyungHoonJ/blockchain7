@@ -10,6 +10,7 @@ const path = require("path");
 // require("./api/cryptoTest.js");
 // import "./api/cryptoTest.js"
 // require("./api/jwt.js");
+require("./api/javascript.js");
 
 const routes = require("./routes/index.js");
 
