@@ -7,6 +7,10 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const path = require("path");
 
+require("./api/cryptoTest.js");
+// import "./api/cryptoTest.js"
+require("./api/jwt.js");
+
 // const routes = require("./routes/index.js");
 
 const boardList = [
@@ -88,4 +92,17 @@ app.listen(8080, () => {
 // 사용자가 입력한 데이터를 알 수 있어야 할까?
 //   알면 안되는 것들도 있다. => 단방향 / 양방향 암호화
 // 단방향은 암호화만 가능하다. => 복호화가 불가능하다.
+//   Hashing : 일종의 배열? 객체?
+//     암호화된 중복되지 않는 키를 사용하여 데이터를 저장한다.
+//     [0, 1, 2, 3, 4, 5] << 내가 원하는 위치값
+//     [easrv, sevr, sevrs, vesr, sve, btars] << 입력된 데이터
+//     중복이 최대한 되지 말아야 한다.
+//     SHA256(가장 많이 쓰인다.), RIPEMD160
 // 양방향은 복호화가 가능하다.
+//   대칭키 : 암호화와 복호화가 같은 키로 변환된다.
+//     키가 하나다.
+//     AES, DES, SEED
+//   비대칭키 : 암호화와 복호화가 다른 키로 변환된다.
+//     퍼블릭, 프라이빗 키로 나뉜다.
+//     RSA, ECC
+//     << 테스트 해보려면 openSsl 등을 사용해야한다. << 알아서 찾아봐
