@@ -73,7 +73,7 @@ console.log([10, 1].shift()); // 제일 앞에서 아이템을 제거한다. pop
 // [].findIndex() << 찾다 << 깊이 찾다. 객체 내의 데이터들을 확인하여 찾을 때 사용한다. 찾은 아이템의 index를 반환한다.
 // [].indexOf() << 찾다 << 얕게 찾다. 데이터 자체를 찾아 그 아이템의 index를 반환한다. 객체일 경우에 그 객체 자체로 찾아야한다.
 // [].forEach() << for문
-// [].map() << 배열의 아이템을 변화시키고 싶을 때 사용한다. 각 아이템에 대해서 매개변수 함수를 실행하고 그 반환 값을 배열로 합하여 반환한다.
+// [].map() << 배열의 아이템을 변화시키고 싶을 때 사용한다. 각 아이템에 대해서 매개변수 함수를 실행하고 그 반환 값을 배열에 넣어서 반환한다.
 // [].slice() << 자르기
 // [].splice() << 자르기(원본 훼손)
 // [].reduce() << 합하기(join 메서드는 단순하게 string이지만 reduce는 내맘대로 할 수 있다.(모든 학생의 과학 점수를 합할 수 있다. << 모든 학생이라는 말은 학생들의 배열 / 과학 점수라는 말은 각 학생이 여러 점수를 갖고있는데 그중에 과학 점수만을 뜻함(점수가 객체로 저장되어 있다.) / 합할 수 있다라는 말은 객체 내의 프로퍼티(키)를 사용하여 각 값을 더할 수 있다. ))
@@ -124,4 +124,71 @@ console.log([1, 2, 4, 3]);
 console.log(...[1, 2, 4, 3]); // 재혁 : 안됨 / 예나 : 됨 / 원겸 : 안됨 / 상목 : 됨 / 선주 : 됨
 console.log(1, 2, 4, 3);
 
+[1, 2, 3, 4].reduce((prev, curr) => prev + curr, 0);
+[1, 2, 3, 4].reduce((prev, curr) => {
+  return prev + curr;
+}, 0);
+
+[1, 2, 3, 4].reduce(function (prev, curr) {
+  return prev + curr;
+}, 0);
+
+// prev = 0, curr = 1, result = 1 => prev = 1, curr = 2, result = 3 => prev = 3, curr = 3, result = 6 => prev = 6, curr = 4, result = 10
+
+console.log(
+  [{ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 }].reduce((prev, curr) => {
+    const temptemp = prev.length ? prev[prev.length - 1] : { a: 0 };
+    prev.push({ a: temptemp.a + curr.a });
+    return prev;
+  }, [])
+);
+
 // Function
+// 함수 : 기능(코드)을 실행
+funcA(1); // 재혁 : 에러 출력 / 예나 : 호이스팅 안되서 에러 출력 / 원겸 : 1 출력 / 상목 : 1 출력 / 선주 : 1 출력 << 함수 선언문은 호이스팅이 가능하기 때문에 함수 호출을 정상적으로 진행한다 => 1 출력
+function funcA(b) {
+  console.log(b);
+}
+
+// funcB("asdf"); // 재혁 : 에러 출력 / 예나 : "asdf" 출력 / 원겸 : "asdf" 출력 / 상목 : 에러 출력 / 선주 : "asdf" 출력 << 호이스팅이 안되기 때문에 에러 발생
+
+// let funcB = function (a) {
+//   console.log(a);
+// }; // 표현식은 호이스팅이 안된다.
+
+// funcC("asdf"); // 재혁 : "asdf" 출력 / 예나 : 에러 출력 / 원겸 : "asdf" 출력 / 상목 : 에러 출력 / 선주 : 에러 출력
+
+// var funcC = function (a) {
+//   console.log(a);
+// };
+
+let funcD = (a) => {
+  console.log(a);
+}; // 화살표 함수
+
+let funcE = (a) => console.log(a);
+// funcE("sadfasdf");
+
+// let funcF = (a, b) => a + b;
+// let funcG = (a, b) => {
+//   a + b;
+// };
+
+// console.log(funcF(1, 2)); // 재혁 : 3 / 예나 : 3 / 원겸 : 3 / 상목 : 3 / 선주 : 3
+// console.log(funcG(1, 2)); // 재혁 : 3 / 예나 : undefined / 원겸 : 3 / 상목 : 3 / 선주 : 3
+
+[1, 2, 3, 4].reduce((prev, curr) => prev + curr, 0);
+
+let funcF = (a, b) => a + b;
+
+console.log([1, 2, 3, 4].reduce(funcF, 0)); // 재혁 : 10 / 예나 : 에러 출력 / 원겸 : 에러 출력 / 상목 : 되긴한다 / 선주 : 에러 출력 << 10
+
+// [].forEach()
+console.log([1, 2, 3, 4].forEach((item) => item)); // << undefined
+// [].map()
+console.log(
+  "map : ",
+  [1, 2, 3, 4].map((item) => !!(item % 2))
+); // 재혁 : [2, 4] / 예나 : [false, true, false, true] / 원겸 : [true, false, true, false] / 상목 : GG / 선주 : GG
+
+console.log([1, 2, 3, 4].filter((item) => item % 2));
