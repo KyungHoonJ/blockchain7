@@ -7,11 +7,11 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const path = require("path");
 
-require("./api/cryptoTest.js");
+// require("./api/cryptoTest.js");
 // import "./api/cryptoTest.js"
-require("./api/jwt.js");
+// require("./api/jwt.js");
 
-// const routes = require("./routes/index.js");
+const routes = require("./routes/index.js");
 
 const boardList = [
   { title: "arvserv1", text: "9baresrsearvstb" },
@@ -49,8 +49,6 @@ app.use(
   })
 );
 
-// app.use("/api", routes);
-
 app.post("/api/board/add", (req, res) => {
   boardList.unshift(req.body);
   res.send({ status: 200, data: "정상 입력 완료" });
@@ -79,6 +77,8 @@ app.get("/api/board", (req, res) => {
     // 조건 ? 참 : 거짓
   });
 });
+
+app.use("/api", routes);
 
 app.listen(8080, () => {
   console.log("http://localhost:8080");

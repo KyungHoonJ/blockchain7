@@ -161,6 +161,32 @@ html {
   overflow: hidden;
 }
 
+#user-info {
+  width: 280px;
+}
+
+.sign-input,
+.btn-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-box {
+  justify-content: space-evenly;
+}
+
+#user-info input {
+  padding: 5px;
+  margin: 0 5px;
+  width: 100%;
+}
+
+#user-info button {
+  padding: 5px 10px;
+  margin: 5px 15px 20px;
+}
+
 #user-input-container.on {
   width: 300px;
 }

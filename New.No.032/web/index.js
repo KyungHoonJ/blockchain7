@@ -168,6 +168,30 @@ async function getList() {
 }
 getList();
 
+document.getElementById("sign-in").onclick = async function (e) {
+  e.preventDefault();
+  const data = await axios.post("/api/user/login", {
+    id: document.forms["user-info"].id.value,
+    pw: document.forms["user-info"].pw.value,
+  });
+  console.log(data.data);
+  // if (data.data.name) {
+  //   document.getElementById("user-name").innerText =
+  //     data.data.name + "님 어서오세요";
+  // }
+};
+
+document.getElementById("sign-up").onclick = async function (e) {
+  e.preventDefault();
+  const data = await axios.post("/api/user/regist", {
+    id: document.forms["user-info"].id.value,
+    pw: document.forms["user-info"].pw.value,
+    // name: document.forms["user-info"].name.value,
+  });
+  console.log(data.data);
+  console.log(document.cookie);
+};
+
 // axios.post("/api/board/add").then((data) => {
 //   console.log(data);
 // });

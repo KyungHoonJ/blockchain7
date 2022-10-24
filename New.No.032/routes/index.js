@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const board = require("./board.js");
+// const board = require("./board.js");
 const user = require("./user.js");
 // /api
 
@@ -8,7 +8,7 @@ router.use("/", (req, res, next) => {
   next();
 });
 
-router.use("/board", board);
+// router.use("/board", board);
 router.use("/user", user);
 
 module.exports = router;
