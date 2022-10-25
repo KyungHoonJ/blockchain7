@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간만에 노드 없이</title>
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js"></script>
+    <!-- naver login API 주소 가져오기 -->
+    <script
+      src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"
+      integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL"
+      crossorigin="anonymous"
+    ></script>
+    <!-- 카카오 로그인 API 주소 가져오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="naverIdLogin"></div>
+    <button id="naverLogout">log out</button>
+    <p>
+      API : Application Programing Interface<br />
+      간단하게 생각하면 외부 서비스를 사용한다.<br />
+      - 비교 : 라이브러리는 외부에서 기능하는 코드를 가져와서 사용한다.<br />
+      우리 쪽에 저장된 데이터, 코드 등은 없지만 외부에서 데이터를 받아서
+      사용한다.<br />
+      대표적 API : Naver, Kakao, Google 등에서 지원하는 로그인, 지도, 파파고
+      등등, 유튜브의 영상 API 등
+    </p>
+    <script>
+      console.log(naver);
+      const naverLogin = new naver.LoginWithNaverId({
+        clientId: "whNUDqEQeDSfApb_Cqmy",
+        callbackUrl: "http://127.0.0.1:5501/New.No.033/index.html",
+        isPopup: false, // 팝업창으로 로그인 띄울 것인가?
+        loginButton: { color: "green", type: 1, height: 40 },
+      });
+      naverLogin.init();
+
+      naverLogin.getLoginStatus((status) => {
+        if (status) {
+          console.log(naverLogin);
+          console.log(naverLogin.user);
+        }
+      });
+
+      document.getElementById("naverLogout").onclick = () => {
+        // naverLogin.logout();
+        console.log(naverLogin);
+        Kakao.Auth.authorize({
+          redirectUri: "http://localhost:5501/New.No.033/index.html",
+          //   scope: "account_email,gender",
+          //   prompts: "none",
+        });
+      };
+      Kakao.init("97dbd62c53ab8a09e19aabb7af61c3f2");
+      console.log(Kakao.isInitialized());
+      // console.log(Kakao.Auth);
+      console.log(location.search.split("=")[1]);
+      if (location.search) {
+        axios
+          .post(
+            "https://kauth.kakao.com/oauth/token",
+            {
+              grant_type: "authorization_code",
+              client_id: "61d089c0adfde8f1c55bf722199e5950",
+              redirect_uri: "http://127.0.0.1:5501/New.No.033/index.html",
+              code: location.search.split("=")[1],
+            },
+            {
+              Headers: {
+                "content-type": "application/x-www-form-urlencoded",
+              },
+            }
+          )
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+      Kakao.API.request({
+        url: "/v2/user/me",
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

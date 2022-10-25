@@ -175,6 +175,16 @@ document.getElementById("sign-in").onclick = async function (e) {
     pw: document.forms["user-info"].pw.value,
   });
   console.log(data.data);
+
+  // const temp = Buffer.from(
+  //   document.cookie.split("=")[1].split(".")[1],
+  //   "base64"
+  // ).toString();
+  // console.log(temp);
+
+  console.log(
+    JSON.parse(window.atob(document.cookie.split("=")[1].split(".")[1]))
+  );
   // if (data.data.name) {
   //   document.getElementById("user-name").innerText =
   //     data.data.name + "님 어서오세요";
@@ -186,6 +196,7 @@ document.getElementById("sign-up").onclick = async function (e) {
   const data = await axios.post("/api/user/regist", {
     id: document.forms["user-info"].id.value,
     pw: document.forms["user-info"].pw.value,
+    name: document.forms["user-info"].name.value,
     // name: document.forms["user-info"].name.value,
   });
   console.log(data.data);
