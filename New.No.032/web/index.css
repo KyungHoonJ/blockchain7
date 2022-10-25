@@ -168,12 +168,17 @@ html {
 .sign-input,
 .btn-box {
   width: 100%;
-  display: flex;
   justify-content: space-between;
+  display: none;
 }
 
 .btn-box {
   justify-content: space-evenly;
+}
+
+.sign-input.on,
+.btn-box.on {
+  display: flex;
 }
 
 #user-info input {

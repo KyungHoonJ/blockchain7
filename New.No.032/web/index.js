@@ -174,22 +174,45 @@ document.getElementById("sign-in").onclick = async function (e) {
     id: document.forms["user-info"].id.value,
     pw: document.forms["user-info"].pw.value,
   });
-  console.log(data.data);
+  document.forms["user-info"].id.value =
+    document.forms["user-info"].pw.value =
+    document.forms["user-info"].name.value =
+      "";
 
-  // const temp = Buffer.from(
-  //   document.cookie.split("=")[1].split(".")[1],
-  //   "base64"
-  // ).toString();
-  // console.log(temp);
+  // const temp = parseJwt(document.cookie.split("=")[1]);
+  // console.log(temp.name);
 
-  console.log(
-    JSON.parse(window.atob(document.cookie.split("=")[1].split(".")[1]))
-  );
-  // if (data.data.name) {
-  //   document.getElementById("user-name").innerText =
-  //     data.data.name + "님 어서오세요";
-  // }
+  const tempName = JSON.parse(
+    window.atob(document.cookie.split("=")[1].split(".")[1])
+  ).name;
+
+  console.log(tempName);
+
+  if (tempName) {
+    document.getElementById("user-name").innerText = tempName + "님 어서오세요";
+    [...document.getElementsByClassName("btn-box")].forEach((elem) => {
+      elem.classList.toggle("on");
+    });
+    [...document.getElementsByClassName("sign-input")].forEach((elem) => {
+      elem.classList.toggle("on");
+    });
+  }
 };
+
+// function parseJwt(token) {
+//   var base64Url = token.split(".")[1];
+//   var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+//   var jsonPayload = decodeURIComponent(
+//     window.atob(base64)
+//       .split("")
+//       .map(function (c) {
+//         return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+//       })
+//       .join("")
+//   );
+
+//   return JSON.parse(jsonPayload);
+// }
 
 document.getElementById("sign-up").onclick = async function (e) {
   e.preventDefault();
@@ -197,10 +220,22 @@ document.getElementById("sign-up").onclick = async function (e) {
     id: document.forms["user-info"].id.value,
     pw: document.forms["user-info"].pw.value,
     name: document.forms["user-info"].name.value,
-    // name: document.forms["user-info"].name.value,
   });
-  console.log(data.data);
-  console.log(document.cookie);
+  document.forms["user-info"].id.value =
+    document.forms["user-info"].pw.value =
+    document.forms["user-info"].name.value =
+      "";
+};
+
+document.getElementById("sign-out").onclick = async function (e) {
+  e.preventDefault();
+  document.getElementById("user-name").innerText = "";
+  [...document.getElementsByClassName("btn-box")].forEach((elem) => {
+    elem.classList.toggle("on");
+  });
+  [...document.getElementsByClassName("sign-input")].forEach((elem) => {
+    elem.classList.toggle("on");
+  });
 };
 
 // axios.post("/api/board/add").then((data) => {
