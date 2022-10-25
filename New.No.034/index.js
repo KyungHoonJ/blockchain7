@@ -63,16 +63,29 @@ app.get("/testing1", (req, res) => {
 // 브라우저는 개떡같이 보내도 찰떡같이 만들어준다.
 
 app.get("/search", async (req, res) => {
-  const data = await axios.get("http://localhost:8080");
-  res.send(data.data);
+  // text/html
+  const data = (await axios.get("https://www.youtube.com/")).data;
+  res.send(data);
 });
 
 app.get("/search/query", async (req, res) => {
-  const data = await axios.post("http://localhost:8080", req.query);
+  // /search/query  ?  saksar=vesrvsaer << req.query = {saksar: 'vesrvsaer'}
+  const tempData = req.query;
+  const data = await axios.post("http://localhost:8080", tempData);
+  //   const data = await axios.post("/", tempData);
+
+  //  const data = await axios.post("/?data=name&age=10", {
+  //     id: "slak;udbfklusadbf",
+  //   });
+
   console.log(req.query);
   console.log(typeof req.query);
   res.send(data.data);
 });
+
+// app.get("/watch", (req, res) => {
+//   res.send("해킹하지마");
+// });
 
 app.listen(8080, () => {
   console.log("http://localhost:8080");

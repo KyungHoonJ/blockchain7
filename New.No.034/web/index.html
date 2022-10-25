@@ -13,22 +13,25 @@
         const fullUrldata = await axios.get("http://localhost:8080");
         console.log(data.data);
         console.log(fullUrldata.data);
+        console.log(typeof data.data);
+        console.log(typeof fullUrldata.data);
       }
 
       async function postRoot() {
         // {data:"name", age:10}
-        const data = await axios.post("/?data=name&age=10", {
+        const tempData = {
           id: "slak;udbfklusadbf",
-        });
+        };
+        const data = await axios.post("/?data=name&age=10", tempData);
         const fullUrldata = await axios.post(
           "http://localhost:8080?data=name&age=10",
-          {
-            id: "slak;udbfklusadbf",
-          }
+          tempData
         );
         console.log(data.data);
         console.log(fullUrldata.data);
       }
+
+      axios.get("/search/query?saksar=vesrvsaer");
     </script>
     <button onclick="getRoot()">getRoot</button>
     <button onclick="postRoot()">postRoot</button>
