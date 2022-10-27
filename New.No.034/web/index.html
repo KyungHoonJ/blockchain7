@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>태초마을</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <script>
@@ -33,7 +46,26 @@
 
       axios.get("/search/query?saksar=vesrvsaer");
     </script>
-    <button onclick="getRoot()">getRoot</button>
-    <button onclick="postRoot()">postRoot</button>
+    <button type="button" class="btn btn-primary" onclick="getRoot()">
+      getRoot
+    </button>
+    <button class="btn btn-danger" onclick="postRoot()">postRoot</button>
+    <div class="card" style="width: 18rem">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">죽은 자의 소생</h5>
+        <p class="card-text">
+          ①: 자신 또는 상대 묘지의 몬스터 1장을 대상으로 하고 발동할 수 있다. 그
+          몬스터를 자신 필드에 특수 소환한다.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">Left</button>
+      <button type="button" class="btn btn-danger">Middle</button>
+      <button type="button" class="btn btn-primary">Right</button>
+    </div>
+    <div class="btn btn-primary">test</div>
   </body>
 </html>
