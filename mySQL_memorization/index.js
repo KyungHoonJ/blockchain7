@@ -1,3 +1,5 @@
+// cmd : npx sequelize init
+
 const dotenv = require("dotenv");
 
 const db = require("./models/index.js");
