@@ -5,6 +5,7 @@ const router = require("express").Router();
 const { User, Board } = require("../models/index.js");
 
 router.use("/", (req, res, next) => {
+  // 미들웨어
   global.userId = "";
   try {
     const tempUserInfo = jwt.verify(req.cookies.sid, process.env.JWT_KEY);
@@ -25,6 +26,7 @@ router.use("/", (req, res, next) => {
       )
     );
     next();
+    // 완료되면 다음거 돌리기
   } catch (error) {
     res.send(error);
   }
@@ -35,12 +37,13 @@ router.get("/", async (req, res) => {
     // attributes << 찾아봐
     order: [["id", "DESC"]], // 정렬
     limit: 5, // 최대 개수
-    offset: 3, // 시작 위치
+    // offset: 3, // 시작 위치
   });
   res.send({ list: tempBoard });
 });
 
 router.post("/add", async (req, res) => {
+  // findOne = 하나찾기
   const tempUser = await User.findOne({
     where: {
       id: global.userId,
@@ -52,12 +55,16 @@ router.post("/add", async (req, res) => {
 });
 
 router.put("/update", async (req, res) => {
+  // UPDATE TableName SET text=${req.body.text} WHERE id=${req.body.id}
   await Board.update(
+    // 업데이트
     {
+      // 어떤 컬럼에 어떤 값으로
       text: req.body.text,
     },
     {
       where: {
+        // 위치 찾기
         id: req.body.id,
       },
     }
@@ -66,11 +73,20 @@ router.put("/update", async (req, res) => {
 });
 
 router.delete("/delete", async (req, res) => {
-  await Board.destroy({
+  const tempBoard = await Board.findOne({
     where: {
       id: req.query.id,
     },
   });
+
+  if (tempBoard.user_id === global.userId) {
+    // DELETE TableName WHERE id=${req.body.id}
+    await Board.destroy({
+      where: {
+        id: req.query.id,
+      },
+    });
+  }
   res.end();
 });
 
