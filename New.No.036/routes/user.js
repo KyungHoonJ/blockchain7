@@ -41,6 +41,7 @@ router.post("/login", async (req, res) => {
         "sid",
         jwt.sign(
           {
+            id: tempUser.id,
             name: tempUser.name,
           },
           process.env.JWT_KEY,

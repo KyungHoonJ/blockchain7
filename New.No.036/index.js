@@ -35,7 +35,7 @@ app.use(
 );
 
 sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     console.log("db connected");
   })

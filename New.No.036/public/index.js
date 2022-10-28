@@ -48,7 +48,8 @@ async function getList() {
   try {
     const result = (await axios.get("/api/board")).data;
     boardList.innerHTML = "";
-    result.forEach((item) => {
+    result?.list?.forEach((item) => {
+      console.log(item);
       const boardItem = document.createElement("div");
       const boardTitle = document.createElement("div");
       const boardText = document.createElement("div");
@@ -63,6 +64,32 @@ async function getList() {
       const commentBtnBox = document.createElement("div");
       const commentDelete = document.createElement("button");
       const commentUpdate = document.createElement("button");
+
+      boardTitle.innerText = item.title;
+      boardText.innerText = item.text;
+
+      boardDelete.innerText = "Delete";
+      boardDelete.onclick = async function () {
+        try {
+          await axios.delete("/api/board/delete?id=" + item.id);
+          getList();
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      boardUpdate.innerText = "Update";
+      boardUpdate.onclick = async function () {
+        try {
+          await axios.put("/api/board/update", {
+            id: item.id,
+            text: item.text + "update/",
+          });
+          getList();
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
       boardItem.append(boardTitle);
       boardItem.append(boardText);
@@ -94,7 +121,7 @@ document.forms["board-add"].onsubmit = async function (e) {
       title: e.target["board-title"].value,
       text: e.target["board-text"].value,
     });
-    console.log(result.data);
+    getList();
   } catch (error) {
     console.error(error.response.data.message);
   }
