@@ -64,6 +64,9 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/logout", async (req, res) => {});
+router.get("/logout", (req, res) => {
+  res.clearCookie("sid");
+  res.end();
+});
 
 module.exports = router;
