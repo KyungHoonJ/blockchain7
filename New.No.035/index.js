@@ -68,6 +68,7 @@ db.sequelize
 // });
 
 // SELECT
+// SELECT * FROM testing.new_table1 ;
 // [].find
 // db.NewTable1.findOne({
 //   where: {

@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    UI는 알아서 하자
+    <div id="user">
+      <form id="sign-up">
+        <input id="user-id" type="text" placeholder="ID" />
+        <input id="user-pw" type="password" placeholder="Password" />
+        <input id="user-name" type="text" placeholder="Name" />
+        <input id="user-class" type="text" placeholder="Class" />
+        <button id="sign-up-btn">Sign Up</button>
+      </form>
+      <form id="sign-in">
+        <input id="user-id" type="text" placeholder="ID" />
+        <input id="user-pw" type="password" placeholder="Password" />
+        <button id="sign-in-btn">Sign In</button>
+      </form>
+      <button id="sign-out-btn">Sign Out</button>
+    </div>
+    <div id="board">
+      <div id="board-list">
+        <div class="board-item">
+          <div class="board-title"></div>
+          <div class="board-text"></div>
+          <div class="board-btn-box">
+            <button class="board-delete">board-delete</button>
+            <button class="board-update">board-update</button>
+          </div>
+          <form id="comment-add">
+            <input id="comment-text" type="text" placeholder="Text" />
+          </form>
+          <div class="comment-list">
+            <div class="comment-text"></div>
+            <div class="comment-btn-box">
+              <button class="comment-delete">comment-delete</button>
+              <button class="comment-update">comment-update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form id="board-add">
+        <input id="board-title" type="text" placeholder="Title" />
+        <input id="board-text" type="text" placeholder="Text" />
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
