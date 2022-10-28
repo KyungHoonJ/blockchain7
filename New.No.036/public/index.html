@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>게시판</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -34,6 +35,7 @@
           </div>
           <form id="comment-add">
             <input id="comment-text" type="text" placeholder="Text" />
+            <button id="comment-add-btn">comment-add</button>
           </form>
           <div class="comment-list">
             <div class="comment-text"></div>
@@ -47,6 +49,7 @@
       <form id="board-add">
         <input id="board-title" type="text" placeholder="Title" />
         <input id="board-text" type="text" placeholder="Text" />
+        <button id="board-add-btn">board-add</button>
       </form>
     </div>
     <script src="index.js"></script>

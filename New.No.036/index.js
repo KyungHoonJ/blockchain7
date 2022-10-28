@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 
 const { sequelize } = require("./models/index.js");
+const routes = require("./routes/index.js");
 
 dotenv.config();
 
@@ -41,6 +42,8 @@ sequelize
   .catch((err) => {
     console.error(err);
   });
+
+app.use("/api", routes);
 
 app.listen(app.get("port"), () => {
   console.log("Express Server Open");
