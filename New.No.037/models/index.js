@@ -8,12 +8,16 @@
 // View : 보이는 거, Controller : 조작, 통제하는 거, Model : 저장하는 거
 
 const Sequelize = require("sequelize");
+// sequelize : DB에 연결한다. => 무슨 DB든 다 가능하다. mySQL와 함께 사용하는 경우를 계속 하고있다.
+//   MongoDB << noSQL(관계 시스템이 없다.)
+// mysql2 : DB에 연결한다. => mySQL에 접근
 
 const Table1 = require("./table1.js");
+const Table2 = require("./table2.js");
 
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
-const db = { Table1 };
+const db = { Table1, Table2 };
 
 let sequelize = new Sequelize(
   config.database,
@@ -23,6 +27,7 @@ let sequelize = new Sequelize(
 );
 
 Table1.init(sequelize);
+Table2.init(sequelize);
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {

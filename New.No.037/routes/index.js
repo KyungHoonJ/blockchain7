@@ -14,10 +14,10 @@ const router = require("express").Router();
 // });
 
 const table1 = require("./table1.js");
-// const table2 = require("./table2.js");
+const table2 = require("./table2.js");
 
 router.use("/table1", table1);
-// router.use("/table2", table2);
+router.use("/table2", table2);
 
 module.exports = router;
 // express 서버의 root에 연결하기 위해서 생성한 라우터를 외부로 보낸다?

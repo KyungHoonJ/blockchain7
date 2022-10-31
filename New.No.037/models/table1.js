@@ -43,5 +43,14 @@ module.exports = class Table1 extends Sequelize.Model {
 
   static associate(db) {
     // 관계를 위한 메서드
+    db.Table1.hasMany(db.Table2, {
+      // Table2를 많이 갖고있다.
+      foreignKey: "table1_column2",
+      // 연결하는 키
+      sourceKey: "column2",
+      // 상대가 저장할 키(컬럼)
+      as: "Table2s",
+      // 상대를 찾거나 추가하거나 등등에서 사용
+    });
   }
 };

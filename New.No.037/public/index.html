@@ -18,6 +18,7 @@
       async function testPost(item) {
         const data = (await axios.post("/hi/table1", { column1: item })).data;
         console.log(data);
+        await testGet("");
       }
       // testPost(1);
       // testPost(2);
@@ -26,7 +27,7 @@
 
       async function testPut() {
         const data = (
-          await axios.put("/hi/table1?name=경훈", { className: "block7" })
+          await axios.put("/hi/table1", { column1: 13, column2: 3 })
         ).data;
         console.log(data);
       }
@@ -41,12 +42,36 @@
       // testPatch();
 
       async function testDelete() {
-        const data = (
-          await axios.delete("/hi/table1?name=경훈", { className: "block7" })
-        ).data;
+        const data = (await axios.delete("/hi/table1?column1=4")).data;
         console.log(data);
       }
       // testDelete();
+
+      async function testGet2(query) {
+        const data = (await axios.get("/hi/table2?" + query)).data;
+        console.log(data);
+      }
+      testGet2("");
+      // testGet2("id=2");
+
+      async function testPost2(item, bool) {
+        const data = (
+          await axios.post("/hi/table2", { column3: item, column4: bool })
+        ).data;
+        console.log(data);
+      }
+      // testPost2(1, true);
+      // testPost2(2, false);
+      // testPost2(3, false);
+      // testPost2(4, true);
+
+      async function associate() {
+        const data =
+          // await axios.patch("/hi/table2/associate", { column2: 1, id: 2 })
+          (await axios.patch("/hi/table2/associate", { id1: 1, id2: 2 })).data;
+        console.log(data);
+      }
+      // associate();
     </script>
   </body>
 </html>
