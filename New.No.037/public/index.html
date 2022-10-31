@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mySQL</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      async function testGet(query) {
+        const data = (await axios.get("/hi/table1?" + query)).data;
+        console.log(data);
+      }
+      testGet("");
+      testGet("column2=2");
+
+      async function testPost(item) {
+        const data = (await axios.post("/hi/table1", { column1: item })).data;
+        console.log(data);
+      }
+      // testPost(1);
+      // testPost(2);
+      // testPost(3);
+      // testPost(4);
+
+      async function testPut() {
+        const data = (
+          await axios.put("/hi/table1?name=경훈", { className: "block7" })
+        ).data;
+        console.log(data);
+      }
+      // testPut();
+
+      async function testPatch() {
+        const data = (
+          await axios.patch("/hi/table1?name=경훈", { className: "block7" })
+        ).data;
+        console.log(data);
+      }
+      // testPatch();
+
+      async function testDelete() {
+        const data = (
+          await axios.delete("/hi/table1?name=경훈", { className: "block7" })
+        ).data;
+        console.log(data);
+      }
+      // testDelete();
+    </script>
+  </body>
+</html>
