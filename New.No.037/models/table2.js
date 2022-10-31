@@ -39,12 +39,16 @@ module.exports = class Table2 extends Sequelize.Model {
     db.Table2.belongsToMany(db.Table2, {
       through: "link_table2", // 새로운 테이블의 이름
       as: "ToTable2s",
-      foreignKey: "table2_id",
+      foreignKey: "table2_to_id", // 저장되는 컬럼명
     });
     db.Table2.belongsToMany(db.Table2, {
       through: "link_table2",
       as: "FromTable2s",
-      foreignKey: "table2_id",
+      foreignKey: "table2_from_id",
+    });
+
+    db.Table2.belongsToMany(db.Table1, {
+      through: "link_tables",
     });
   }
 };

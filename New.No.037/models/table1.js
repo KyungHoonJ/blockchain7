@@ -52,5 +52,9 @@ module.exports = class Table1 extends Sequelize.Model {
       as: "Table2s",
       // 상대를 찾거나 추가하거나 등등에서 사용
     });
+
+    db.Table1.belongsToMany(db.Table2, {
+      through: "link_tables",
+    });
   }
 };
