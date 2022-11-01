@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ws socket</title>
+  </head>
+  <body>
+    <button id="send-msg">보내기</button>
+    <button id="send-end">끊기</button>
+    <script>
+      const sendBtn = document.getElementById("send-msg");
+      const endBtn = document.getElementById("send-end");
+
+      function socket() {
+        const webSocket = new WebSocket("ws://localhost:8080");
+
+        webSocket.onopen = () => {
+          console.log("socket link");
+        };
+
+        webSocket.onmessage = (data) => {
+          // 소켓 서버에서 보낸 데이터를 받는 이벤트 함수다.
+          console.log(data);
+        };
+
+        sendBtn.onclick = () => {
+          webSocket.send("testing");
+          // 소켓 서버에 데이터를 보내는 메서드
+        };
+
+        endBtn.onclick = () => {
+          webSocket.close();
+          console.log("end");
+        };
+      }
+      socket();
+    </script>
+  </body>
+</html>

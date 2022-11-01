@@ -1,0 +1,62 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket IO</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <input type="text" id="text" />
+    <button id="send-msg">보내기</button>
+    <button id="send-end">끊기</button>
+    <script>
+      const sendBtn = document.getElementById("send-msg");
+      const endBtn = document.getElementById("send-end");
+      const inputElem = document.getElementById("text");
+
+      function socket() {
+        // const webSocket = new WebSocket("ws://localhost:8080");
+        const socket = io();
+
+        // 4번, 소켓 서버에서 message라는 이름으로 보낸 데이터를 받아 처리한다.
+        socket.on("message1", (data) => {
+          console.log(data);
+        });
+
+        // 1번, 클릭했다. 그럼 소켓 서버에 message라는 이름으로 보낸다
+        sendBtn.onclick = () => {
+          socket.emit("hi", { text: inputElem.value });
+        };
+
+        socket.on("disconnect1", (data) => {
+          console.log(data);
+        });
+
+        endBtn.onclick = () => {
+          socket.disconnect();
+        };
+
+        // endBtn.onclick = () => {
+        //   webSocket.close();
+        //   console.log("end");
+        // };
+
+        // webSocket.onopen = () => {
+        //   console.log("socket link");
+        // };
+
+        // webSocket.onmessage = (data) => {
+        //   // 소켓 서버에서 보낸 데이터를 받는 이벤트 함수다.
+        //   console.log(data);
+        // };
+
+        // sendBtn.onclick = () => {
+        //   webSocket.send("testing");
+        //   // 소켓 서버에 데이터를 보내는 메서드
+        // };
+      }
+      socket();
+    </script>
+  </body>
+</html>
