@@ -19,6 +19,7 @@
     </style>
   </head>
   <body>
+    <button id="test">test</button>
     <div class="user-box">
       <div class="login-box on">
         <input type="text" id="name" />
@@ -111,8 +112,22 @@
           }
           chatElem.append(tempElem);
         });
+
+        document.getElementById("test").onclick = () => {
+          socket.emit("test", { text: "test 테스트중" });
+        };
       }
       socketFunc();
+
+      function testFunc() {
+        const socket = io("http://127.0.0.1:8080/test");
+        // 네임스페이스를 추가했다.
+
+        // document.getElementById("test").onclick = () => {
+        //   socket.emit("test", { text: "test 테스트중" });
+        // };
+      }
+      testFunc();
     </script>
   </body>
 </html>
