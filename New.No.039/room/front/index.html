@@ -26,6 +26,8 @@
       </div>
       <div class="logout-box">
         <p><span id="user-info"></span>님 어서오세요.</p>
+        <input type="text" id="room" />
+        <button id="room-btn">방 생성 / 입장</button>
         <button id="logout-btn">Log Out</button>
       </div>
     </div>
@@ -41,6 +43,8 @@
       const logInElem = document.getElementById("login-btn");
       const userInfoElem = document.getElementById("user-info");
       const logOutElem = document.getElementById("logout-btn");
+      const roomElem = document.getElementById("room");
+      const roomBtnElem = document.getElementById("room-btn");
       const textElem = document.getElementById("text");
       const textBtnElem = document.getElementById("text-btn");
       const chatElem = document.getElementById("chat");
@@ -94,12 +98,18 @@
           chatElem.append(tempElem);
         });
 
-        socket.on("list", (data) => {
-          data.list.forEach((item) => {
-            const tempElem = document.createElement("li");
-            tempElem.innerText = item.userId + " : " + item.text;
-            chatElem.append(tempElem);
-          });
+        roomBtnElem.onclick = () => {
+          socket.emit("room", { room: roomElem.value });
+        };
+
+        socket.on("roomInfo", (data) => {
+          const tempElem = document.createElement("li");
+          if (data.room) {
+            tempElem.innerText = data.room + "에 입장했습니다.";
+          } else {
+            tempElem.innerText = "방에서 퇴장했습니다.";
+          }
+          chatElem.append(tempElem);
         });
       }
       socketFunc();
