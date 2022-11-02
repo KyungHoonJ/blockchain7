@@ -44,7 +44,7 @@ module.exports = (server) => {
       } else if (!ws.room) {
         ws.emit("chat", { text: "혼자 떠들래? 방에 들어가라~" });
       } else {
-        io.emit("chat", { id: ws.userId, text: data.text });
+        io.to(ws.room).emit("chat", { id: ws.userId, text: data.text });
       }
     });
 
