@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+      .login-box,
+      .logout-box {
+        display: none;
+      }
+      div .on {
+        display: block;
+      }
+      .alert {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="user-box">
+      <div class="login-box on">
+        <input type="text" id="name" />
+        <button id="login-btn">Log In</button>
+      </div>
+      <div class="logout-box">
+        <p><span id="user-info"></span>님 어서오세요.</p>
+        <button id="logout-btn">Log Out</button>
+      </div>
+    </div>
+    <div>
+      <input type="text" id="text" />
+      <button id="text-btn">메세지</button>
+    </div>
+    <ul id="chat"></ul>
+    <script>
+      const logInBoxElem = document.getElementsByClassName("login-box")[0];
+      const logOutBoxElem = document.getElementsByClassName("logout-box")[0];
+      const nameElem = document.getElementById("name");
+      const logInElem = document.getElementById("login-btn");
+      const userInfoElem = document.getElementById("user-info");
+      const logOutElem = document.getElementById("logout-btn");
+      const textElem = document.getElementById("text");
+      const textBtnElem = document.getElementById("text-btn");
+      const chatElem = document.getElementById("chat");
+    </script>
+  </body>
+</html>
