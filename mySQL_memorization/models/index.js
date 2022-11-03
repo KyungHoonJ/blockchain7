@@ -19,6 +19,6 @@ db.Sequelize = Sequelize;
 
 Table.init(sequelize);
 
-Table.associate(sequelize);
+Table.associate(db);
 
 module.exports = db;
