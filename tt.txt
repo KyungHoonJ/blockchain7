@@ -3,3 +3,17 @@
 fasersasdf111
 
 sadfawserasd1111
+
+git checkout -b test1 // test1 브랜치를 만들고 이동한다.
+
+1. git checkout test1 => 합칠 브랜치로 이동한다(test1 브랜치)
+
+2. git rebase master => 현재 브랜치에 master 브랜치 마지막 내용을 기준으로 내용을 업데이트한다.
+
+3. git checkout master => 합쳐질(기준) 브랜치로 이동한다.
+
+4. git merge test1 => test1 브랜치의 내용을 master에 업데이트한다.
+
+5. git push origin master => master 브랜치의 변경된 사항을 원격 저장소에 올린다.
+
+브랜치 삭제 : git branch -d 이름
