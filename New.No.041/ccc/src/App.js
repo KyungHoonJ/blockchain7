@@ -52,9 +52,9 @@ class App extends React.Component {
 
   selNum(num) {
     if (this.state.firstNum == undefined) {
-      this.setState({ ...this.state, firstNum: num });
+      this.setState({ firstNum: num });
     } else if (this.state.secondNum == undefined) {
-      this.setState({ ...this.state, secondNum: num });
+      this.setState({ secondNum: num });
     }
   }
 

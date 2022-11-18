@@ -8,18 +8,6 @@
   justify-content: space-between;
 }
 
-.num-pad {
-  width: 100px;
-  height: 100px;
-  font-size: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 10px;
-}
-
 .App {
   text-align: center;
 }
