@@ -7,6 +7,13 @@
 import { useState, useEffect } from "react";
 
 export default function FuncComp({ text, func }) {
+  // 함수형 컴포넌트에서 클래스형 컴포넌트의 기능들을 사용하기 위해 사용하는 것을 Hook이라고 한다.
+  // Hook은 use로 시작한다.
+  // useState, useEffect, useCallback, useMemo, useRef, useContext, useReducer 등등이 있다.
+  // Hook은 사용자가 구현할 수도 있다.(커스텀훅)
+  //   - Custom Hook과 Component의 차이 => HTML 문법으로 return하는가? 안하는가?
+  // useState와 useEffect는 뺄 수 없는 Hook이다. 단, 나머지는 사용하지 않아도 크게 상관은 없다.
+
   const [test, setTest] = useState("state test"); // state 선언 및 정의(초기화)
   // state : 상태값, React에서의 리랜더링(다시 그리기)의 기준이 된다.
   // state가 변경(재정의)되면 컴포넌트를 다시 불러온다.

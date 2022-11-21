@@ -1,4 +1,5 @@
 import "./App.css";
+import Additional from "./components/Additional";
 import ClassComp from "./components/ClassComp";
 import FuncComp from "./components/FuncComp";
 
@@ -17,6 +18,7 @@ function App() {
           console.log("testing FuncComp");
         }}
       />
+      <Additional />
     </div>
   );
 }
