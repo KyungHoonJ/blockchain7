@@ -12,6 +12,7 @@ export default function FuncComp({ text, func }) {
   // state가 변경(재정의)되면 컴포넌트를 다시 불러온다.
   // 단, 다시 불러올 때 Hook으로 된 변수, 함수들은 다시 부르지 않는다.(useState 등등)
   // useState는 함수형 컴포넌트의 투톱 중 하나다.
+  const [study1] = useState("study1");
   func();
 
   useEffect(() => {
@@ -23,13 +24,35 @@ export default function FuncComp({ text, func }) {
   // 즉, 마운트 됐을 때만 실행한다.
   // useEffect는 함수형 컴포넌트의 투톱 중 하나다.
 
+  useEffect(() => {
+    console.log("state change");
+    // state 값이 변화했을 때 실행되는 메서드
+  });
+
+  useEffect(() => {
+    console.log("test change");
+    // state 중 test 값이 변화했을 때 실행되는 메서드
+  }, [test]);
+
+  useEffect(() => {
+    console.log("study1 change");
+    // state 중 study1 값이 변화했을 때 실행되는 메서드
+  }, [study1]);
+  // 두번째 매개변수 배열의 아이템으로 프로그래머가 감지하고 싶은 state(상태값)를 넣는다.
+  // study1이 변경(재정의) 됐을 때만 실행된다.
+
+  useEffect(() => {
+    console.log("test || study1 change");
+    // state 중 test 또는 study1 값이 변화했을 때 실행되는 메서드
+  }, [test, study1]);
+
   return (
     <div
       onClick={function () {
         setTest(test + "1"); // state 재정의
       }}
     >
-      FuncComp {text} {test}
+      FuncComp {text} {test} {study1}
     </div>
   );
 }

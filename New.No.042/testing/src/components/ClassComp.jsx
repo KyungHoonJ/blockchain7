@@ -14,6 +14,11 @@ export default class ClassComp extends React.Component {
     // 컴포넌트가 Virtual DOM에 추가될 때(생성될 때 / 마운트될 때) 실행되는 메서드
   }
 
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+    // state 값이 변화했을 때 실행되는 메서드
+  }
+
   render() {
     return (
       <div
