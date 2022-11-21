@@ -19,6 +19,11 @@ export default class ClassComp extends React.Component {
     // state 값이 변화했을 때 실행되는 메서드
   }
 
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
+    // 컴포넌트가 DOM에서 삭제될 때 실행되는 메서드
+  }
+
   render() {
     return (
       <div

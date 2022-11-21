@@ -18,6 +18,11 @@ export default function FuncComp({ text, func }) {
   useEffect(() => {
     // useEffect는 랜더링 후에 실행되는 콜백함수이다.
     console.log("useEffect");
+    // 아래가 componentWillUnmount와 같다.
+    return () => {
+      console.log("componentWillUnmount");
+    };
+    // 빈배열의 useEffect에서 함수를 return 하면 componentWillUnmount와 같은 작동을 한다.
   }, []);
   // useEffect의 두번째 매개변수는 state 값의 배열을 넣는다.
   // 빈배열의 경우 componentDidMount와 같은 역활을 한다.
