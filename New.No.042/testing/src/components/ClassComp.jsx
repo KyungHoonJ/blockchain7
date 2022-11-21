@@ -7,6 +7,6 @@ export default class ClassComp extends React.Component {
   }
 
   render() {
-    return <div>ClassComp</div>;
+    return <div>ClassComp {this.props.text}</div>;
   }
 }
