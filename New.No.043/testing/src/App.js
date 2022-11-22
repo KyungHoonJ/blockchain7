@@ -32,6 +32,8 @@ function App() {
     console.log(num);
   }
 
+  // https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
   return (
     <div className="App">
       {/* {}는 값을 가져야만 출력할 수 있다.
