@@ -112,9 +112,11 @@ class App1 extends React.Component {
     console.log("constructor");
     console.log(this);
     console.log(this.num);
-    this.num = 0;
-    this.state = { name: "상태값" };
+    // this.num = 0;
+    this.state = { name: "상태값", num: 0, classNames: ["app3"] };
   }
+
+  divRef = React.createRef(); // useRef
 
   componentDidMount() {
     console.log("componentDidMount");
@@ -134,14 +136,15 @@ class App1 extends React.Component {
 
   increaseFunc() {
     console.log(this);
-    console.log(this.num);
+    console.log(this.state.num);
     // 여기서의 this는 increaseFunc 메서드이다.
     // 호출하는 곳에서 bind 메서드로 this를 App1로 전달해야한다.
   }
 
   increase = () => {
-    this.num = this.num + 1;
-    console.log(this.num);
+    // this.state.num = this.state.num + 1;
+    this.setState({ num: this.state.num + 1 });
+    console.log(this.state.num);
     // 여기서의 this는 App1이 된다.
     // 호출하는 곳에서 bind 메서드를 적지 않아도 된다.
   };
@@ -151,6 +154,15 @@ class App1 extends React.Component {
     // '상태값' + '1' => '상태값1'
     this.setState({ name: this.state.name + "1" });
     console.log(this.state.name);
+    console.log(this.divRef.current);
+  };
+
+  changeClass = () => {
+    if (this.state.classNames.indexOf("app4") === -1) {
+      this.setState({ classNames: [...this.state.classNames, "app4"] });
+    } else {
+      this.setState({ classNames: [...this.state.classNames.slice(0, 1)] });
+    }
   };
 
   render() {
@@ -158,9 +170,21 @@ class App1 extends React.Component {
     console.log(this);
     return (
       <>
-        <div onClick={this.increaseFunc.bind(this)}>{this.num}</div>
-        <div onClick={this.increase}>{this.num}</div>
-        <div onClick={this.changeName}>{this.state.name}</div>
+        <div onClick={this.increaseFunc.bind(this)}>{this.state.num}</div>
+        <div onClick={this.increase}>{this.state.num}</div>
+        <div
+          className={this.state.name}
+          ref={this.divRef}
+          onClick={this.changeName}
+        >
+          {this.state.name}
+        </div>
+        <div
+          className={this.state.classNames.join(" ")}
+          onClick={this.changeClass}
+        >
+          클래스 이름 설정 테스트중
+        </div>
       </>
     );
   }
