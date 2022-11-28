@@ -1,0 +1,3 @@
+string으로 된 array state를 store에 만들어서 입력 삭제 해보기
+- input으로 입력 받아 array state에 추가
+- 삭제 방법은 알아서(예시 : pop / shift / slice 등등)
