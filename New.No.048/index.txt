@@ -1,0 +1,2 @@
+어제 했던 redux-test1 프로젝트 복사
+redux-test2 생성, redux, react-redux 설치, redux-devtools-extension 개발모드로 설치
