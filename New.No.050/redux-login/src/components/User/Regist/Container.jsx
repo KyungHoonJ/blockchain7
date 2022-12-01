@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import store from "../../../modules/store";
 import RegistComponent from "./Component";
 import { action } from "../../../modules/userDB";
@@ -12,6 +14,11 @@ const RegistContainer = () => {
     // 10. dispatch를 호출했다. action.regist의 return 값(반환값, == 액션)을 매개변수로 전달했다.
     // 11. dispatch는 reducer를 호출하며 액션을 매개변수로 전달한다.
     store.dispatch(action.regist(userId, userPw, userName));
+    axios.post("http://localhost:8080/api/user/regist", {
+      userId,
+      userPw,
+      userName,
+    });
   };
 
   // store : 은행 << 우리의 돈에 관련된 정보
