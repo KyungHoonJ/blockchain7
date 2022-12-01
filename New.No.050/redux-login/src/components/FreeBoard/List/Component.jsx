@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ListComponent = ({ list }) => {
   return (
@@ -22,7 +23,9 @@ const ListComponent = ({ list }) => {
         {list.map((item, index) => (
           <tr key={`tr-${index}`}>
             <td key={`id-${index}`}>{item.id}</td>
-            <td key={`title-${index}`}>{item.title}</td>
+            <td key={`title-${index}`}>
+              <Link to={`/board/${item.id}`}>{item.title}</Link>
+            </td>
             <td key={`userName-${index}`}>{item.userName}</td>
             <td key={`createdAt-${index}`}>{item.createdAt}</td>
           </tr>

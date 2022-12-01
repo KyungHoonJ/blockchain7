@@ -13,7 +13,7 @@ const AddContainer = () => {
   };
   // userName,
 
-  return <AddComponent onClick={onClick} />;
+  return !userName || <AddComponent onClick={onClick} />;
 };
 
 export default AddContainer;
