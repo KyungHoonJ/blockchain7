@@ -24,6 +24,7 @@ export const action = { add, edit, remove };
 
 export const initialize = [];
 
+let id = 0;
 export const reducer = (state = initialize, action) => {
   const { type, payload } = action;
   //   if (type === TYPE.ADD) {
@@ -37,7 +38,11 @@ export const reducer = (state = initialize, action) => {
   //   }
   switch (type) {
     case TYPE.ADD:
-      return state;
+      id++;
+      return [
+        { id, ...payload, createdAt: new Date().toLocaleString() },
+        ...state,
+      ];
 
     case TYPE.EDIT:
       return state;

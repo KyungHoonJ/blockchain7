@@ -27,7 +27,7 @@ const BoardContainer = () => {
         remove={remove}
         isCreator={userName == item.userName}
       />
-      <CommentContainer />
+      <CommentContainer userName={userName} boardId={id} />
     </>
   );
 };

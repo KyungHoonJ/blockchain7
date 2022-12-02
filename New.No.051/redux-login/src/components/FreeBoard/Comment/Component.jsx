@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const CommentComponent = ({ onClick }) => {
+const CommentComponent = ({ onClick, list }) => {
   const [addText, setAddText] = useState("");
   return (
     <CommentBox>
@@ -16,12 +16,15 @@ const CommentComponent = ({ onClick }) => {
         />
         <button
           onClick={() => {
-            onClick();
+            onClick(addText);
           }}
         >
           Add Comment
         </button>
       </CommentAddBox>
+      {list.map((item, index) => (
+        <div key={`comment-${index}`}>{item.text}</div>
+      ))}
     </CommentBox>
   );
 };
