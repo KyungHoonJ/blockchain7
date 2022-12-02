@@ -17,7 +17,7 @@ const logOut = () => ({
 export const action = { logIn, logOut };
 
 // export const initialize = {userInfo : { userId: "", userName: "" }};
-export const initialize = { userId: "1", userName: "1" };
+export const initialize = { userId: "", userName: "" };
 // 로그인 했을 때 아이디와 이름을 저장하겠다.
 
 export const reducer = (state = initialize, action) => {

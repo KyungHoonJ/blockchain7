@@ -44,11 +44,19 @@ export const reducer = (state = initialize, action) => {
         ...state,
       ];
 
-    case TYPE.EDIT:
-      return state;
+    case TYPE.EDIT: {
+      const index = state.findIndex((item) => item.id == payload.id);
+      return [
+        ...state.slice(0, index),
+        { ...state[index], ...payload },
+        ...state.slice(index + 1),
+      ];
+    }
 
-    case TYPE.REMOVE:
-      return state;
+    case TYPE.REMOVE: {
+      const index = state.findIndex((item) => item.id == payload.id);
+      return [...state.slice(0, index), ...state.slice(index + 1)];
+    }
 
     default:
       return state;

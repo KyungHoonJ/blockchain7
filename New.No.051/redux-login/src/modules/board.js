@@ -26,15 +26,7 @@ const edit = (id, title, text) => ({
 
 export const action = { add, remove, edit };
 
-export const initialize = [
-  {
-    id: 0,
-    title: "saerveas",
-    text: "rvsearv",
-    userName: "1",
-    createdAt: "2022. 12. 2. 오전 9:34:56",
-  },
-];
+export const initialize = [];
 
 let id = 0;
 export const reducer = (state = initialize, action) => {
