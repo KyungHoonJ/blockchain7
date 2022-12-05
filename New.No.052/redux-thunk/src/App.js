@@ -4,6 +4,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
 import { action } from "./modules/count";
+import promiseTime from "./modules/promiseTime";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,7 +15,14 @@ function App() {
       <div>{count}</div>
       <button
         onClick={() => {
-          dispatch(action.increment());
+          promiseTime(action.increment(), 1000)
+            .then((data) => {
+              // then 메서드를 사용하여 매개변수로 콜백함수를 전달한다.
+              // 전달된 콜백함수는 매개변수로 Promise의 resolve 결과를 받는다.
+              // promiseTime.js의 6번째 줄에서 전달하는 type 매개변수를 여기서 data 매개변수로 받는다.
+              dispatch(data);
+            })
+            .catch((error) => {});
         }}
       >
         +
