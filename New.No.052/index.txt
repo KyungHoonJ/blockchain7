@@ -3,3 +3,29 @@ redux-thunk 프로젝트 생성해두기
 yarn create react-app redux-thunk
 yarn add redux react-redux
 yarn add --dev redux-devtools-extension
+
+redux-thunk
+- action을 함수로 쓸 수 있게 해주는 리덕스의 미들웨어이다.
+- 단순한 연결(store.js 참고) 방법을 사용해 action에 함수를 전달할 수 있다.
+  - action 함수는 async, await가 가능하다.
+- action이 함수라면 action 내에서 dispatch 호출해 다른 action을 실행해야 state를 정의할 수 있다.
+- reducer가 state를 정의한다.
+
+redux-saga
+- redux-thunk와 같은 리덕스의 미들웨어이다.
+- generator를 사용한다.(New.No.028 참고)
+- 테스트 결과 reducer를 사용하는 것이 아닌 action에서 saga를 통해 state를 정의한다.
+- 궁금한 사람은 각자 알아서 해볼 것. << 상당히 어려움, 많이 사용한다는 얘기를 못들었다.
+
+내일 : @reduxjs/toolkit를 사용한 리덕스 구현(thunk 포함)
+
+팀 프로젝트의 필수 요소
+- react 사용
+- express server
+- db 사용(mySQL || mongoDB)
+- 반응형 웹(최소 모바일, PC)
+- apache를 사용한 AWS에 배포
+
+팀 프로젝트의 부가 요소
+- redux 사용
+- redis 사용?
