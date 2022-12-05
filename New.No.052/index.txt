@@ -1,0 +1,5 @@
+redux-thunk 프로젝트 생성해두기
+
+yarn create react-app redux-thunk
+yarn add redux react-redux
+yarn add --dev redux-devtools-extension
