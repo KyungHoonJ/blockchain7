@@ -8,11 +8,22 @@ function App() {
   const count = useSelector((state) => state.count.value);
   const isLoading = useSelector((state) => state.count.isLoading);
   const [inputCount, setCount] = useState(0);
+  const [input, setInput] = useState(0);
 
   return (
     <div>
       <div>{count}</div>
       {!isLoading || <div>Now Loading</div>}
+      <div>
+        <input
+          type={"number"}
+          value={input}
+          onInput={({ target: { value } }) => {
+            setInput(value);
+          }}
+          placeholder={"input Count"}
+        />
+      </div>
       <button
         onClick={() => {
           dispatch(action.increment());
@@ -26,6 +37,14 @@ function App() {
         }}
       >
         -
+      </button>
+      <button
+        onClick={() => {
+          dispatch(action.input({ count: input }));
+          // input 메서드에 전달되는 input 매개변수는 payload 자체이다.
+        }}
+      >
+        set Count
       </button>
       <div>
         <input

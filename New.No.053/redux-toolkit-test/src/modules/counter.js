@@ -64,6 +64,9 @@ const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    input: (state, action) => {
+      state.value = action.payload.count;
+    },
   },
   extraReducers: (builder) => {
     // 추가적인 리듀서를 작성한다.
