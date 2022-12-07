@@ -19,3 +19,7 @@
 ```
 이래도 하나로 뭉쳐진다. 탬플릿 리터럴 3개
 ```
+
+```javascript
+const temp = "javascript를 출력할 수 있다";
+```
