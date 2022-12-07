@@ -37,4 +37,4 @@ const temp = "javascript를 출력할 수 있다";
 
 3개여도 되네...
 
-<img src="./140020_141031_1512.jpg" ></img>
+<img width="100px" src="./140020_141031_1512.jpg" ></img>
