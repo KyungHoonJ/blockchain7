@@ -1,7 +1,7 @@
-1. 정재훈 박혜림 고우석 이가원 - 메이플스토리
-2. 김정규 허재원 김재일 최원겸 - 오늘의 집
-3. 장정현 김영준 김선주 이재혁 - 테슬라
-4. 김성진 박예성 신상목 염예나 - 잡코리아
+1. 정재훈 박혜림 고우석 이가원 - 메이플스토리 -  https://handsomely-carp-676.notion.site/804b90011ad04ff68572bd2dbc3a6936
+2. 김정규 허재원 김재일 최원겸 - 오늘의 집 - https://receptive-scarer-d8a.notion.site/2267d6db456448ed972873e5cf6def10
+3. 장정현 김영준 김선주 이재혁 - 테슬라 - https://crystalline-lyric-a65.notion.site/Team-Project-b5b4c706da5f4e8299ffb3b4ad9769d6
+4. 김성진 박예성 신상목 염예나 - 잡코리아 - https://yesla.notion.site/JOBKOREA-30f4899cdaca4dbfa6da6ca9ed92194f
 
 과제
  - 노션정리
@@ -13,3 +13,9 @@
 API 정의 문서 작성
 필요한 정보(라이브러리 등)을 노션에서 공유
 GitHub readme.md 파일 작성
+
+22.12.08 노션 정리해서 올 것
+ - 전체적인 기획, 웹페이지 기준으로 어디까지 구현할건지, 또는 어떻게 구현할건지(UI 수정 등등)
+ - 각자 구현하는 부분에 대해서 정리
+ - 금요일에 어떤 구현을 할건지 << 팀장들이 정하는 것이 아닌 개인이 정할 것
+   - 어디까지, 어떤 걸 찾아보겠다?
