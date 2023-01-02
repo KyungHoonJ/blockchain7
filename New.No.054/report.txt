@@ -3,6 +3,11 @@
 3. 장정현 김영준 김선주 이재혁 - 테슬라 - https://crystalline-lyric-a65.notion.site/Team-Project-b5b4c706da5f4e8299ffb3b4ad9769d6
 4. 김성진 박예성 신상목 염예나 - 잡코리아 - https://yesla.notion.site/JOBKOREA-30f4899cdaca4dbfa6da6ca9ed92194f
 
+- react 사용
+- express server
+- db 사용(mySQL || mongoDB)
+- 반응형 웹(최소 모바일, PC)
+- apache를 사용한 AWS에 배포
 
 과제
  - 노션정리
