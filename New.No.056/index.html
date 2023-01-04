@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>안뇽 난 최초 블록! ㅎㅇㅎㅇ 나 생성됨</h1>
+    <h1>초기의 제네시스 블록은 하드 코딩으로 직접 만들어준다.</h1>
+    <div class="flex-box">
+      <div id="block">
+        <!-- 소프트웨어 버전 처럼 블록의 버전 -->
+        <label for="">블록 버전 (블록 버전 초기값)</label>
+        <h3 id="version"></h3>
+
+        <label for="">블록 높이 (제네시스 블록 최초의 블록 높이가 0번)</label>
+        <h3 id="height"></h3>
+
+        <label for="">블록의 생성 시간(이 블록이 언제 만들어졌는지 기록)</label>
+        <h3 id="timestamp"></h3>
+
+        <label for="">이전 블록 해시</label>
+        <h3 id="previousHash"></h3>
+
+        <label for="">블록 해시(최초 블록이라서 해시값을 0으로 대체)</label>
+        <h3 id="hash"></h3>
+
+        <label for="">머클 루트(최초 블록이라서 머클루트 0으로 대체)</label>
+        <h3 id="merkleRoot"></h3>
+
+        <label for="">논스(증가시키다가 퀴즈가 풀었을때 도달한 값)</label>
+        <h3 id="nonce"></h3>
+
+        <!-- nonce 값을 올리면서 계속 해싱한 값의 0의 갯수가 난이도 보다 많아야 블록을 생성 할 수 있다. -->
+        <!-- 난이도의 갯수에 따라서 0의 갯수를 구한다. -->
+        <!-- 난이도 10이면은 0이 10개 이상 될때까지 돌린다고 보면됨 -->
+        <label for="">난이도(블록의 생성 주기를 조절하기 위한 값)</label>
+        <h3 id="difficulty"></h3>
+
+        <label for=""
+          >블록 내용(최초블록이니까 그럴싸하게 기사내용 넣어보자.)</label
+        >
+        <h3 id="data"></h3>
+      </div>
+    </div>
+  </body>
+  <script>
+    const blockData = {
+      version: "1.0.0", // 첫 버전
+      height: 0, // 첫 번째 블록 첫번째 인덱스네
+      timestamp: Date.now(), // 생성한 시간임.. Date.now()
+      previousHash: "0".repeat(64), // 이전 블록이 없으니까 그냥 0으로 다 채움
+      hash: "0".repeat(64), // 블록의 해시도 0으로 다 채움 필요없어
+      merkleRoot: "0".repeat(64), // 머클루트도 0으로 다 채움
+      nonce: 0,
+      difficulty: 0,
+      data: [
+        "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks",
+      ],
+    };
+
+    for (const key in blockData) {
+      // 얘는 태그임
+      console.log(block.children[key]);
+      // 얘는 객체임
+      console.log(blockData[key]);
+
+      // 태그의 id 이름이 맞는 태그에 객체의 키값에 맞는 값을 넣어준것
+      block.children[key].innerHTML = blockData[key];
+    }
+
+    // hash : 블록을 특정하는 값이고 고유 식별자
+    // 해시값은 블록의 생성일, 버전, 머클루트, 이전 블록의 해시, 논스
+    // merkleRoot : 트랜잭션 내용이 머클트리로 구성되고 루트 값
+
+    // 블록 체인 거래 변경이 불가능한 이유
+    // 블록의 머클루트 계산에 이전 블록 해시가 포함되어 있기 때문에
+    // 하나의 블록의 내용이 변경되면 변경한 블록부터 다음 블록 해시 변경으로 이어지기 때문에
+    // - 거래 정보 변경 -> 머클루트 변경 -> 머클루트가 변해서 블록 해시가 변경되고
+    // 쉽게 말해서 블록의 거래정보를 변경하기 위해서 거래 정보를 변경한 블록부터 다시 채굴해야한다. 뒤의 블록이 다 변경되기 때문에.
+  </script>
+</html>

@@ -1,0 +1,10 @@
+#block {
+  border: 1px solid;
+  width: max-content;
+  padding: 30px;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: column;
+}
