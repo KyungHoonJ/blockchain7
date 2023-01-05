@@ -1,0 +1,19 @@
+{
+  "name": "new.no002",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hash.js",
+  "scripts": {
+    "test": "jest merkle.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "merkle": "^0.6.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
