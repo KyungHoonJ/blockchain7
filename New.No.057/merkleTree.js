@@ -48,3 +48,8 @@ const data = [
 
 console.log("createMerkle : ", createMerkle(data));
 console.log("libMerkle : ", libMerkle(data));
+
+module.exports = {
+  libMerkle,
+  createMerkle,
+};
