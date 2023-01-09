@@ -6,6 +6,8 @@
 # jest란
 
 - FaceBook에서 개발한 테스트 라이브러리(자칭 프레임워크)
+- node --experimental-vm-modules node_modules/jest/bin/jest.js
+  - ES6(type:module) 사용 시 위 명령어로 실행(=== npx jest)
 
 # Block Header란
 
@@ -15,12 +17,15 @@
   - 머클루트는 아래에서
   - 타임스탬프는 블록이 생성된 시간
   - 난이도는 차후 Chain에 대해 설명할 때 설명
+    - 난이도의 경우 우리가 구현할 때는 difficulty라는 변수명을 사용할 예정이지만 비트코인에서는 bits라는 변수명을 사용한다.
   - 논스는 난이도 설명할 때 함께 설명
     - 난이도와 논스는 초기(임시)값으로 0으로 한다.
+- Block Header의 내용은 블록체인마다 다를 수 있다.
 
 # Block Body란
 
 - 여러 트랜잭션과 기타 정보들을 뜻한다.
+  - 비트코인에서는 1800개의 트랜잭션(거래 내역)을 블록에 저장한다.
 
 # 트랜잭션이란
 
