@@ -64,17 +64,16 @@ class Chain {
   }
 }
 
-const chain = new Chain();
-console.log(chain.chain);
-const block = new Block(["qwer"], chain.lastBlock);
-console.log("lastBlock: ", chain.lastBlock);
-console.log(block);
-block.height = 4;
+// const chain = new Chain();
+// console.log(chain.chain);
 
-chain.addBlock(["asdf"]);
-chain.addBlock(["asdf2"]);
-chain.addBlock(["asd3"]);
+// chain.addBlock(["asdf"]);
+// chain.addBlock(["asdf2"]);
+// chain.addBlock(["asd3"]);
+// const block = new Block(["qwer"], chain.lastBlock);
 
-chain.add2Chain(block);
+// chain.add2Chain(block);
 
-console.log(chain.chain);
+// console.log(chain.chain);
+
+module.exports = Chain;
