@@ -1,0 +1,19 @@
+{
+  "name": "new.no.062",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "hex-to-binary": "^1.0.1",
+    "merkle": "^0.6.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
