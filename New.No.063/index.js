@@ -70,21 +70,42 @@ const server = net.createServer((client) => {
     // 이진수를 저장하려면 Buffer를 사용한다. => data를 받으면 그 데이터(정보)는 버퍼이다.
 
     console.log(data.toString());
-    // GET / HTTP/1.1
-    // Host: localhost:4193
-    // Connection: keep-alive
-    // sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"
-    // sec-ch-ua-mobile: ?0
-    // sec-ch-ua-platform: "Windows"
-    // Upgrade-Insecure-Requests: 1
-    // User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
-    // Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-    // Sec-Fetch-Site: none
-    // Sec-Fetch-Mode: navigate
-    // Sec-Fetch-User: ?1
-    // Sec-Fetch-Dest: document
-    // Accept-Encoding: gzip, deflate, br
-    // Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+    // GET / HTTP/1.1 << 어떤 메서드를 사용해서 어떤 라우터(주소)로 어떤 프로토콜로 보냈는지에 대한 정보이다.
+    //   - 쿼리스트링도 포함된다.
+    // Host: localhost:4193 << 요청한 주소(어떤 주소로 요청했냐?)
+    // Connection: keep-alive << 통신 연결에 대한 설정, keep-alive : 연결을 유지해라
+    // Cache-Control: max-age=0 << 캐시 제어 설정, max-age=0 : 캐시 바로 삭제
+    // sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109" << 간략한 브라우저의 버전 정보
+    // sec-ch-ua-mobile: ?0 << 모바일 여부, 모바일이냐?
+    // sec-ch-ua-platform: "Windows" << OS 정보
+    // Upgrade-Insecure-Requests: 1 << 암호화되고 인증된 응답에 대한 클라이언트의 기본 설정
+    // User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 << 브라우저의 각종 버전 정보
+    // Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9 << 브라우저에서 요청한 정보 타입, 앞에서부터 우선순위
+    // Sec-Fetch-Site: none << CORS 설정 : 해당 정보를 요청한 주소가 서버의 주소가 맞는가?, 서버의 데이터를 조금이라도 안전하게 지키기 위해서 확인한다.
+    // Sec-Fetch-Mode: navigate << CORS 설정
+    // Sec-Fetch-User: ?1 << CORS 설정
+    // Sec-Fetch-Dest: document << CORS 설정
+    // Accept-Encoding: gzip, deflate, br << 브라우저가 이해할 수 있는 인코딩, 읽을 수 있는 인코딩
+    // Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7 << 브라우저 이해할 수 있는 언어
+
+    client.write(`HTTP/1.1 200 OK
+Connection: Close
+Content-Type: image/avif,image/webp,image/apng,*/*;q=0.8; charset=UTF-8
+Content-Length: 10
+
+Hi Block 7`);
+    // 줄바꿈, 띄어쓰기 등등 모든 규칙을 잘 지켜야한다.
+
+    // client.write(
+    //   "HTTP/1.1 200 OK\nConnection: Close\nContent-Type: image/avif,image/webp,image/apng,*/*;q=0.8; charset=UTF-8\nContent-Length: 10\n\nHi Block 7"
+    // );
+
+    // 프로토콜 HTTP상태코드 메세지
+    // Connection: Close << 연결 끊어라
+    // Content-Type: 어떤 데이터로 응답할거냐, 어떤 정보를 보낼지 포멧(확장자 등등)을 설정, charset은 언어 포멧 설정
+    // Content-Length: 데이터의 길이
+    //  << 줄바꿈 한번 있어야함
+    // 보낼 데이터
   });
 });
 
