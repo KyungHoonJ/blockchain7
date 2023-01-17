@@ -31,6 +31,7 @@
 const getQuery = (queryString) => {
   if (!queryString) return {};
   // 입력된 queryString이 없으면 빈 객체를 반환(리턴)한다.
+  /*
   const query = {};
   // 쿼리스트링을 분해해서 담을 쿼리를 객체로 생성해둔다.
   queryString = queryString.split("&");
@@ -45,6 +46,14 @@ const getQuery = (queryString) => {
     // trim 메서드는 양쪽의 남는 공백을 모두 제거한다.
   }
   return query;
+ */
+  return queryString
+    .split("&")
+    .map((item) => item.split("="))
+    .reduce((prev, curr) => {
+      prev[curr[0].trim()] = curr[1].trim();
+      return prev;
+    }, {});
 };
 
 const getMessage = (lines) => {
@@ -111,6 +120,7 @@ const parser = (data) => {
   const lines = data.split("\r\n");
   // 요청에 포함된 데이터는 각 줄마다 뜻하는 설정이 있다. 그래서 줄로 나눈다.
   console.log("lines", lines);
+  /*
   const firstLine = lines.shift().split(" ");
   // 첫번째 줄은 요청을 보낼 때 사용한 형식(method), 주소(라우터, url), 프로토콜의 버전(version)이 ' '를 사이에 두고 연결되어있다.
   console.log("firstLine", firstLine);
@@ -118,13 +128,19 @@ const parser = (data) => {
   const url = firstLine[1];
   const version = firstLine[2];
   // ' '를 기준으로 나눠 각 데이터를 객체에 넣어 반환할 수 있게 한다.
+   */
+  const [method, url, version] = lines.shift().split(" ");
   console.log("method", method);
   console.log("url", url);
   console.log("version", version);
 
+  /*
   const path = url.split("?")[0];
   const queryString = url.split("?")[1];
   // url을 라우터(path)와 쿼리스트링(queryString)로 나눈다.
+ */
+  const [path, queryString] = url.split("?");
+
   const query = getQuery(queryString);
   // 쿼리스트링은 다시 각 쿼리로 나눠 객체에 담아 반환한다.
   console.log("path", path);
