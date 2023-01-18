@@ -1,0 +1,40 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <a href="/">홈</a>
+    <form name="test1">
+      <input type="text" placeholder="입력해" name="test" />
+    </form>
+    <ul></ul>
+    <script>
+      const ulElem = document.getElementsByTagName("ul")[0];
+      axios.get("board/list").then(({ data }) => {
+        data.forEach((item) => {
+          const tempLi = document.createElement("li");
+          tempLi.innerText = item;
+          ulElem.append(tempLi);
+        });
+      });
+
+      document.forms.test1.onsubmit = function (e) {
+        e.preventDefault();
+        axios
+          .post("board/add", { value: e.target.test.value })
+          .then(({ data }) => {
+            ulElem.innerHTML = "";
+            data.forEach((item) => {
+              const tempLi = document.createElement("li");
+              tempLi.innerText = item;
+              ulElem.append(tempLi);
+            });
+          });
+      };
+    </script>
+  </body>
+</html>
