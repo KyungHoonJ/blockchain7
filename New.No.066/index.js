@@ -2,26 +2,39 @@ const net = require("net");
 
 const reqParser = require("./lib/req");
 const resParser = require("./lib/res");
+const staticFunc = require("./lib/static");
 
 global.isJson = true;
-global.board = ["asdf", "qwer", "1234"];
+global.board = [];
+global.isStatic = true;
+// app.use(express.static(path.join(..., ..., ...)))
 
 const server = net.createServer((client) => {
   client.on("data", (data) => {
     const req = reqParser(data.toString());
     const res = resParser(client, req);
     console.log(req.path);
-    if (req.method === "GET" && req.path === "/") {
-      res.sendFile("index.html");
-    } else if (req.method === "GET" && req.path === "/index.css") {
-      res.sendFile("index.css");
-    } else if (req.method === "GET" && req.path === "/index.js") {
-      res.sendFile("index.js");
-    } else if (req.method === "GET" && req.path === "/board") {
-      res.sendFile("board/index.html");
-    } else if (req.method === "GET" && req.path === "/board/index.js") {
-      res.sendFile("board/index.js");
-    } else if (req.method === "GET" && req.path === "/board/list") {
+
+    if (global.isStatic) {
+      // static 넣었으면~
+      const staticRoutes = staticFunc();
+      if (req.method === "GET" && staticRoutes[req.path]) {
+        res.sendStaticFile(staticRoutes[req.path]);
+      }
+    }
+
+    // if (req.method === "GET" && req.path === "/") {
+    //   res.sendFile("index.html");
+    // } else if (req.method === "GET" && req.path === "/index.css") {
+    //   res.sendFile("index.css");
+    // } else if (req.method === "GET" && req.path === "/index.js") {
+    //   res.sendFile("index.js");
+    // } else if (req.method === "GET" && req.path === "/board") {
+    //   res.sendFile("board/index.html");
+    // } else if (req.method === "GET" && req.path === "/board/index.js") {
+    //   res.sendFile("board/index.js");
+    // } else
+    if (req.method === "GET" && req.path === "/board/list") {
       res.send(JSON.stringify(global.board));
     } else if (req.method === "POST" && req.path === "/board/add") {
       global.board.unshift(req.body.value);

@@ -25,6 +25,11 @@ ${dataBuffer.toString()}`;
       const message = createMessage(readLine);
       client.write(message);
     },
+    sendStaticFile(target) {
+      const readLine = fs.readFileSync(target, "utf-8");
+      const message = createMessage(readLine);
+      client.write(message);
+    },
   };
 };
 
