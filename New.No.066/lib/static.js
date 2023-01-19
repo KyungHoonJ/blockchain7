@@ -62,6 +62,9 @@ function getStaticPath(root = "public") {
   }
   find(publicPath);
   console.log("staticRoutes", staticRoutes);
+
+  //   global.staticRoutes = staticRoutes;
+
   return staticRoutes;
 }
 

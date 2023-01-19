@@ -9,38 +9,34 @@ global.board = [];
 global.isStatic = true;
 // app.use(express.static(path.join(..., ..., ...)))
 
+if (global.isStatic) global.staticRoutes = staticFunc();
+
 const server = net.createServer((client) => {
   client.on("data", (data) => {
     const req = reqParser(data.toString());
     const res = resParser(client, req);
     console.log(req.path);
+    let isStatic = false;
+    // static을 실행했는가?
 
     if (global.isStatic) {
       // static 넣었으면~
-      const staticRoutes = staticFunc();
-      if (req.method === "GET" && staticRoutes[req.path]) {
-        res.sendStaticFile(staticRoutes[req.path]);
+      // const staticRoutes = staticFunc();
+      if (req.method === "GET" && global.staticRoutes[req.path]) {
+        isStatic = true;
+        res.sendStaticFile(global.staticRoutes[req.path]);
       }
     }
 
-    // if (req.method === "GET" && req.path === "/") {
-    //   res.sendFile("index.html");
-    // } else if (req.method === "GET" && req.path === "/index.css") {
-    //   res.sendFile("index.css");
-    // } else if (req.method === "GET" && req.path === "/index.js") {
-    //   res.sendFile("index.js");
-    // } else if (req.method === "GET" && req.path === "/board") {
-    //   res.sendFile("board/index.html");
-    // } else if (req.method === "GET" && req.path === "/board/index.js") {
-    //   res.sendFile("board/index.js");
-    // } else
-    if (req.method === "GET" && req.path === "/board/list") {
-      res.send(JSON.stringify(global.board));
-    } else if (req.method === "POST" && req.path === "/board/add") {
-      global.board.unshift(req.body.value);
-      res.send(JSON.stringify(global.board));
-    } else {
-      res.send("404");
+    if (!isStatic) {
+      if (req.method === "GET" && req.path === "/board/list") {
+        res.send(JSON.stringify(global.board));
+      } else if (req.method === "POST" && req.path === "/board/add") {
+        global.board.unshift(req.body.value);
+        res.send(JSON.stringify(global.board));
+      } else {
+        res.send("404");
+      }
     }
   });
 
