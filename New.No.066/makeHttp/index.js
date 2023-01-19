@@ -10,6 +10,7 @@ global.isStatic = true;
 // app.use(express.static(path.join(..., ..., ...)))
 
 if (global.isStatic) global.staticRoutes = staticFunc();
+// 파일 확인
 
 const server = net.createServer((client) => {
   client.on("data", (data) => {
@@ -21,6 +22,7 @@ const server = net.createServer((client) => {
 
     if (global.isStatic) {
       // static 넣었으면~
+      // 파일이 있으면 그 파일 보내라
       // const staticRoutes = staticFunc();
       if (req.method === "GET" && global.staticRoutes[req.path]) {
         isStatic = true;
