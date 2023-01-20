@@ -54,6 +54,7 @@ function getStaticPath(root = "public") {
           // router = router.slice(0, -1);
           router = router.slice(0, router.length - 1);
         staticRoutes[router] = findPath;
+        staticRoutes[router + "/"] = findPath;
       } else {
         // 폴더면
         find(findPath);

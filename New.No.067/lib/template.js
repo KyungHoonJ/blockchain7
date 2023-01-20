@@ -11,7 +11,23 @@ const createHtml = (fileName, data, { styleName, scriptName }) => {
 
   const keys = Object.keys(data);
   for (let i = 0; i < keys.length; ++i) {
-    readLine = readLine.replace(`{{${keys[i]}}}`, data[keys[i]]);
+    if (Array.isArray(data[keys[i]])) {
+      // data로 받은 값이 배열이냐?
+      const subTarget = path.join(target, "../", keys[i] + ".html");
+      console.log("subTarget", subTarget);
+      const subLine = fs.readFileSync(subTarget, "utf-8");
+      console.log("subLine", subLine);
+      let subReadLine = "";
+
+      for (let j = 0; j < data[keys[i]].length; ++j) {
+        subReadLine += subLine.replace(`{{item}}`, data[keys[i]][j]);
+      }
+
+      readLine = readLine.replace(`{for{${keys[i]}}}`, subReadLine);
+    } else {
+      // 배열이 아니면
+      readLine = readLine.replace(`{{${keys[i]}}}`, data[keys[i]]);
+    }
   }
 
   if (styleName) {

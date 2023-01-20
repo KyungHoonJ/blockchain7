@@ -4,12 +4,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title}}</title>
+    <!-- {{변수명}} 형식으로 우리가 수정할 위치를 찾도록 한다. -->
+    <!-- template.js에서 해당 위치를 찾아서 변수로 바꿔준다. -->
     <style>
       {{style}}
     </style>
   </head>
   <body>
     <div class="box">{{text}}</div>
+    <div>우리의 이름은 {{name}}입니다.</div>
     <a href="{{link}}">{{linkName}}</a>
     {{script}}
   </body>

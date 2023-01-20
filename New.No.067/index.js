@@ -42,19 +42,21 @@ const server = net.createServer((client) => {
           {
             title: "SSR 테스트중?",
             text: req.query.text || "처음 써봐요 SSR",
-            link: "/test",
-            linkName: "들어가면 404에요",
+            link: "/board",
+            linkName: "게시판",
           },
           { styleName: "index.css", scriptName: "index.js" }
         );
         res.send(temp);
         // res.sendFile("index.html");
-      } else if (req.method === "GET" && req.path === "/index.css") {
-        res.sendFile("index.css");
-      } else if (req.method === "GET" && req.path === "/index.js") {
-        res.sendFile("index.js");
       } else if (req.method === "GET" && req.path === "/board") {
-        res.sendFile("board.html");
+        const temp = templateFunc(
+          "board/index.html",
+          { li: global.board },
+          { scriptName: "board/index.js" }
+        );
+        res.send(temp);
+        // res.sendFile("board.html");
       } else if (req.method === "GET" && req.path === "/board/list") {
         res.send(JSON.stringify(global.board));
       } else if (req.method === "POST" && req.path === "/board/add") {
@@ -80,5 +82,5 @@ server.on("connection", () => {
 });
 
 server.listen(4194, "127.0.0.1", () => {
-  console.log("4193 서버를 열었다.");
+  console.log("4194 서버를 열었다.");
 });
