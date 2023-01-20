@@ -7,7 +7,7 @@ const templateFunc = require("./lib/template");
 
 global.isJson = true;
 global.board = [];
-global.isStatic = false;
+global.isStatic = true;
 // SSR 구현을 위해 static 방식을 사용하지 않는다.
 // app.use(express.static(path.join(..., ..., ...)))
 // SSR, Server Side Rendering : 화면을 서버에서 구성해서 보낸다. (랜더링을 서버에서 처리한다.)
@@ -41,7 +41,7 @@ const server = net.createServer((client) => {
           "index.html",
           {
             title: "SSR 테스트중?",
-            text: "처음 써봐요 SSR",
+            text: req.query.text || "처음 써봐요 SSR",
             link: "/test",
             linkName: "들어가면 404에요",
           },
@@ -79,6 +79,6 @@ server.on("connection", () => {
   console.log("연결이 생겼다.");
 });
 
-server.listen(4193, "127.0.0.1", () => {
+server.listen(4194, "127.0.0.1", () => {
   console.log("4193 서버를 열었다.");
 });
