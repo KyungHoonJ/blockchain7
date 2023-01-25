@@ -12,7 +12,7 @@ class BlockHeader implements IBlockHeader {
   difficulty: number;
   nonce: number;
 
-  constructor(_data: Array<string>, _previousBlock: IBlock) {
+  constructor(_data: Array<string>, _previousBlock?: IBlock) {
     this.version = "1.0.0";
     const merkleRoot: TError<string> | TResult<string> =
       this.createMerkleRoot(_data);
@@ -84,9 +84,10 @@ class Block extends BlockHeader implements IBlock {
 
   constructor(
     _data: Array<string>,
-    _previousBlock: IBlock,
-    _adjustmentBlock: IBlock,
-    _config: IConfig
+    _previousBlock?: IBlock,
+    _adjustmentBlock?: IBlock,
+    _config?: IConfig
+    // 앞에 빈칸이 있을 수 없기 때문에 입력되지 않을수도 있는 ?는 뒤로 빠져야한다.
   ) {
     super(_data, _previousBlock);
     this.previousHash = _previousBlock ? _previousBlock.hash : "0".repeat(64);
@@ -117,10 +118,10 @@ class Block extends BlockHeader implements IBlock {
     }
 
     this.data = _data;
-    console.log(this);
+    // console.log(this);
   }
 
-  static createHash(_block) {
+  static createHash(_block: IBlock): string {
     let tempStr = "";
     const keys = Object.keys(_block);
     for (let i = 0; i < keys.length; i++) {
@@ -133,7 +134,13 @@ class Block extends BlockHeader implements IBlock {
     return SHA256(tempStr).toString().toUpperCase();
   }
 
-  updateBlock(difficultyOptions) {
+  updateBlock(difficultyOptions: {
+    previousDifficulty: number;
+    adjustmentDifficulty: number;
+    adjustmentTimestamp: number;
+    DAI: number;
+    averageGenerationTime: number;
+  }): void {
     let hashBinary = hexToBinary(this.hash);
     while (!hashBinary.startsWith("0".repeat(this.difficulty))) {
       this.nonce += 1;
@@ -146,7 +153,10 @@ class Block extends BlockHeader implements IBlock {
     console.log(hashBinary.slice(0, this.difficulty));
   }
 
-  static isValidBlock(_newBlock, _previousBlock) {
+  static isValidBlock(
+    _newBlock: IBlock,
+    _previousBlock: IBlock
+  ): TError<string> | TResult<IBlock> {
     if (_newBlock.height !== _previousBlock.height + 1) {
       return { isError: true, msg: "높이가 다르다." };
     }
@@ -163,4 +173,4 @@ class Block extends BlockHeader implements IBlock {
   }
 }
 
-module.exports = Block;
+export default Block;
