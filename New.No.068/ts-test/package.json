@@ -1,0 +1,14 @@
+{
+  "name": "ts-test",
+  "version": "1.0.0",
+  "description": "- 마이크로소프트에서 만든 Javascript 기반 프로그래밍 언어\r   - 슈퍼셋? 이라고 부르더라.\r - Javascript에 Type, 자료형 확인을 추가한 것\r   - number, string, boolean, null, undefined, Array, Object\r - 기본적 설치 : npm i -D typescript\r   - TypeScript는 바로 실행하는 것이 아닌 Compiler를 사용한다.\r   - Compiler로 Javascript로 변환 후 실행한다.\r     - Compiler란 우리가 작성한 코드를 컴퓨터가 알 수 있는 언어로 변환한다.\r     - 대표적으로 C++, C#, Java 등에서 사용한다.\r     - TypeScript는 브라우저, node.js에서 바로 사용할 순 없다.\r - 명령어 tsc(TypeScript Compiler)를 사용한다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}
