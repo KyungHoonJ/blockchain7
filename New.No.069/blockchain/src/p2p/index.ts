@@ -24,10 +24,12 @@ class P2P extends Chain {
     //   - 후에 어디랑 연결됐는지 확인할 때 등 사용한다.
     socket.on("message", (_data: string) => {
       // message 이벤트가 발생하면 로그로 남긴다.
-      console.log(_data);
+      console.log(_data.toString());
     });
 
-    socket.send("send message");
+    // setInterval(() => {
+    socket.send("한사람당 하나다");
+    // }, 500);
     // 방금 연결한 소켓 서버에 message 이벤트를 보낸다.
   }
 

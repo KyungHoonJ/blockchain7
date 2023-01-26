@@ -36,10 +36,28 @@ const ws: P2P = new P2P();
 
 app.use(express.json());
 
+app.get("/chains", (req: Request, res: Response) => {
+  res.json(ws.getChain);
+});
+
+app.post("/block/mine", (req: Request, res: Response) => {
+  const { data }: { data: Array<string> } = req.body;
+  const newBlock: IBlock | null = ws.addBlock(data);
+  if (newBlock === null) res.send("error data");
+  res.json(newBlock);
+});
+
 app.post("/peer/add", (req: Request, res: Response) => {
   const { peer }: { peer: string } = req.body;
   ws.addToPeer(peer);
   res.end();
+});
+
+app.get("/peer", (req: Request, res: Response) => {
+  const sockets = ws.getSockets.map(
+    (item: any) => item._socket.remoteAddress + ":" + item._socket.remotePort
+  );
+  res.json(sockets);
 });
 
 const ports = [
