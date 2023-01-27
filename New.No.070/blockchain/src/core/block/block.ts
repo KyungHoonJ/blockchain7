@@ -11,6 +11,7 @@ class BlockHeader implements IBlockHeader {
   height: number;
   difficulty: number;
   nonce: number;
+  ip: string = "192.168.0.140";
 
   constructor(_data: Array<string>, _previousBlock?: IBlock) {
     this.version = "1.0.0";

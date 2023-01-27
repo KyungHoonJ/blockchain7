@@ -76,8 +76,21 @@ class Chain implements IChain {
     // 문제가 없는 체인임이 확인됐다.
   }
 
-  replaceChain(_chain: Array<IBlock>): void {
+  replaceChain(_chain: Array<IBlock>): TResult<undefined, string> {
+    const newLastBlock = _chain[_chain.length - 1];
+    const lastBlock = this.lastBlock;
+    if (newLastBlock.height === 0 && lastBlock.height !== 0) {
+      return { isError: true, msg: "받은 블록이 제네시스 블록이다." };
+    }
+    if (newLastBlock.height < lastBlock.height) {
+      return { isError: true, msg: "내 체인이 더 길다." };
+    }
+    if (newLastBlock.hash === lastBlock.hash) {
+      return { isError: true, msg: "동기화 완료" };
+    }
+
     this.chain = _chain;
+    return { isError: false, value: undefined };
   }
 }
 

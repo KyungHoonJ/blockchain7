@@ -47,7 +47,7 @@ class P2P extends Chain {
     return [...this.sockets];
   }
 
-  connectSocket(socket: WebSocket): void {
+  connectSocket(socket: WebSocket, type?: MessageType): void {
     // 소켓을 연결한다.
     this.sockets.push(socket);
     // 연결된 소켓을 소켓 목록에 추가한다.(peer 목록에 추가)
@@ -93,7 +93,18 @@ class P2P extends Chain {
           const isValidChain = this.isValidChain(data.payload);
           if (isValidChain.isError === true) break;
 
-          this.replaceChain(data.payload);
+          const isValid = this.replaceChain(data.payload);
+          if (isValid.isError === true) break;
+
+          // 나랑 연결된 피어들에게 내가 데이터 바뀌었음을 알린다.
+          const message: IMessage = {
+            type: MessageType.addBlock,
+            payload: data.payload,
+          };
+
+          this.sockets.forEach((item) => {
+            item.send(JSON.stringify(message));
+          });
 
           break;
         }
@@ -102,8 +113,8 @@ class P2P extends Chain {
 
     const message: IMessage = {
       // 처음 연결 시 요청을 보내자, 마지막 블럭 주세요
-      type: MessageType.lastBlock,
-      payload: [],
+      type: type | MessageType.lastBlock,
+      payload: type ? this.getChain : [],
     };
 
     socket.send(JSON.stringify(message));
@@ -132,7 +143,7 @@ class P2P extends Chain {
     socket.on("open", () => {
       // 연결 성공 시 open 이벤트가 발생한다.
       console.log("open");
-      this.connectSocket(socket);
+      this.connectSocket(socket, MessageType.addBlock);
       // 연결에 성공하면 소켓을 추가한다.
     });
   }
