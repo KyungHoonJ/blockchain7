@@ -39,6 +39,8 @@ class Chain implements IChain {
   }
 
   addBlock(_data: Array<string>): IBlock | null {
+    console.log("addBlock");
+    console.log("_data :", _data);
     const newBlock: IBlock = new Block(
       _data,
       this.lastBlock,
@@ -65,6 +67,7 @@ class Chain implements IChain {
 
   isValidChain(_chain: Array<IBlock>): TResult<undefined, string> {
     // 다른 서버에서 체인 받았을 때 정상적인 체인인지 확인하자.
+    console.log("isValidChain");
     for (let i = 1; i < _chain.length; ++i) {
       const nowBlock = _chain[i];
       const previousBlock = _chain[i - 1];
@@ -77,12 +80,14 @@ class Chain implements IChain {
   }
 
   replaceChain(_chain: Array<IBlock>): TResult<undefined, string> {
+    console.log("replaceChain");
     const newLastBlock = _chain[_chain.length - 1];
     const lastBlock = this.lastBlock;
     if (newLastBlock.height === 0 && lastBlock.height !== 0) {
       return { isError: true, msg: "받은 블록이 제네시스 블록이다." };
     }
     if (newLastBlock.height < lastBlock.height) {
+      // 롱기스트 체인 룰, 긴 체인을 적용한다.
       return { isError: true, msg: "내 체인이 더 길다." };
     }
     if (newLastBlock.hash === lastBlock.hash) {

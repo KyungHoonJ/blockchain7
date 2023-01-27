@@ -32,6 +32,7 @@ interface IMessage {
   // 어떤 메세지를 주고 받았는지 확인
   payload: any;
   // 메세지에 담긴 데이터
+  msg: string;
 }
 
 class P2P extends Chain {
@@ -48,16 +49,19 @@ class P2P extends Chain {
   }
 
   connectSocket(socket: WebSocket, type?: MessageType): void {
+    console.log("connectSocket");
     // 소켓을 연결한다.
     this.sockets.push(socket);
     // 연결된 소켓을 소켓 목록에 추가한다.(peer 목록에 추가)
     //   - 후에 어디랑 연결됐는지 확인할 때 등 사용한다.
     socket.on("message", (_data: string) => {
       // message 이벤트가 발생하면 로그로 남긴다.
-      console.log(_data.toString());
+      // console.log(_data.toString());
+      console.log("message");
 
       const data: IMessage = JSON.parse(_data.toString());
       // 받은 메세지를 객체로 파싱
+      console.log(data);
 
       switch (data.type) {
         // 어떤 요청이 왔는가 type으로 확인해서
@@ -67,6 +71,7 @@ class P2P extends Chain {
             type: MessageType.allBlock,
             payload: [this.lastBlock],
             // 마지막 블록을 payload에 담아서
+            msg: "lastBlock 정경훈이 보냈다.",
           };
           socket.send(JSON.stringify(message));
           // 보내자.
@@ -83,6 +88,7 @@ class P2P extends Chain {
           const message: IMessage = {
             type: MessageType.addBlock,
             payload: this.getChain,
+            msg: "allBlock 정경훈이 보냈다.",
           };
 
           socket.send(JSON.stringify(message));
@@ -91,15 +97,22 @@ class P2P extends Chain {
         }
         case MessageType.addBlock: {
           const isValidChain = this.isValidChain(data.payload);
-          if (isValidChain.isError === true) break;
+          if (isValidChain.isError === true) {
+            console.log(isValidChain.msg);
+            break;
+          }
 
           const isValid = this.replaceChain(data.payload);
-          if (isValid.isError === true) break;
+          if (isValid.isError === true) {
+            console.log(isValid.msg);
+            break;
+          }
 
           // 나랑 연결된 피어들에게 내가 데이터 바뀌었음을 알린다.
           const message: IMessage = {
             type: MessageType.addBlock,
             payload: data.payload,
+            msg: "addBlock 정경훈이 보냈다.",
           };
 
           this.sockets.forEach((item) => {
@@ -115,6 +128,7 @@ class P2P extends Chain {
       // 처음 연결 시 요청을 보내자, 마지막 블럭 주세요
       type: type | MessageType.lastBlock,
       payload: type ? this.getChain : [],
+      msg: "처음 정경훈이 보냈다.",
     };
 
     socket.send(JSON.stringify(message));
@@ -137,6 +151,9 @@ class P2P extends Chain {
   }
 
   addToPeer(peer: string): void {
+    console.log("addToPeer");
+    console.log("peer :", peer);
+    if (peer !== "ws://192.168.0.117:7545") return;
     // 소켓을 생성하고 연결한다.
     const socket: WebSocket = new WebSocket(peer);
     // 상대 소켓 서버 주소를 받아서 연결을 시도한다.

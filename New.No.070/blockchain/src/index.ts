@@ -37,10 +37,12 @@ const ws: P2P = new P2P();
 app.use(express.json());
 
 app.get("/chains", (req: Request, res: Response) => {
+  console.log("GET /chains");
   res.json(ws.getChain);
 });
 
 app.post("/block/mine", (req: Request, res: Response) => {
+  console.log("POST /block/mine");
   const { data }: { data: Array<string> } = req.body;
   const newBlock: IBlock | null = ws.addBlock(data);
   if (newBlock === null) res.send("error data");
@@ -48,12 +50,14 @@ app.post("/block/mine", (req: Request, res: Response) => {
 });
 
 app.post("/peer/add", (req: Request, res: Response) => {
+  console.log("POST /peer/add");
   const { peer }: { peer: string } = req.body;
   ws.addToPeer(peer);
   res.end();
 });
 
 app.get("/peer", (req: Request, res: Response) => {
+  console.log("GET /peer");
   const sockets = ws.getSockets.map(
     (item: any) => item._socket.remoteAddress + ":" + item._socket.remotePort
   );
