@@ -153,7 +153,6 @@ class P2P extends Chain {
   addToPeer(peer: string): void {
     console.log("addToPeer");
     console.log("peer :", peer);
-    if (peer !== "ws://192.168.0.117:7545") return;
     // 소켓을 생성하고 연결한다.
     const socket: WebSocket = new WebSocket(peer);
     // 상대 소켓 서버 주소를 받아서 연결을 시도한다.
