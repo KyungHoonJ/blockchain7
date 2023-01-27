@@ -62,6 +62,23 @@ class Chain implements IChain {
       return _newBlock;
     }
   }
+
+  isValidChain(_chain: Array<IBlock>): TResult<undefined, string> {
+    // 다른 서버에서 체인 받았을 때 정상적인 체인인지 확인하자.
+    for (let i = 1; i < _chain.length; ++i) {
+      const nowBlock = _chain[i];
+      const previousBlock = _chain[i - 1];
+      const isValid = Block.isValidBlock(nowBlock, previousBlock);
+      if (isValid.isError == true) return isValid;
+      // 문제가 있는 체인이면 에러를 반환한다.
+    }
+    return { isError: false, value: undefined };
+    // 문제가 없는 체인임이 확인됐다.
+  }
+
+  replaceChain(_chain: Array<IBlock>): void {
+    this.chain = _chain;
+  }
 }
 
 // module.exports = Chain;
