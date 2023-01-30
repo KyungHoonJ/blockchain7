@@ -18,9 +18,12 @@ const ec: elliptic.ec = new elliptic.ec("secp256k1");
 const keyPair: elliptic.ec.KeyPair = ec.keyFromPrivate(privateKey);
 // 개인키를 사용해서 키페어를 생성한다.
 //   - 즉 공개키를 생성한다.
+// keyFromPrivate(개인키) << 개인키를 사용하여 키페어(개인키 + 공개키)를 생성한다.
 
-const publicKey = keyPair.getPublic().encode("hex", true);
+const publicKey: string = keyPair.getPublic().encode("hex", true).toUpperCase();
 // 생성된 키페어에서 공개키를 가져온다.
+// getPublic() << 키페어에서 공개키를 가져온다.
+// encode(인코딩 형식, true) << 암호문을 저장하기 위해 객체 형식으로 되어있는 데이터를 문자열(hex)로 변환한다.
 console.log("privateKey :", privateKey);
 console.log("privateKey.length :", privateKey.length);
 console.log("publicKey :", publicKey);
@@ -40,3 +43,53 @@ console.log("publicKey.length :", publicKey.length);
 
 // y가 짝수일 때 02를 앞에 추가하고 홀수일 때 03을 앞에 추가한다. => x + y를 모두 사용할 때 128자일까? => 앞에 04를 붙인다. 즉 130자가 된다.(520 bits / 65 bytes)
 // 0413484850ea2ab8e51500ff09d9802ac7ddf328e119847d60c2617162a686e38113484850ea2ab8e51500ff09d9802ac7ddf328e119847d60c2617162a686e381
+
+const data: string = "checking data";
+const hash: string = cryptoJS.SHA256(data).toString().toUpperCase();
+// 전송할 데이터(입력된 값 : checking data), Hash로 암호화해두자
+console.log("hash :", hash);
+console.log("hash.length :", hash.length);
+
+const signature: elliptic.ec.Signature = keyPair.sign(hash, "hex");
+// sign(데이터, 인코딩 형식) << 키페어를 사용해서 서명을 만든다.
+console.log(signature);
+
+// 위에서 만든 서명을 확인하자.
+const verify: boolean = ec.verify(
+  hash,
+  signature,
+  ec.keyFromPublic(publicKey, "hex")
+);
+console.log("verify :", verify);
+// 정상적으로 복호화되어 hash가 확인된다면 true 가 반환된다.(return)
+// verify(데이터, 서명, 키페어) << 서명을 키페어를 사용해서 복호화하여 데이터와 비교한다. 같은 데이터라면 true가 반환된다.
+// keyFromPublic(공개키, ?인코딩 형식) << 공개키를 사용하여 키페어를 생성한다.
+
+const newPrivateKey: string = cryptoJS.lib.WordArray.random(32)
+  .toString()
+  .toUpperCase();
+
+const newKeyPair: elliptic.ec.KeyPair = ec.keyFromPrivate(newPrivateKey);
+const newPublicKey: string = newKeyPair
+  .getPublic()
+  .encode("hex", true)
+  .toUpperCase();
+
+const newVerify = ec.verify(
+  hash,
+  signature,
+  ec.keyFromPublic(newPublicKey, "hex")
+);
+console.log("newVerify :", newVerify);
+// 새로운 공개키로 확인했기 때문에 false가 반환된다.
+//   - ketFromPublic에서 'hex' 없으면 터진다.
+//   - hash(=데이터)와 signature(=서명)과 publicKey(=공개키)가 정확히 일치 하지 않는다. => 상대가 보낸 것인지 확신할 수 없다. 해킹일수도 있다?
+
+// 0x896BB5BC4c4794307BE0f378b45E341056258c42
+//   - 이더 보낼 때 여기로 보내면 됨
+// const myWallet = "896BB5BC4c4794307BE0f378b45E341056258c42";
+// console.log(myWallet.length);
+
+const myWallet = publicKey.slice(26);
+console.log(myWallet.length);
+console.log(0x88);
