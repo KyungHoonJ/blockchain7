@@ -59,7 +59,7 @@ class Wallet implements IWallet {
 
   static getWalletPrivateKey(_address) {
     console.log(
-      "4-3 지갑 주소 파일 명으로 파일을 불러와서 그 내용의 개인키를 가져온다."
+      "4-3/5-5 지갑 주소 파일 명으로 파일을 불러와서 그 내용의 개인키를 가져온다."
     );
     // 4-4
     const filePath = path.join(addressDir, _address);
@@ -68,11 +68,13 @@ class Wallet implements IWallet {
   }
 
   static createSign(_data) {
+    console.log("5-4 서명 생성 시작");
     const hash = SHA256(_data.sender.publicKey + _data.received + _data.amount)
       .toString()
       .toUpperCase();
     const privateKey = Wallet.getWalletPrivateKey(_data.sender.address);
     const keyPair = ec.keyFromPrivate(privateKey);
+    console.log("5-6 서명 반환(return)");
     return keyPair.sign(hash, "hex");
   }
 }

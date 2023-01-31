@@ -52,6 +52,8 @@ document.getElementById("wallet_list_btn").onclick = () => {
 
 document.getElementById("transaction_form").onsubmit = (e) => {
   e.preventDefault();
+  console.log("5-1 전송 버튼 클릭");
+  // 조건 : 위에 지갑 데이터 있어야함 && received 입력값이 있어야함 && amount 입력값이 있어야함
 
   const publicKey = publicKeyLi.innerHTML;
   const address = addressLi.innerHTML;
@@ -66,6 +68,8 @@ document.getElementById("transaction_form").onsubmit = (e) => {
     received,
     amount,
   };
-
+  console.log(
+    "5-2 현재 지갑 정보와 입력된 값으로 /transaction/send 에 요청 보냄"
+  );
   axios.post("/transaction/send", req);
 };

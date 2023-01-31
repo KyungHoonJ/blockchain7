@@ -38,6 +38,7 @@ app.get("/wallet/:address", (req: Request, res: Response) => {
 });
 
 app.post("/transaction/send", (req: Request, res: Response) => {
+  console.log("5-3 POST 메서드, /transaction/send 라우터로 요청 받음");
   const signature = Wallet.createSign(req.body);
   console.log(signature);
 
@@ -48,6 +49,9 @@ app.post("/transaction/send", (req: Request, res: Response) => {
     signature,
   };
 
+  console.log(
+    "5-7 생성한 서명과 hash를 만들기 위한 데이터를 가지고 http://localhost:8080/transaction/send에 요청 보냄"
+  );
   axios.post("http://localhost:8080/transaction/send", txObj, {
     headers: {
       Authorization:

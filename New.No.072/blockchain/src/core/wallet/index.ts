@@ -28,6 +28,7 @@ class Wallet {
     amount: number;
     signature: TSignature;
   }): TResult<undefined, string> {
+    console.log("5-11 서명 확인");
     const { sender, received, amount, signature } = _receivedTx;
     const hash = SHA256(sender + received + amount)
       .toString()

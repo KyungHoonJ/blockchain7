@@ -9,6 +9,7 @@ app.use(express.json());
 
 // 보안 작업
 app.use((req: Request, res: Response, next) => {
+  console.log("5-8 지갑 서버에서 보낸 요청 받음, 인증 확인");
   const baseAuth = req.headers.authorization?.split(" ")[1] || "";
   console.log("baseAuth :", baseAuth);
   if (!baseAuth || baseAuth === "") return res.status(401).end();
@@ -25,6 +26,7 @@ app.use((req: Request, res: Response, next) => {
   )
     return res.status(401).end();
 
+  console.log("5-9 인증이 확인되면 다음으로 넘어감");
   next();
 });
 // http 통신에서 header를 이용한 인증 방법
@@ -60,6 +62,7 @@ app.get("/peer", (req: Request, res: Response) => {
 });
 
 app.post("/transaction/send", (req: Request, res: Response) => {
+  console.log("5-10 지갑 서버에서 보낸 요청 받음");
   // {
   //   sender: '03765DC5F39AED4F75C53AB3907606A37F6F4EE78A573F8C289D1F33C90E74FCE3',
   //   received: '7606A37F6F4EE78A573F8C289D1F33C90E74FCE3',
@@ -72,6 +75,7 @@ app.post("/transaction/send", (req: Request, res: Response) => {
   // }
   console.log(req.body);
   const isValid = Wallet.verify(req.body);
+  console.log("5-12 서명 확인 결과 출력");
   console.log(isValid);
   res.end();
 });
