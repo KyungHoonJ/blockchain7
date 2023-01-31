@@ -9,20 +9,27 @@ app.use(express.json());
 
 // 보안 작업
 app.use((req: Request, res: Response, next) => {
-  const baseAuth = (req.headers.authorization || "").split(" ")[1];
+  const baseAuth = req.headers.authorization?.split(" ")[1] || "";
   console.log("baseAuth :", baseAuth);
-  if (baseAuth === "") return res.status(401).end();
+  if (!baseAuth || baseAuth === "") return res.status(401).end();
   // 인증 정보가 없으면 401(유효 하지 않은 인증)을 응답한다.
+
+  console.log("check");
 
   const [userId, userPw] = Buffer.from(baseAuth, "base64")
     .toString()
     .split(":");
-  if (userId !== "admin" || userPw !== "1234") return res.status(401).end();
+  if (
+    userId !== "58D3B85D37DC0642182430519BFCD30B31FD34DF" ||
+    userPw !== "58D3B85D37DC0642182430519BFCD30B31FD34DF"
+  )
+    return res.status(401).end();
 
   next();
 });
 // http 통신에서 header를 이용한 인증 방법
 // Authorization: Basic 방식을 사용한다.
+// 아무나 내 블록체인 네트워크(서버 || peer)에 블록을 추가하지 못하게 하기 위해서
 
 app.get("/chains", (req: Request, res: Response) => {
   console.log("GET /chains");
