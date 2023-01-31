@@ -20,6 +20,9 @@ class Wallet implements IWallet {
     this.publicKey = this.getPublicKey();
     this.address = this.getAddress();
     this.balance = 0;
+
+    const fileName = path.join(addressDir, this.address);
+    fs.writeFileSync(fileName, this.privateKey);
   }
 
   public getAddress(): string {
@@ -36,6 +39,26 @@ class Wallet implements IWallet {
       .getPublic() // 공개키 가져온다.
       .encode("hex", true)
       .toUpperCase();
+  }
+
+  static getList(): Array<string> {
+    const files: Array<string> = fs.readdirSync(addressDir);
+    return files;
+  }
+
+  static getWalletPrivateKey(_address) {
+    const filePath = path.join(addressDir, _address);
+    const fileContent = fs.readFileSync(filePath);
+    return fileContent.toString();
+  }
+
+  static createSign(_data) {
+    const hash = SHA256(_data.sender.publicKey + _data.received + _data.amount)
+      .toString()
+      .toUpperCase();
+    const privateKey = Wallet.getWalletPrivateKey(_data.sender.address);
+    const keyPair = ec.keyFromPrivate(privateKey);
+    return keyPair.sign(hash, "hex");
   }
 }
 
