@@ -4,7 +4,7 @@ const privateKeyLi = document.getElementById("wallet_privateKey");
 const balanceLi = document.getElementById("wallet_balance");
 
 const info = (_wallet) => {
-  console.log("2-9 전달받은 지갑 정보(data)를 웹페이지에 출력");
+  console.log("2-9/4-10 전달받은 지갑 정보(data)를 웹페이지에 출력");
   // 2-7
   addressLi.innerHTML = _wallet.address;
   publicKeyLi.innerHTML = _wallet.publicKey;
@@ -27,6 +27,7 @@ const getInfo = async (_address) => {
   // 4-2
   console.log("4-1 지갑 주소 목록 중 하나 클릭");
   const wallet = (await axios.get("/wallet/" + _address)).data;
+  console.log("4-9 응답받은 지갑 정보(data)를 info 함수에 전달");
   info(wallet);
 };
 
