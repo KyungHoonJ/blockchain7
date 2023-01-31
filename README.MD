@@ -40,3 +40,79 @@ const temp = "javascript를 출력할 수 있다";
 3개여도 되네...
 
 <img width="100px" src="./140020_141031_1512.jpg" ></img>
+
+```mermaid
+  gitGraph
+  commit id: "72일 추가"
+  branch develop
+  checkout develop
+  commit
+  commit
+  commit
+  checkout main
+  merge develop
+  commit
+  commit
+```
+
+```mermaid
+%%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
+              'git0': '#ff0000',
+              'git1': '#00ff00',
+              'git2': '#0000ff',
+              'git3': '#ff00ff',
+              'git4': '#00ffff',
+              'git5': '#ffff00',
+              'git6': '#ff00ff',
+              'git7': '#00ffff'
+} } }%%
+  gitGraph
+        commit
+        branch hotfix
+        checkout hotfix
+        commit
+        branch develop
+        checkout develop
+        commit id:"ash" tag:"abc"
+        branch featureB
+        checkout featureB
+        commit type:HIGHLIGHT
+        checkout main
+        checkout hotfix
+        commit type:NORMAL
+        checkout develop
+        commit type:REVERSE
+        checkout featureB
+        commit
+        checkout main
+        merge hotfix
+        checkout featureB
+        commit
+        checkout develop
+        branch featureA
+        commit
+        checkout develop
+        merge hotfix
+        checkout featureA
+        commit
+        checkout featureB
+        commit
+        checkout develop
+        merge featureA
+        branch release
+        checkout release
+        commit
+        checkout main
+        commit
+        checkout release
+        merge main
+        checkout develop
+        merge release
+```
+
+```mermaid
+pie title Pets adopted by volunteers
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 15
+```
