@@ -1,5 +1,3 @@
-import TxIn from "./TxIn";
-import TxOut from "./TxOut";
 import UnspentTxOut from "./UnspentTxOut";
 import { SHA256 } from "crypto-js";
 
@@ -44,5 +42,22 @@ export default class Transaction implements ITransaction {
     return SHA256(txInStr + txOutStr)
       .toString()
       .toUpperCase();
+  }
+
+  createUTXO(): Array<IUnspentTxOut> {
+    // transaction에서 utxo를 생성해서 내보내준다.
+    const utxo: Array<IUnspentTxOut> = [];
+    for (let i = 0; i < this.txOuts.length; ++i) {
+      utxo.push(
+        new UnspentTxOut(
+          this.txOuts[i].address,
+          this.txOuts[i].amount,
+          this.hash,
+          i
+        )
+      );
+    }
+
+    return utxo;
   }
 }

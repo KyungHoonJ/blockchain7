@@ -1,5 +1,8 @@
 // const Block = require("../block/block");
 import Block from "@core/block/block";
+import Transaction from "@core/transaction/Transaction";
+import TxIn from "@core/transaction/TxIn";
+import TxOut from "@core/transaction/TxOut";
 
 class Chain implements IChain {
   private chain: Array<IBlock>;
@@ -10,10 +13,14 @@ class Chain implements IChain {
   // private는 해당 클래스 내에서만 사용할 수 있기 때문에 interface를 따로 사용하지 못한다.
   //   - private는 상속도 안된다.
 
+  private utxos: Array<IUnspentTxOut>;
+
   constructor() {
     this.chain = [];
     const genesis: IBlock = new Block([`경훈의 제네시스 블록 ${new Date()}`]);
     this.chain.push(genesis);
+
+    this.utxos = [];
   }
 
   get getChain(): Array<IBlock> {
@@ -36,6 +43,10 @@ class Chain implements IChain {
     const interval: number = length - this.DIFFICULTY_ADJUSTMENT_INTERVAL;
     if (interval < 0) return this.chain[0];
     return this.chain[interval];
+  }
+
+  get getUtxo(): Array<IUnspentTxOut> {
+    return [...this.utxos];
   }
 
   addBlock(_data: Array<string>): IBlock | null {
@@ -96,6 +107,17 @@ class Chain implements IChain {
 
     this.chain = _chain;
     return { isError: false, value: undefined };
+  }
+
+  mineBlock(_address: string) {
+    const txIn: ITxIn = new TxIn("", this.lastBlock.height + 1);
+    // 코인베이스 트랜잭션의 특징으로 txOutIndex를 블록의 높이로 정의한다.
+    const txOut: ITxOut = new TxOut(_address, 50);
+    const coinbaseTransaction: Transaction = new Transaction([txIn], [txOut]);
+    const utxo = coinbaseTransaction.createUTXO();
+    this.utxos.push(...utxo);
+
+    return this.addBlock([JSON.stringify(coinbaseTransaction)]);
   }
 }
 

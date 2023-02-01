@@ -8,27 +8,23 @@ const ws: P2P = new P2P();
 app.use(express.json());
 
 // 보안 작업
-app.use((req: Request, res: Response, next) => {
-  console.log("5-8 지갑 서버에서 보낸 요청 받음, 인증 확인");
-  const baseAuth = req.headers.authorization?.split(" ")[1] || "";
-  console.log("baseAuth :", baseAuth);
-  if (!baseAuth || baseAuth === "") return res.status(401).end();
-  // 인증 정보가 없으면 401(유효 하지 않은 인증)을 응답한다.
+// app.use((req: Request, res: Response, next) => {
+//   console.log("5-8 지갑 서버에서 보낸 요청 받음, 인증 확인");
+//   const baseAuth = req.headers.authorization?.split(" ")[1] || "";
+//   console.log("baseAuth :", baseAuth);
+//   if (!baseAuth || baseAuth === "") return res.status(401).end();
+//   // 인증 정보가 없으면 401(유효 하지 않은 인증)을 응답한다.
 
-  console.log("check");
+//   console.log("check");
 
-  const [userId, userPw] = Buffer.from(baseAuth, "base64")
-    .toString()
-    .split(":");
-  if (
-    userId !== "58D3B85D37DC0642182430519BFCD30B31FD34DF" ||
-    userPw !== "58D3B85D37DC0642182430519BFCD30B31FD34DF"
-  )
-    return res.status(401).end();
+//   const [userId, userPw] = Buffer.from(baseAuth, "base64")
+//     .toString()
+//     .split(":");
+//   if (userId !== "admin" || userPw !== "1234") return res.status(401).end();
 
-  console.log("5-9 인증이 확인되면 다음으로 넘어감");
-  next();
-});
+//   console.log("5-9 인증이 확인되면 다음으로 넘어감");
+//   next();
+// });
 // http 통신에서 header를 이용한 인증 방법
 // Authorization: Basic 방식을 사용한다.
 // 아무나 내 블록체인 네트워크(서버 || peer)에 블록을 추가하지 못하게 하기 위해서
@@ -40,8 +36,10 @@ app.get("/chains", (req: Request, res: Response) => {
 
 app.post("/block/mine", (req: Request, res: Response) => {
   console.log("POST /block/mine");
-  const { data }: { data: Array<string> } = req.body;
-  const newBlock: IBlock | null = ws.addBlock(data);
+  // const { data }: { data: Array<string> } = req.body;
+  const { data }: { data: string } = req.body;
+  // const newBlock: IBlock | null = ws.addBlock(data);
+  const newBlock: IBlock | null = ws.mineBlock(data);
   if (newBlock === null) res.send("error data");
   res.json(newBlock);
 });
@@ -78,6 +76,10 @@ app.post("/transaction/send", (req: Request, res: Response) => {
   console.log("5-12 서명 확인 결과 출력");
   console.log(isValid);
   res.end();
+});
+
+app.get("/utxo", (req: Request, res: Response) => {
+  res.json(ws.getUtxo);
 });
 
 const ports = [
