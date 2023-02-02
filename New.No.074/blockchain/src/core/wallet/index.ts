@@ -1,3 +1,5 @@
+import Transaction from "@core/transaction/Transaction";
+import UnspentTxOut from "@core/transaction/UnspentTxOut";
 import { SHA256 } from "crypto-js";
 import elliptic from "elliptic";
 
@@ -54,6 +56,28 @@ class Wallet {
     const isValid = keyPair.verify(hash, signature);
     if (!isValid) return { isError: true, msg: "서명 오류" };
     return { isError: false, value: undefined };
+  }
+
+  static sendTransaction(
+    _receivedTx: {
+      sender: string;
+      received: string;
+      amount: number;
+      signature: TSignature;
+    },
+    _utxos: Array<IUnspentTxOut>
+  ) {
+    const isValid = Wallet.verify(_receivedTx);
+    if (isValid.isError === true) return isValid;
+
+    const wallet = new this(_receivedTx.sender, _receivedTx.signature, _utxos);
+    if (wallet.balance < _receivedTx.amount) {
+      return { isError: true, msg: "잔액 부족" };
+    }
+
+    const myUTXO = UnspentTxOut.getMyUTXO(wallet.address, _utxos);
+    const tx = Transaction.createTx(_receivedTx, myUTXO);
+    return { isError: false, value: tx };
   }
 }
 

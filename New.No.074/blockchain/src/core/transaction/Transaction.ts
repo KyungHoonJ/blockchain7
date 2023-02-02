@@ -1,5 +1,7 @@
 import UnspentTxOut from "./UnspentTxOut";
 import { SHA256 } from "crypto-js";
+import TxIn from "./TxIn";
+import TxOut from "./TxOut";
 
 export default class Transaction implements ITransaction {
   public txIns: Array<ITxIn>;
@@ -59,5 +61,12 @@ export default class Transaction implements ITransaction {
     }
 
     return utxo;
+  }
+
+  static createTx(_receivedTx, _myUTXO: Array<UnspentTxOut>): Transaction {
+    const { sum, txIns } = TxIn.createTxIns(_receivedTx, _myUTXO);
+    const txOuts = TxOut.createTxOuts(sum, _receivedTx);
+    const tx = new Transaction(txIns, txOuts);
+    return tx;
   }
 }

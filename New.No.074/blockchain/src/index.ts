@@ -80,10 +80,17 @@ app.post("/transaction/send", (req: Request, res: Response) => {
   //   }
   // }
   console.log(req.body);
-  const isValid = Wallet.verify(req.body);
+  // const isValid = Wallet.verify(req.body);
+  const result = Wallet.sendTransaction(req.body, ws.getUtxo);
+  console.log(result);
+  if (result.isError === true) res.send(result.msg);
+  else {
+    ws.updateUTXO(result.value);
+    res.end();
+  }
   console.log("5-12 서명 확인 결과 출력");
-  console.log(isValid);
-  res.end();
+  // console.log(isValid);
+  // res.end();
 });
 
 app.get("/utxo", (req: Request, res: Response) => {

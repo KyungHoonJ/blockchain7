@@ -124,6 +124,40 @@ class Chain implements IChain {
 
     return this.addBlock([coinbaseTransaction]);
   }
+
+  updateUTXO(_tx: Transaction) {
+    const utxos = this.getUtxo;
+    const newUTXO = _tx.createUTXO();
+
+    let temp = utxos.filter((item) => {
+      const txIn = _tx.txIns.find(
+        (item1) =>
+          item.txOutId === item1.txOutId && item.txOutIndex === item1.txOutIndex
+        // 트랜잭션의 txIns에 들어갔다 => input으로 넣어서 사용했다
+        // 그럼 기존의 utxos 에서 사용한 utxo들을 빼야한다.
+        // 그래서 txIns와 utxos를 비교, 검색해서 나오면 filter에서 걸러진다
+      );
+      return !txIn;
+    });
+
+    // let temp = [];
+    // for (let i = 0; i < utxos.length; ++i) {
+    //   for (let j = 0; j < _tx.txIns.length; ++j) {
+    //     if (
+    //       !(utxos[i].txOutId === _tx.txIns[j].txOutId &&
+    //       utxos[i].txOutIndex === _tx.txIns[j].txOutIndex)
+    //     )
+    //       temp.push(utxos[i]);
+    // //    if (
+    // //      utxos[i].txOutId !== _tx.txIns[j].txOutId ||
+    // //      utxos[i].txOutIndex !== _tx.txIns[j].txOutIndex
+    // //    )
+    // //      temp.push(utxos[i]);
+    //   }
+    // }
+
+    this.utxos = [...temp, ...newUTXO];
+  }
 }
 
 // module.exports = Chain;

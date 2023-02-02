@@ -72,11 +72,7 @@ app.post("/transaction/send", (req: Request, res: Response) => {
   );
   axios.post("http://localhost:8080/transaction/send", txObj, {
     headers: {
-      Authorization:
-        "Basic " +
-        Buffer.from(
-          "58D3B85D37DC0642182430519BFCD30B31FD34DF:58D3B85D37DC0642182430519BFCD30B31FD34DF"
-        ).toString("base64"),
+      Authorization: "Basic " + Buffer.from("admin:1234").toString("base64"),
       // HTTP 통신에서의 인증 방법
       // Authorization: Basic 방식은 base64 포멧을 기본으로 한다.
     },
