@@ -2,6 +2,8 @@ import P2P, { IMessage, MessageType } from "./p2p";
 import express, { Express, Request, Response } from "express";
 import Wallet from "@core/wallet";
 
+global.debug = false;
+
 const app: Express = express();
 const ws: P2P = new P2P();
 
@@ -9,20 +11,21 @@ app.use(express.json());
 
 // 보안 작업
 app.use((req: Request, res: Response, next) => {
-  console.log("5-8 지갑 서버에서 보낸 요청 받음, 인증 확인");
+  if (global.debug)
+    console.log("5-8/6-8 지갑 서버에서 보낸 요청 받음, 인증 확인");
   const baseAuth = req.headers.authorization?.split(" ")[1] || "";
-  console.log("baseAuth :", baseAuth);
+  if (global.debug) console.log("baseAuth :", baseAuth);
   if (!baseAuth || baseAuth === "") return res.status(401).end();
   // 인증 정보가 없으면 401(유효 하지 않은 인증)을 응답한다.
 
-  console.log("check");
+  if (global.debug) console.log("check");
 
   const [userId, userPw] = Buffer.from(baseAuth, "base64")
     .toString()
     .split(":");
   if (userId !== "admin" || userPw !== "1234") return res.status(401).end();
 
-  console.log("5-9 인증이 확인되면 다음으로 넘어감");
+  if (global.debug) console.log("5-9/6-9 인증이 확인되면 다음으로 넘어감");
   next();
 });
 // http 통신에서 header를 이용한 인증 방법
@@ -30,12 +33,12 @@ app.use((req: Request, res: Response, next) => {
 // 아무나 내 블록체인 네트워크(서버 || peer)에 블록을 추가하지 못하게 하기 위해서
 
 app.get("/chains", (req: Request, res: Response) => {
-  console.log("GET /chains");
+  if (global.debug) console.log("GET /chains");
   res.json(ws.getChain);
 });
 
 app.post("/block/mine", (req: Request, res: Response) => {
-  console.log("POST /block/mine");
+  if (global.debug) console.log("POST /block/mine");
   // const { data }: { data: Array<string> } = req.body;
   const { data }: { data: string } = req.body;
   // const newBlock: IBlock | null = ws.addBlock(data);
@@ -53,14 +56,14 @@ app.post("/block/mine", (req: Request, res: Response) => {
 });
 
 app.post("/peer/add", (req: Request, res: Response) => {
-  console.log("POST /peer/add");
+  if (global.debug) console.log("POST /peer/add");
   const { peer }: { peer: string } = req.body;
   ws.addToPeer(peer);
   res.end();
 });
 
 app.get("/peer", (req: Request, res: Response) => {
-  console.log("GET /peer");
+  if (global.debug) console.log("GET /peer");
   const sockets = ws.getSockets.map(
     (item: any) => item._socket.remoteAddress + ":" + item._socket.remotePort
   );
@@ -68,7 +71,7 @@ app.get("/peer", (req: Request, res: Response) => {
 });
 
 app.post("/transaction/send", (req: Request, res: Response) => {
-  console.log("5-10 지갑 서버에서 보낸 요청 받음");
+  if (global.debug) console.log("5-10/6-10 지갑 서버에서 보낸 요청 받음");
   // {
   //   sender: '03765DC5F39AED4F75C53AB3907606A37F6F4EE78A573F8C289D1F33C90E74FCE3',
   //   received: '7606A37F6F4EE78A573F8C289D1F33C90E74FCE3',
@@ -79,17 +82,21 @@ app.post("/transaction/send", (req: Request, res: Response) => {
   //     recoveryParam: 0
   //   }
   // }
-  console.log(req.body);
+  if (global.debug) console.log(req.body);
   // const isValid = Wallet.verify(req.body);
+  if (global.debug) console.log("6-11 트랜잭션 추가 함수를 호출");
   const result = Wallet.sendTransaction(req.body, ws.getUtxo);
-  console.log(result);
+  if (global.debug) console.log(result);
+  if (global.debug) console.log("6-32 트랜잭션이 정상적으로 추가되었는지 확인");
   if (result.isError === true) res.send(result.msg);
   else {
+    if (global.debug) console.log("6-33 UTXO 수정 함수 호출");
     ws.updateUTXO(result.value);
+    if (global.debug) console.log("6-37 트랜잭션 추가 및 UTXO 수정 끝");
     res.end();
   }
-  console.log("5-12 서명 확인 결과 출력");
-  // console.log(isValid);
+  if (global.debug) console.log("5-12 서명 확인 결과 출력");
+  // if(global.debug)console.log(isValid);
   // res.end();
 });
 

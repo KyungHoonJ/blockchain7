@@ -49,19 +49,19 @@ class P2P extends Chain {
   }
 
   connectSocket(socket: WebSocket, type?: MessageType): void {
-    console.log("connectSocket");
+    if (global.debug) console.log("connectSocket");
     // 소켓을 연결한다.
     this.sockets.push(socket);
     // 연결된 소켓을 소켓 목록에 추가한다.(peer 목록에 추가)
     //   - 후에 어디랑 연결됐는지 확인할 때 등 사용한다.
     socket.on("message", (_data: string) => {
       // message 이벤트가 발생하면 로그로 남긴다.
-      // console.log(_data.toString());
-      console.log("message");
+      // if(global.debug)console.log(_data.toString());
+      if (global.debug) console.log("message");
 
       const data: IMessage = JSON.parse(_data.toString());
       // 받은 메세지를 객체로 파싱
-      console.log(data);
+      if (global.debug) console.log(data);
 
       switch (data.type) {
         // 어떤 요청이 왔는가 type으로 확인해서
@@ -98,13 +98,13 @@ class P2P extends Chain {
         case MessageType.addBlock: {
           const isValidChain = this.isValidChain(data.payload);
           if (isValidChain.isError === true) {
-            console.log(isValidChain.msg);
+            if (global.debug) console.log(isValidChain.msg);
             break;
           }
 
           const isValid = this.replaceChain(data.payload);
           if (isValid.isError === true) {
-            console.log(isValid.msg);
+            if (global.debug) console.log(isValid.msg);
             break;
           }
 
@@ -142,21 +142,21 @@ class P2P extends Chain {
 
     server.on("connection", (socket: WebSocket) => {
       // 서버에 연결이 들어왔을 때
-      console.log("socket start");
+      if (global.debug) console.log("socket start");
       this.connectSocket(socket);
       // socket을 추가한다.
     });
   }
 
   addToPeer(peer: string): void {
-    console.log("addToPeer");
-    console.log("peer :", peer);
+    if (global.debug) console.log("addToPeer");
+    if (global.debug) console.log("peer :", peer);
     // 소켓을 생성하고 연결한다.
     const socket: WebSocket = new WebSocket(peer);
     // 상대 소켓 서버 주소를 받아서 연결을 시도한다.
     socket.on("open", () => {
       // 연결 성공 시 open 이벤트가 발생한다.
-      console.log("open");
+      if (global.debug) console.log("open");
       this.connectSocket(socket, MessageType.addBlock);
       // 연결에 성공하면 소켓을 추가한다.
     });

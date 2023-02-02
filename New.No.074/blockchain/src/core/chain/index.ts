@@ -55,8 +55,8 @@ class Chain implements IChain {
   }
 
   addBlock(_data: Array<ITransaction>): IBlock | null {
-    console.log("addBlock");
-    console.log("_data :", _data);
+    if (global.debug) console.log("addBlock");
+    if (global.debug) console.log("_data :", _data);
     const newBlock: IBlock = new Block(
       _data,
       this.lastBlock,
@@ -75,7 +75,7 @@ class Chain implements IChain {
       console.error(isValid.msg);
       return null;
     } else {
-      console.log(_newBlock);
+      if (global.debug) console.log(_newBlock);
       this.chain.push(_newBlock);
       return _newBlock;
     }
@@ -83,7 +83,7 @@ class Chain implements IChain {
 
   isValidChain(_chain: Array<IBlock>): TResult<undefined, string> {
     // 다른 서버에서 체인 받았을 때 정상적인 체인인지 확인하자.
-    console.log("isValidChain");
+    if (global.debug) console.log("isValidChain");
     for (let i = 1; i < _chain.length; ++i) {
       const nowBlock = _chain[i];
       const previousBlock = _chain[i - 1];
@@ -96,7 +96,7 @@ class Chain implements IChain {
   }
 
   replaceChain(_chain: Array<IBlock>): TResult<undefined, string> {
-    console.log("replaceChain");
+    if (global.debug) console.log("replaceChain");
     const newLastBlock = _chain[_chain.length - 1];
     const lastBlock = this.lastBlock;
     if (newLastBlock.height === 0 && lastBlock.height !== 0) {
@@ -126,6 +126,7 @@ class Chain implements IChain {
   }
 
   updateUTXO(_tx: Transaction) {
+    if (global.debug) console.log("6-34 UTXO 수정 시작");
     const utxos = this.getUtxo;
     const newUTXO = _tx.createUTXO();
 
@@ -156,6 +157,8 @@ class Chain implements IChain {
     //   }
     // }
 
+    if (global.debug)
+      console.log("6-36 수정된 utxo에 새로운 utxo를 추가해서 정의");
     this.utxos = [...temp, ...newUTXO];
   }
 }

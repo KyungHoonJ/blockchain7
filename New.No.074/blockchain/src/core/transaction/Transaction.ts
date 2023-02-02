@@ -15,7 +15,10 @@ export default class Transaction implements ITransaction {
   }
 
   createHash(): string {
+    if (global.debug) console.log("6-29 트랜잭션의 해시 생성");
     let txOutStr: string = "";
+    if (global.debug)
+      console.log("6-30 트랜잭션의 output에 대해서 값들을 전부 문자열로 합침");
     for (let i = 0; i < this.txOuts.length; ++i) {
       const tempTxOut: Array<string | number> = Object.values(this.txOuts[i]);
       // output 내용의 값들만 가져오자, 여러개이기 때문에 배열이다.
@@ -29,6 +32,8 @@ export default class Transaction implements ITransaction {
     // );
 
     let txInStr = "";
+    if (global.debug)
+      console.log("6-31 트랜잭션의 input에 대해서 값들을 전부 문자열로 합침");
     for (let i = 0; i < this.txIns.length; ++i) {
       const tempTxIn: Array<string | number> = Object.values(this.txIns[i]);
       // input 내용의 값들만 가져오자, 여러개이기 때문에 배열이다.
@@ -47,6 +52,8 @@ export default class Transaction implements ITransaction {
   }
 
   createUTXO(): Array<IUnspentTxOut> {
+    if (global.debug)
+      console.log("6-35 트랜잭션의 output을 기준으로 추가될 UTXO를 반환");
     // transaction에서 utxo를 생성해서 내보내준다.
     const utxo: Array<IUnspentTxOut> = [];
     for (let i = 0; i < this.txOuts.length; ++i) {
@@ -64,8 +71,10 @@ export default class Transaction implements ITransaction {
   }
 
   static createTx(_receivedTx, _myUTXO: Array<UnspentTxOut>): Transaction {
+    if (global.debug) console.log("6-23 트랜잭션 생성 함수 시작");
     const { sum, txIns } = TxIn.createTxIns(_receivedTx, _myUTXO);
     const txOuts = TxOut.createTxOuts(sum, _receivedTx);
+    if (global.debug) console.log("6-28 트랜잭션 생성");
     const tx = new Transaction(txIns, txOuts);
     return tx;
   }

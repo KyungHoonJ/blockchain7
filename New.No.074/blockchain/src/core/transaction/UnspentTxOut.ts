@@ -20,6 +20,7 @@ export default class UnspentTxOut implements IUnspentTxOut {
     _address: string,
     _utxos: Array<UnspentTxOut>
   ): Array<UnspentTxOut> {
+    if (global.debug) console.log("6-21 보내는 사람의 utxo 목록 가져오기");
     return _utxos.filter((item) => item.address === _address);
 
     // const temp = [];

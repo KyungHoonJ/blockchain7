@@ -123,7 +123,7 @@ class Block extends BlockHeader implements IBlock {
     }
 
     this.data = _data;
-    // console.log(this);
+    // if(global.debug)console.log(this);
   }
 
   static createHash(_block: IBlock): string {
@@ -154,8 +154,8 @@ class Block extends BlockHeader implements IBlock {
       this.hash = Block.createHash(this);
       hashBinary = hexToBinary(this.hash);
     }
-    console.log(hashBinary);
-    console.log(hashBinary.slice(0, this.difficulty));
+    if (global.debug) console.log(hashBinary);
+    if (global.debug) console.log(hashBinary.slice(0, this.difficulty));
   }
 
   static isValidBlock(
