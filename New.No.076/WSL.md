@@ -72,3 +72,75 @@ wsl --install -d Ubuntu
 
 7. WSL2를 사용하기 위해 아래 프로그램 설치
    https://learn.microsoft.com/ko-kr/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+8. WSL의 버전을 확인하기 위해 아래의 명령어 사용
+
+```sh
+wsl -l -v
+```
+
+9. WSL 2 버전 사용하기
+
+```sh
+wsl --set-version Ubuntu 2
+```
+
+10. 터미널에서 우분투 열기
+
+```sh
+wsl
+```
+
+    - 나갈 때는 exit
+
+11. WSL에서 삭제하고 싶을 때
+
+```sh
+wsl -unregister Ubuntu
+```
+
+# 기본적인 명령어들
+
+- cd
+  - 폴더 이동
+  - / : Root 경로(최상위 경로)
+  - ~ : Home 경로(/home/사용자 이름)
+- pwd
+  - 현재 경로 출력
+- ls
+  - 현재 폴더의 내용을 출력
+  - 옵션으로 대표적으로 a와 l를 사용
+  - ls -al : 권한 용량 등 모든 파일/폴더를 출력(숨긴 파일 포함)
+- mkdir
+  - 폴더 생성
+- clear
+  - 화면 초기화
+- curl
+  - 인터넷 접근(요청)
+
+# Node.js
+
+- 설치
+
+```sh
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install nodejs
+```
+
+- Ubuntu에서 Node.js는 최신 버전으로 설치되지 않는다.
+  - 해결은 nvm을 사용한다.
+- nvm : Node Version Manager
+  - Node.js의 버전을 관리한다.
+  - 설치 : curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+- nvm의 명령어들
+  - nvm ls-remote : 설치 가능한 Node.js의 모든 버전을 보여준다.
+  - nvm ls : 현재 설치된 Node.js 버전을 보여준다. => 여러 버전을 설치 후에 선택하여 사용할 수 있다.
+  - nvm install 18.12.1 : Node.js 버전 설치
+  - nvm use 18.12.1 : 18.12.1 버전을 사용한다.
+
+# Mac OS에서 프로그램 설치
+
+- homebrew를 사용한다
+- apt/apt-get 대신에 사용한다.
+- brew install 이름
