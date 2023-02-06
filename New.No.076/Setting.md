@@ -37,6 +37,7 @@ go version
 - Geth
 - 이더리움에서 제공하는 공식 소프트웨어
 - 설치
+  - geth 폴더 생성 후 거기에
 
 ```sh
 git clone https://github.com/ethereum/go-ethereum
