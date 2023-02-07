@@ -115,7 +115,7 @@ eth.sendTransaction({
   from: eth.accounts[0],
   to: eth.accounts[1],
   value: web3.toWei(1, "ether"),
-}); // 계정 잠금 후 보내기 가능
+}); // 계정 잠금 해제 후 보내기 가능
 ```
 
 ## miner.start() 시 아래 내용이 뜨는 이유
