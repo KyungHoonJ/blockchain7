@@ -96,7 +96,27 @@ wsl
 11. WSL에서 삭제하고 싶을 때
 
 ```sh
-wsl -unregister Ubuntu
+wsl --unregister Ubuntu
+```
+
+12. 기본적으로 WSL 2를 사용하도록 설정
+
+```sh
+wsl --set-default-version 2
+```
+
+- 기본 버전 수정
+
+```sh
+wsl -l -v
+# 여기서는 Ubuntu 1(기본적으로 1로 설치되도록 설정되어있다.)
+wsl --unregister Ubuntu
+wsl -l -v
+# 여기서는 목록 없음
+wsl --set-default-version 2
+wsl --install -d Ubuntu
+wsl -l -v
+# 여기서는 Ubuntu 2
 ```
 
 # 기본적인 명령어들
