@@ -162,8 +162,9 @@ curl -X POST -H "content-type: application/json" --data '{"id": 50, "jsonrpc": "
 curl -X POST -H "content-type: application/json" --data '{"id": 50, "jsonrpc": "2.0", "method": "eth_sendTransaction", "params": [{"from": "0x7c3b9dec66ebc1326f5484dc958eacd1bb1dee1c", "to": "0x79a88ed4412390bc291f48aa973495ef8ab2fc8b", "value": "0x3B9ACA00", "gas": "0x15f90", "gasPrice":"0x430e23400"}]}' http://localhost:8080
 ```
 
-    - gas : 내가 이 트랜잭션에 사용한 수수료
-    - gasPrice : 가스당 가격(수수료 가격을 결정)
+    - 아래는 선택사항, 안넣어도 됨
+        - gas : 내가 이 트랜잭션에 사용한 수수료
+        - gasPrice : 가스당 가격(수수료 가격을 결정)
 
 ```json
 {
