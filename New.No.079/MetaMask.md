@@ -20,3 +20,4 @@ geth --datadir ~/myGeth --http --http.addr "0.0.0.0" --http.port 8080 --http.cor
 ### 과제
 
 - 메타마스크에서 지갑 주소를 받아 HTML의 현재 지갑에 출력
+- 이번주에 배운 것 철저히 공부
