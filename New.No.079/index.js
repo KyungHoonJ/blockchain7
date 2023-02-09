@@ -8,11 +8,50 @@ const request = axios.create({
 
 const walletListElem = document.getElementById("wallet-list");
 const accountElem = document.getElementById("account");
+const balanceElem = document.getElementById("balance");
+const selectElem = document.getElementById("select-account");
 
 let isCreating = false;
+let interval;
+let accounts = [];
+
+async function mineStop() {
+  await request({
+    data: {
+      id: 50,
+      jsonrpc: "2.0",
+      method: "miner_stop",
+    },
+  });
+  clearInterval(interval);
+  interval = undefined;
+}
+
+async function getBalance(_account) {
+  const {
+    data: { result },
+  } = await request({
+    data: {
+      id: 50,
+      jsonrpc: "2.0",
+      method: "eth_getBalance",
+      params: [_account, "latest"],
+    },
+  });
+  balanceElem.innerHTML =
+    parseInt(parseInt(result, 16) / Math.pow(10, 15)) / 1000;
+}
 
 async function getWallet(_account) {
+  if (interval !== undefined) mineStop();
   accountElem.innerHTML = _account;
+  await getBalance(_account);
+
+  selectElem.innerHTML = "";
+  accounts.forEach((item) => {
+    if (item !== _account)
+      selectElem.innerHTML += `<option value="${item}">${item}</option>`;
+  });
 }
 
 async function getAccounts() {
@@ -29,8 +68,10 @@ async function getAccounts() {
   result.forEach((item) => {
     walletListElem.innerHTML += `<li onclick="getWallet('${item}')">${item}</li>`;
   });
+  accounts = result;
 }
 getAccounts();
+mineStop();
 
 document.forms["new-wallet"].onsubmit = async function (e) {
   e.preventDefault();
@@ -47,4 +88,55 @@ document.forms["new-wallet"].onsubmit = async function (e) {
   await getAccounts();
   e.target["new-pw"].value = "";
   isCreating = false;
+};
+
+document.getElementById("start").onclick = async function () {
+  if (accountElem.innerHTML === "") return;
+  await request({
+    data: {
+      id: 50,
+      jsonrpc: "2.0",
+      method: "miner_setEtherbase",
+      params: [accountElem.innerHTML],
+    },
+  });
+  await request({
+    data: {
+      id: 50,
+      jsonrpc: "2.0",
+      method: "miner_start",
+    },
+  });
+  interval = setInterval(() => {
+    getBalance(accountElem.innerHTML);
+  }, 2000);
+};
+
+document.getElementById("stop").onclick = mineStop;
+
+document.forms["transaction"].onsubmit = async function (e) {
+  e.preventDefault();
+  await request({
+    data: {
+      id: 50,
+      jsonrpc: "2.0",
+      method: "personal_unlockAccount",
+      params: [accountElem.innerHTML, e.target["tran-pw"].value],
+    },
+  });
+  await request({
+    data: {
+      id: 50,
+      jsonrpc: "2.0",
+      method: "eth_sendTransaction",
+      params: [
+        {
+          from: accountElem.innerHTML,
+          to: selectElem.value,
+          value:
+            "0x" + (+e.target["ether"].value * Math.pow(10, 18)).toString(16),
+        },
+      ],
+    },
+  });
 };

@@ -4,11 +4,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      input,
+      select {
+        display: block;
+        margin: 0.5rem;
+      }
+    </style>
     <title>Document</title>
   </head>
   <body>
     <h1>현재 지갑 : <span id="account"></span></h1>
-    <h2>잔액 : <span id="balance">남은 시간 10분, 추가하자</span></h2>
+    <h2>잔액 : <span id="balance"></span> ETH</h2>
+    <button id="start">채굴 시작</button>
+    <button id="stop">채굴 중지</button>
+    <form id="transaction">
+      <input
+        type="password"
+        id="tran-pw"
+        placeholder="Password"
+        pattern="[A-Za-z0-9!]+"
+      />
+      <input
+        type="text"
+        id="transaction-account"
+        placeholder="0x896BB5BC4c4794307BE0f378b45E341056258c42"
+      />
+      <select id="select-account"></select>
+      <input type="number" id="ether" step="0.001" placeholder="Ether" />
+      <button>이더 보내기</button>
+    </form>
     <form id="new-wallet">
       <input
         type="password"
