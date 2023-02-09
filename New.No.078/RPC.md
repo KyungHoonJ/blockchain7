@@ -23,7 +23,7 @@ geth --datadir ~/myGeth --http --http.addr "0.0.0.0" --http.port 8080 --http.cor
 - networkid : 개인 이더리움 네트워크 아이디, 체인 아이디와 같게 설정
 - allow-insecure-unlock : HTTP 통신으로 계정을 열 수 있게 한다.(unlock)(공식 홈페이지에서 전문가 이외에 권장하지 않는다.)
 - syncmode : 피어 연결 시 동기화 방법 설정
-  - fast : 블록 헤더, 최신 1024개의 트랜잭션 동기화, 기본값
+  - fast : 블록 헤더, 최신 1024개의 트랜잭션 동기화, 기본값 << 삭제됨
   - full : 모든 데이터 동기화
   - light : 블록 헤더, 잔액 관련만 동기화
 

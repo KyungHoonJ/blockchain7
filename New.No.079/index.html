@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>현재 지갑 : <span id="account"></span></h1>
+    <h2>잔액 : <span id="balance">남은 시간 10분, 추가하자</span></h2>
+    <form id="new-wallet">
+      <input
+        type="password"
+        id="new-pw"
+        placeholder="Password"
+        pattern="[A-Za-z0-9]+"
+      />
+      <button id="new-wallet-btn">계정 생성</button>
+    </form>
+    <ul id="wallet-list"></ul>
+    <script src="index.js"></script>
+  </body>
+</html>
