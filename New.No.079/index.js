@@ -144,3 +144,8 @@ document.forms["transaction"].onsubmit = async function (e) {
     },
   });
 };
+
+document.forms["select-meta"].onsubmit = function (e) {
+  e.preventDefault();
+  getWallet(e.target["meta"].value);
+};
