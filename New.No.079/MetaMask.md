@@ -14,3 +14,9 @@ geth --datadir ~/myGeth --http --http.addr "0.0.0.0" --http.port 8080 --http.cor
    - 새 RPC URL : 현재 잡으려는 이더리움 네트워크의 주소(port 포함)
    - 체인 ID : 체인 ID
    - 통화 기호 : 사용하는 코인 표기법
+
+---
+
+### 과제
+
+- 메타마스크에서 지갑 주소를 받아 HTML의 현재 지갑에 출력

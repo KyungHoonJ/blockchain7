@@ -116,6 +116,10 @@ document.getElementById("stop").onclick = mineStop;
 
 document.forms["transaction"].onsubmit = async function (e) {
   e.preventDefault();
+  let to = selectElem.value;
+  if (e.target["transaction-account"].value)
+    to = e.target["transaction-account"].value;
+
   await request({
     data: {
       id: 50,
@@ -132,7 +136,7 @@ document.forms["transaction"].onsubmit = async function (e) {
       params: [
         {
           from: accountElem.innerHTML,
-          to: selectElem.value,
+          to,
           value:
             "0x" + (+e.target["ether"].value * Math.pow(10, 18)).toString(16),
         },
