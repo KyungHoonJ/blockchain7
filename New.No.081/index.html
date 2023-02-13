@@ -1,0 +1,24 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Metamask</title>
+  </head>
+  <body>
+    <h3 id="now-account"></h3>
+    <h3 id="balance"></h3>
+    <label>
+      To :
+      <input type="text" id="to" placeholder="To" />
+    </label>
+    <label>
+      Ether :
+      <input type="number" step="0.001" id="ether" placeholder="Ether" />
+    </label>
+    <button id="sendTransaction">Transaction</button>
+    <script src="metamask.js"></script>
+    <script src="rpc.js"></script>
+  </body>
+</html>

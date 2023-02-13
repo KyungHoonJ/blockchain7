@@ -70,3 +70,8 @@ npx ganache-cli
   - mine : 강제 채굴
   - unlockUnknownAccount : unlockAccount와 같다, 단 비밀번호 없이
   - lockUnknownAccount : lockAccount와 같다, 단 비밀번호 없이
+
+---
+
+블록 정보 받아서 HTML에 출력해보기
+트랜잭션 정보 받아서 HTML에 출력해보기
