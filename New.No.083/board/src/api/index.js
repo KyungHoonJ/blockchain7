@@ -11,3 +11,7 @@ export const newBoard = async (boardData) => {
 export const board = async (options) => {
   return (await request.post("/board", options)).data;
 };
+
+export const signIn = async (registData) => {
+  return (await request.post("/user/regist", registData)).data;
+};
