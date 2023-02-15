@@ -8,7 +8,10 @@ const request = axios.create({
 
 console.log(Web3);
 
-const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8080"));
+// const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8080"));
+const web3 = new Web3("http://localhost:8080");
+// geth에서 사용하는 모듈들을 사용할 수 있다.(RPC)
+// geth attach http://localhost:8080
 
 console.log(web3.eth);
 // 10분 동안 지갑 계정 주소 받아오자.
@@ -56,6 +59,7 @@ const test = async () => {
         params: [accounts[0], "asdfqwer1234"],
       },
     });
+    // web3.personal.unlockAccount()
     const transaction = await web3.eth.sendTransaction({
       from: accounts[0],
       to: accounts[1],
@@ -68,8 +72,23 @@ const test = async () => {
     console.log(transaction1);
   };
 
+  const txpool = (
+    await request({
+      data: {
+        id: 1337,
+        jsonrpc: "2.0",
+        method: "txpool_content",
+        params: [],
+      },
+    })
+  ).data.result;
+  console.log(txpool);
+
+  console.log(web3.eth.txpool);
+  // web3.eth.txpool.content()
+
   const transaction = await web3.eth.getTransaction(
-    "0x5c68d70261dfceb1c9a2f079bf45b9c4679a0340327e7deecb866e9554bbbdec"
+    "0x97f4f6255a60649ed8db3d34952fea500b12c98853197258461f7e2e30522774"
   );
   console.log(transaction);
 
@@ -124,5 +143,35 @@ const test = async () => {
       },
     });
   };
+  // await request({
+  //   data: {
+  //     id: 1337,
+  //     jsonrpc: "2.0",
+  //     method: "personal_unlockAccount",
+  //     params: [accounts[0], "asdfqwer1234"],
+  //   },
+  // });
+  // web3.eth
+  //   .sendTransaction({
+  //     from: accounts[0],
+  //     to: accounts[1],
+  //     value: web3.utils.toWei("1"),
+  //   })
+  //   .on("transactionHash", (hash) => {
+  //     // 트랜잭션 보낼 시 해당 트랜잭션의 정보를 기준으로 hash를 생성한다.
+  //     console.log("transactionHash", hash);
+  //   })
+  //   .on("receipt", (receipt) => {
+  //     // block에 추가 시 영수증을 발행한다.
+  //     console.log("receipt", receipt);
+  //   })
+  //   .on("confirmation", (confirmation, receipt) => {
+  //     // 완료
+  //     console.log("confirmation", confirmation);
+  //     console.log("confirmation", receipt);
+  //   })
+  //   .on("error", (error) => {
+  //     console.log(error);
+  //   });
 };
 test();
