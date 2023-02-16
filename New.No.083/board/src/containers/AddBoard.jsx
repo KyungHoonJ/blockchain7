@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { newBoard } from "../api";
 import AddBoardComponent from "../components/AddBoard";
 
-const AddBoardContainer = () => {
+const AddBoardContainer = ({ userName }) => {
   const [boardData, setBoardData] = useState({
     title: "",
     text: "",
@@ -21,7 +21,7 @@ const AddBoardContainer = () => {
 
   const upload = async () => {
     if (!boardData.title || !boardData.text) return;
-    const result = await newBoard(boardData);
+    const result = await newBoard({ ...boardData, userName });
     if (!result.isError) navigate("/");
   };
 

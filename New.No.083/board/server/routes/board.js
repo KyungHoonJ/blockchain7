@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { Board } = require("../models");
+const { Board, User } = require("../models");
 
 router.post("/", async (req, res) => {
   try {
@@ -13,7 +13,9 @@ router.post("/", async (req, res) => {
 
 router.post("/new", async (req, res) => {
   try {
-    await Board.create(req.body);
+    const user = await User.findOne({ where: { name: req.body.userName } });
+    const board = await Board.create(req.body);
+    await user.addBoard(board);
     res.send({ isError: false });
   } catch (error) {
     res.send({ isError: true });
