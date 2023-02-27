@@ -1,5 +1,5 @@
 // const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8080"));
-const web3 = new Web3("http://localhost:8080");
+const web3 = new Web3("http://localhost:8551");
 web3.eth.getAccounts().then((data) => console.log(data));
 
 web3.eth.extend({
