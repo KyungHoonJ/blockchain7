@@ -74,3 +74,13 @@ const bin = compiled.contracts["Test.sol"].Test.evm.bytecode.object;
   ```bash
   npm i keythereum
   ```
+
+```js
+const keyObj = keythereum.importFromFile(address, __dirname);
+// 매개변수로 가져올 지갑 주소와 해당 지갑 주소에 대한 key 파일이 있는 keystore 폴더의 위치를 전달한다.
+
+const privateKey = keythereum.recover("1", keyObj);
+// 매개변수로 비밀번호와 key 객체를 전달한다.
+// 개인키에 대한 객체를 반환받는다.
+// 0x72534bb56f6912fdd7a9f301a322fa2d6194120c61eeece186bff12a96d31e8b
+```
