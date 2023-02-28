@@ -224,10 +224,10 @@ instance.setText("why so serious", {from:eth.accounts[0]})
 - 이더리움 블록체인 네트워크에 노드(peer)가 하나일까?
   - 해킹이 참 쉬워진다.
 
-# 과제
-
-- ganache 사용
+# ganache 사용
 
 ```sh
 npm i -g ganache
 ```
+
+# 크립토좀비 두가자~
