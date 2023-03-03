@@ -25,6 +25,10 @@ app.post("/api/count", async (req, res) => {
   res.json({ count });
 });
 
+app.post("/api/ca", async (req, res) => {
+  res.json({ CA: global.CA });
+});
+
 app.post("/api/increment", async (req, res) => {
   const from = req.body.from;
   const nonce = await web3.eth.getTransactionCount(from);

@@ -12,6 +12,14 @@ const Counter = ({ web3, account }) => {
 
   useEffect(() => {
     getCount();
+    (async () => {
+      const { CA } = (await axios.post("http://localhost:8080/api/ca")).data;
+      web3.eth.subscribe("logs", { address: CA }).on("data", (log) => {
+        const params = [{ type: "int256", name: "count" }];
+        const value = web3.eth.abi.decodeLog(params, log.data);
+        setCount(value.count);
+      });
+    })();
   }, []);
 
   const increment = async () => {
@@ -19,7 +27,6 @@ const Counter = ({ web3, account }) => {
       await axios.post("http://localhost:8080/api/increment", { from: account })
     ).data;
     await web3.eth.sendTransaction(data);
-    getCount();
   };
 
   const decrement = async () => {
@@ -27,7 +34,6 @@ const Counter = ({ web3, account }) => {
       await axios.post("http://localhost:8080/api/decrement", { from: account })
     ).data;
     await web3.eth.sendTransaction(data);
-    getCount();
   };
 
   return (
