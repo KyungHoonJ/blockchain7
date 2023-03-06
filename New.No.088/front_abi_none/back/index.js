@@ -4,7 +4,7 @@ const Web3 = require("web3");
 const CounterContract = require("./build/contracts/Counter.json");
 
 const app = express();
-const web3 = new Web3("http://127.0.0.1:8545");
+const web3 = new Web3("http://ganache.test.errorcode.help:8545");
 
 app.use(cors({ origin: true, credentials: true }));
 // origin : true => 모든 주소에 대해서 cors 허용
