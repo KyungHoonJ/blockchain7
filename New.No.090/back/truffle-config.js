@@ -65,7 +65,7 @@ module.exports = {
     // options below to some value.
     //
     development: {
-      host: "ganache.test.errorcode.help", // Localhost (default: none) 학원 IP로만 가능
+      host: "ganache.test.errorcode.help", // Localhost (default: none)
       port: 8545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
     },
