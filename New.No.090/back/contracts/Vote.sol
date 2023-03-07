@@ -20,6 +20,19 @@ contract Vote {
     return false;
   }
 
+  function validCandidatePure(
+    string memory candidate,
+    string[] memory _candidateList
+  ) private pure returns (bool) {
+    for (uint i = 0; i < _candidateList.length; ++i) {
+      if (
+        keccak256(abi.encodePacked(_candidateList[i])) ==
+        keccak256(abi.encodePacked(candidate))
+      ) return true;
+    }
+    return false;
+  }
+
   function totalVotesFor(string memory candidate) public view returns (uint) {
     require(validCandidate(candidate));
     return votesReceived[candidate];
