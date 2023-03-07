@@ -86,3 +86,33 @@
 - Truffle 사용해서 Compile, Migration
 
 - FrontEnd에서 App.js 작성
+
+## 솔리디티 작성 시 주의사항
+
+- string과 string은 비교가 안된다.
+
+  ```solidity
+    function validCandidate(string memory candidate) private view returns (bool) {
+      for (uint i = 0; i < candidateList.length; ++i) {
+        if (candidateList[i] == candidate) return true;
+        // 여기서 에러 발생
+      }
+      return false;
+    }
+  ```
+
+  - keccak256으로 해시화 해서 비교를 진행
+  - string을 keccak256의 매개변수로 바로 전달하면 유니코드를 제대로 인식하지 못하여 오류 발생
+  - abi.encodePacked 메서드를 사용하여 16진수로 변환 후 해시화
+  - 아래의 코드로 수정
+    ```solidity
+    function validCandidate(string memory candidate) private view returns (bool) {
+      for (uint i = 0; i < candidateList.length; ++i) {
+        if (
+          keccak256(abi.encodePacked(candidateList[i])) ==
+          keccak256(abi.encodePacked(candidate))
+        ) return true;
+      }
+      return false;
+    }
+    ```

@@ -24,6 +24,15 @@ app.post("/api/send", async (req, res) => {
       break;
     case "totalVotesFor":
       obj.vote = await deployed.methods.totalVotesFor(req.body.item).call();
+      obj.CA = CA;
+      break;
+    case "voteForCandidate":
+      obj.nonce = await web3.eth.getTransactionCount(req.body.from);
+      obj.to = CA;
+      obj.from = req.body.from;
+      obj.data = await deployed.methods
+        .voteForCandidate(req.body.candidate)
+        .encodeABI();
       break;
     default:
       break;
