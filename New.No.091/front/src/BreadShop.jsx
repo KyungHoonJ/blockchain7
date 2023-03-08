@@ -30,7 +30,7 @@ export const BreadShop = ({ web3, account }) => {
   const buy = async () => {
     await deployed.methods
       .buyBread()
-      .send({ from: account, to: CA, value: web3.utils.toWei("1") });
+      .send({ from: account, to: CA, value: web3.utils.toWei("2") });
     const _bread = await deployed.methods.getBread().call({ from: account });
     setBread(_bread);
   };

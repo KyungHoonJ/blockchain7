@@ -6,12 +6,15 @@ contract BreadShop {
 
   function buyBread() public payable {
     require(msg.value >= 10 ** 18);
+    // if (msg.value > 2 * 10 ** 18) {
+    //   payable(msg.sender).transfer(2 * 10 ** 18 - msg.value);
+    // }
     breads[msg.sender] += 1;
   }
 
-  function sellBread() public payable {
+  function sellBread(uint amount) public payable {
     breads[msg.sender] -= 1;
-    payable(msg.sender).transfer(10 ** 18);
+    payable(msg.sender).transfer(amount * 10 ** 18);
   }
 
   function getBread() public view returns (uint) {
