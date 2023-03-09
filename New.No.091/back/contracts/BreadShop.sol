@@ -5,7 +5,7 @@ pragma solidity ^0.8.19;
 // 구매하는 빵 개수에 따라 자동으로 사용되는 Ether 정의
 // 구매할 때와 판매할 때 가격 변동 => 구매보다 판매할때 무조건 싸야함 << 남는 돈은 스마트 컨트렉트가 꿀꺽
 // - 해보고 싶은 사람 해보자 성진이는 필수
-//   - 따로 풀이 없음, 질문은 받음
+//   - 따로 풀이 없음(git 확인), 질문은 받음
 
 contract BreadShop {
   mapping(address => uint) public breads;
