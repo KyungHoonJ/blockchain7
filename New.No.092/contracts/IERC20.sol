@@ -13,7 +13,7 @@ interface IERC20 {
   function approve(address spender, uint amount) external returns (bool);
 
   function transferFrom(
-    address spender,
+    address sender,
     address recipient,
     uint amount
   ) external returns (bool);
