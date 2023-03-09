@@ -11636,9 +11636,15 @@
   "ast": {
     "absolutePath": "project:/contracts/JJJToken.sol",
     "exportedSymbols": {
-      "ERC20": [208],
-      "IERC20": [277],
-      "JJJToken": [375]
+      "ERC20": [
+        208
+      ],
+      "IERC20": [
+        277
+      ],
+      "JJJToken": [
+        375
+      ]
     },
     "id": 376,
     "license": "MIT",
@@ -11646,7 +11652,12 @@
     "nodes": [
       {
         "id": 279,
-        "literals": ["solidity", "^", "0.8", ".19"],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ],
         "nodeType": "PragmaDirective",
         "src": "33:24:2"
       },
@@ -11669,7 +11680,9 @@
             "baseName": {
               "id": 281,
               "name": "ERC20",
-              "nameLocations": ["107:5:2"],
+              "nameLocations": [
+                "107:5:2"
+              ],
               "nodeType": "IdentifierPath",
               "referencedDeclaration": 208,
               "src": "107:5:2"
@@ -11684,7 +11697,11 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 375,
-        "linearizedBaseContracts": [375, 208, 277],
+        "linearizedBaseContracts": [
+          375,
+          208,
+          277
+        ],
         "name": "JJJToken",
         "nameLocation": "95:8:2",
         "nodeType": "ContractDefinition",
@@ -12220,7 +12237,10 @@
                       "id": 321,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [4294967278, 4294967278],
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
                       "referencedDeclaration": 4294967278,
                       "src": "405:7:2",
                       "typeDescriptions": {
@@ -12249,7 +12269,9 @@
                   "src": "405:23:2"
                 },
                 {
-                  "assignments": [329],
+                  "assignments": [
+                    329
+                  ],
                   "declarations": [
                     {
                       "constant": false,
@@ -12421,7 +12443,10 @@
                       "id": 335,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [4294967278, 4294967278],
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
                       "referencedDeclaration": 4294967278,
                       "src": "479:7:2",
                       "typeDescriptions": {
@@ -12926,10 +12951,67 @@
       "links": {},
       "address": "0x2D2a245B48FB04C8b09EA727Ff6BcA173478768E",
       "transactionHash": "0x4f45e93ee429253f783372143082c3aebc61be32b389f8dcdf348cbd1ea0e4d6"
+    },
+    "1678334995437": {
+      "events": {
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xB7Ed34150b990AB7a3214854F09aBB9C14bD7105",
+      "transactionHash": "0xeccd10d0ab5b8930c5d76533e2ef7bd8bbf66b935cc6289d70ffd402df3980fa"
     }
   },
   "schemaVersion": "3.4.13",
-  "updatedAt": "2023-03-09T03:47:23.282Z",
+  "updatedAt": "2023-03-09T04:55:39.460Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
