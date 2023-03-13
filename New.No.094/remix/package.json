@@ -1,0 +1,20 @@
+{
+  "name": "remix",
+  "version": "1.0.0",
+  "description": "```\r cd New.No.094\r mkdir remix\r cd remix\r npm init -y\r npm i truffle @openzeppelin/contracts @remix-project/remixd\r npm i -D prettier-plugin-solidity\r npx truffle init\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.2",
+    "@remix-project/remixd": "^0.6.12",
+    "truffle": "^5.8.0"
+  },
+  "devDependencies": {
+    "prettier-plugin-solidity": "^1.1.3"
+  }
+}
