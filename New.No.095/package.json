@@ -1,19 +1,19 @@
 {
-  "name": "erc20",
+  "name": "new.no.095",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.8.2",
-    "@remix-project/remixd": "^0.6.12",
-    "truffle": "^5.7.9"
-  },
   "devDependencies": {
     "prettier-plugin-solidity": "^1.1.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.2",
+    "truffle": "^5.8.0"
   }
 }
