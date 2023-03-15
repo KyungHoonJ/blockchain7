@@ -13,3 +13,4 @@ JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiMT
 - Pinata에서 제공하는 API(Application Programming Interface)를 사용하여 Pinata 서비스를 사용
 - 위 코드는 Pinata에서 받은 API Key
   - 보통 API 사용 시 인증 키를 발급받아야한다.
+- API 예 : 카카오 로그인, 구글 로그인, 구글 맵, 네이버 로그인 등등
