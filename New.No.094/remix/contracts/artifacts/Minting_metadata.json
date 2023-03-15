@@ -441,11 +441,11 @@
 	},
 	"sources": {
 		"contracts/Minting.sol": {
-			"keccak256": "0x4ad6be24e9cf1f6e85ebbcb8683b7728e66e9e663875fb623b1d3aee5701bea3",
+			"keccak256": "0x457e8d814f98a2a218bc723a7a216dce871717ad55d4e80be1f4b2ead1a95324",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0e71ed5d4f84525c21d9607aef93b4f63aac1bdcba6ed38d978565a48a042b3f",
-				"dweb:/ipfs/QmThXrTw1ty9fzDSPbbh9BFMwxXju8wxNuDyX58wAB5svx"
+				"bzz-raw://38b4bc367c1172dc52d95b4e02e8b1fa18fe9eef73636e2ecf404bb666ffcd55",
+				"dweb:/ipfs/Qmc46bR4ZR4fJFw1CrKSuBR6ReDXKkiu8RZSgtqdddFw7s"
 			]
 		},
 		"node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
