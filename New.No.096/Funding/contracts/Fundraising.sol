@@ -64,6 +64,7 @@ contract Fundraising {
 
     uint256 toRefund = donations[msg.sender];
     donations[msg.sender] = 0;
+    raisedAmount -= toRefund;
     payable(msg.sender).transfer(toRefund);
   }
 
