@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 interface nftData {
   name: string;
@@ -7,20 +8,13 @@ interface nftData {
 }
 
 export const List = () => {
-  const [list, setList] = useState<Array<nftData>>([
-    {
-      name: "test NFT",
-      description: "testing NFT with Pinata",
-      image:
-        "https://gateway.pinata.cloud/ipfs/Qmcr39LBMvDtkRTHXa6CyktJJxDAhFNHsHBdsRaDZc5jiB",
-    },
-    {
-      name: "test NFT",
-      description: "testing NFT with Pinata",
-      image:
-        "https://gateway.pinata.cloud/ipfs/Qmcr39LBMvDtkRTHXa6CyktJJxDAhFNHsHBdsRaDZc5jiB",
-    },
-  ]);
+  const [list, setList] = useState<Array<nftData>>([]);
+  // API Server에서 리스트 받아서 출력하자
+  useEffect(() => {
+    (async () => {
+      setList((await axios.get("http://localhost:8080/api/list")).data);
+    })();
+  }, []);
   return (
     <ul>
       {list.map((item, idx) => (
