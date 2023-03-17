@@ -43,14 +43,22 @@ app.post("/api/list", async (req: Request, res: Response) => {
       for (let i = 0; i < tempArr.length; i++) {
         try {
           const { name, description, image } = (
-            await axios.get(tempArr[i].tokenURI)
+            await axios.get(
+              tempArr[i].tokenURI.replace(
+                "gateway.pinata.cloud",
+                "block7.mypinata.cloud"
+              )
+            )
           ).data;
           data.push({
             tokenId: tempArr[i].tokenId,
             price: tempArr[i].price,
             name,
             description,
-            image,
+            image: image.replace(
+              "gateway.pinata.cloud",
+              "block7.mypinata.cloud"
+            ),
           });
         } catch (error) {}
       }
@@ -62,14 +70,19 @@ app.post("/api/list", async (req: Request, res: Response) => {
       for (let i = 0; i < tempArr.length; i++) {
         try {
           const { name, description, image } = (
-            await axios.get(tempArr[i].tokenURI)
+            await axios.get(
+              tempArr[i].tokenURI.replace(
+                "gateway.pinata.cloud",
+                "jkh.mypinata.cloud"
+              )
+            )
           ).data;
           data.push({
             tokenId: tempArr[i].tokenId,
             price: tempArr[i].price,
             name,
             description,
-            image,
+            image: image.replace("gateway.pinata.cloud", "jkh.mypinata.cloud"),
           });
         } catch (error) {}
       }
