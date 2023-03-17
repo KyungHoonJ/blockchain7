@@ -37,3 +37,8 @@ npm i -g typescript ts-node
 # Solidity
 
 - 2023.03.17 Mint | List
+- 95일차 SaleToken 가져오자
+
+```bash
+npx remixd -s . -u https://remix.ethereum.org
+```
