@@ -46,6 +46,7 @@ npx remixd -s . -u https://remix.ethereum.org
 # Block7 public key
 
 - 블록체인 토이 프로젝트 체크용
+- 사용하려면 해라
 
 ```
 API Key: c8eb70da10d92119fd43
