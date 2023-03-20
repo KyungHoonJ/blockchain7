@@ -47,6 +47,7 @@ npx remixd -s . -u https://remix.ethereum.org
 
 - 블록체인 토이 프로젝트 체크용
 - 사용하려면 해라
+- feat. 한번에 접속 가능한 유저 수 16
 
 ```
 API Key: c8eb70da10d92119fd43
