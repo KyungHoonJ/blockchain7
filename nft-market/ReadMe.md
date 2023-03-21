@@ -60,3 +60,4 @@ JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiMT
 - URL : http://ganache.test.errorcode.help:8545
 - Private Key : c8572b893caf2575a152d8dde6fc11b52dca1ec3e62172b90c4f45ad88654b27
 - 양심적으로 갖다쓰자.
+- chainId : 6843843813874
